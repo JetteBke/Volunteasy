@@ -10,10 +10,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_27_145918) do
+ActiveRecord::Schema.define(version: 2019_05_27_151636) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "status"
+    t.bigint "event_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["event_id"], name: "index_bookings_on_event_id"
+    t.index ["user_id"], name: "index_bookings_on_user_id"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.datetime "start_at"
+    t.datetime "ends_at"
+    t.string "address"
+    t.text "task"
+    t.string "title"
+    t.integer "spots"
+    t.string "category"
+    t.text "description"
+    t.string "photo"
+    t.bigint "organization_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["organization_id"], name: "index_events_on_organization_id"
+  end
+
+  create_table "organizations", force: :cascade do |t|
+    t.string "name"
+    t.string "address"
+    t.string "category"
+    t.string "url"
+    t.text "description"
+    t.string "photo_url"
+    t.string "verified"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_organizations_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "content"
+    t.bigint "booking_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +76,9 @@ ActiveRecord::Schema.define(version: 2019_05_27_145918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bookings", "events"
+  add_foreign_key "bookings", "users"
+  add_foreign_key "events", "organizations"
+  add_foreign_key "organizations", "users"
+  add_foreign_key "reviews", "bookings"
 end
