@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-
+# check if current user is owner (before action)
   def show
     # depending on what should be shown? own profile?
     # @user = User.find(params[:id])
@@ -10,8 +10,5 @@ class UsersController < ApplicationController
   end
 
   def update
-  end
-
-  def destroy
   end
 end
