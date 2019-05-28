@@ -1,12 +1,12 @@
 class UsersController < ApplicationController
 # check if current user is owner (before action)
   def show
-    # depending on what should be shown? own profile?
-    # @user = User.find(params[:id])
-    # @user = current_user
+    @user = User.find(params[:id])
+    authorize @user
   end
 
   def edit
+    authorize @user
   end
 
   def update

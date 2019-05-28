@@ -1,2 +1,6 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
+
+<% if policy(Organization).create? %>
+  <%= link_to "Create an organization", new_organization_path %>
+<% end %>

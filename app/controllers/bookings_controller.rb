@@ -15,8 +15,8 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.create(booking_params)
     # booking should be nested into the events and then...
-    # @booking.event = Event.find(params[:id])
-    # @booking.user = current_user
+    @booking.event = Event.find(params[:id])
+    @booking.user = current_user
     if @booking.save
       redirect_to events_index_path
     else
