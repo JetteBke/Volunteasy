@@ -1,0 +1,39 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  grid-row-end: 16px;
+}
+
+.card-product {
+  background-color: white;
+  overflow: hidden;
+  height: 100%;
+  background: white;
+  box-shadow: 0 0 12px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  align-items: left;
+  margin: 20px;
+  width: 400px;
+  height: 300px;
+}
+
+.card {
+ display: flex;
+ background-color: white;
+ flex-direction: column;
+ height: auto;
+ width: 300px;
+ justify-content: space-around;
+ align-items: center;
+ box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .1);
+ border-radius: 2px;
+}
+
+.card-image {
+  height: auto;
+  width: auto;
+  object-fit: crop;
+}
