@@ -33,8 +33,8 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking.delete
-    # authorize @booking
-    # redirect_to current_user
+    authorize @booking
+    redirect_to current_user
   end
 
   private

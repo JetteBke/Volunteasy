@@ -1,6 +1,11 @@
-<h1>Users#show</h1>
+<h1><%= current_user.email %></h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<% if policy(Organization).create? %>
-  <%= link_to "Create an organization", new_organization_path %>
+<% if current_user == @user %>
+  <% if policy(Organization).create? %>
+    <%= link_to "Create an organization", new_organization_path %>
+  <% end %>
+  <% if policy(@user).edit? %>
+    <%= link_to "Edit your profile", edit_user_registration_path %>
+  <% end %>
 <% end %>

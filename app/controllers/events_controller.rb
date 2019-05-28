@@ -2,21 +2,24 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
-    @events = Event.all
+    @events = policy_scope(Event).order(created_at: :desc)
   end
 
   def show
+    authorize @event
   end
 
   def new
+    @user = current_user
     @event = Event.new
+    authorize @event
   end
 
   def create
     @event = Event.create(event_params)
-    # set the organization correctly
-    @event.organization = current_user.organization
-
+    @user = current_user
+    @event.organization = Organization.find(params[:organization_id])
+    authorize @event
     if @event.save
       redirect_to @event
     else
@@ -25,6 +28,8 @@ class EventsController < ApplicationController
   end
 
   def edit
+    @organization = Organization.find(params[:organization_id])
+    @user = current_user
   end
 
   def update
@@ -33,8 +38,8 @@ class EventsController < ApplicationController
 
   def destroy
     @event.delete
-    # authorize @event
-    # redirect_to organization_path(@event.organization)
+    authorize @event
+    redirect_to organization_path(@event.organization)
   end
 
   private

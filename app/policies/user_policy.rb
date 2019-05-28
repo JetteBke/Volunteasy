@@ -10,6 +10,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def edit?
-    true if @user == current_user
+    record == user
   end
 end
