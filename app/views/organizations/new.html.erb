@@ -1,2 +1,18 @@
 <h1>Organizations#new</h1>
 <p>Find me in app/views/organizations/new.html.erb</p>
+
+<div class="my-forms my-4">
+  <div class="container py-3 purple-gradient color-block">
+    <h1>Create Organization</h1>
+
+    <%= simple_form_for [@organization] do |f| %>
+      <%= f.input :name, label_html: {class:'pt-4'} %>
+      <%= f.input :address, label_html: {class:'pt-4'} %>
+      <%= f.input :category, label_html: {class:'pt-4'} %>
+
+      <%= f.submit "BOOK NOW", class: "btn btn-primary mt-4 mb-2" %>
+    <% end %>
+
+  </div>
+</div>
+

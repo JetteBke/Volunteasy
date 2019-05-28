@@ -1,2 +1,16 @@
 <h1>Reviews#new</h1>
 <p>Find me in app/views/reviews/new.html.erb</p>
+
+<div class="my-forms">
+  <div class="container py-5">
+
+    <h1>How was the event? Add a review, <%= @user.first_name %>!</h1>
+
+    <%= simple_form_for(@review) do |f| %>
+      <%= f.input :rating, label_html: {class:'pt-4'}  %>
+      <%= f.input :content, label_html: {class:'pt-4'}  %>
+      <%= f.submit "Sumbit review", class: "btn btn-primary my-3" %>
+    <% end %>
+
+
+  </div>
