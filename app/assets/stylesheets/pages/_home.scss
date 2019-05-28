@@ -2,7 +2,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 300px 0;
+  height: 100%;
 }
 
 .banner h1 {
@@ -18,4 +19,15 @@
   color: white;
   opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.buttom_landingpage {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
