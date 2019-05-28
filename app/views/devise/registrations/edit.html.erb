@@ -9,10 +9,14 @@
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
-
-    <%= f.input :dob,
-                required: true,
-                input_html: { autocomplete: "Date of Birth"} %>
+<%= f.input :dob,
+                   required: true,
+                   :as => :date,
+                   :start_year => Date.today.year,
+                   :end_year => Date.today.year - 99,
+                   :month => Date.today.month,
+                   input_html: {style: "margin:6px;"},
+                   label: "Date of Birth" %>
     <%= f.input :city,
                 required: true,
                 input_html: { autocomplete: "City"} %>

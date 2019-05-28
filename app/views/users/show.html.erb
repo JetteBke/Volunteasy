@@ -1,11 +1,68 @@
-<h1><%= current_user.email %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+
+<div class="container">
+  <h1 class="text-center">My Profile</h1>
+  <div class="row">
+    <div class="col-lg-4 col-md-12 col-sm-12">
+      <%= image_tag "Jonsnow.jpg", :class => "avatar-extra-large"%>
+    </div>
+    <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="row">
+        <div class="col"><h3><%= current_user.first_name %> <%= current_user.last_name %></h3></div>
+        <div class="w-100"></div>
+        <div class="col-2">Age:</div>
+        <div class="col-10"><%= Time.zone.now.year - current_user.dob.year %></div>
+        <div class="w-100"></div>
+        <div class="col-2">City:</div>
+        <div class="col-10"><%= current_user.city %></div>
+        <div class="w-100"></div>
+        <div class="col-2">Email:</div>
+        <div class="col-10"><%= current_user.email %></div>
+        <div class="w-100"></div>
+        <div class="col-2">Phone:</div>
+        <div class="col-10"><%= current_user.phone %></div>
+        <div class="w-100"></div>
+        <div class="col-2">Interests:</div>
+        <div class="col-10"><%= current_user.interests %></div>
+        <div class="w-100"></div>
+        <div class="col-2">Bio:</div>
+        <div class="col-10"><%= current_user.bio %></div>
+        <div class="w-100"></div>
+      </div>
+    </div>
+    <div class="col-lg-2 col-md-12 col-sm-12">
+      <button type="button" class="btn btn-success">Do Good</button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="container">
+  <h1 class="text-center">My Bookings</h1>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+    <div class="row">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><%= @bookings.first %></li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+      <div class="alert alert-primary col" role="alert">
+        <h3><%= @booking %></h3>
+      </div>
+      <div class="w-100"></div>
+    </div>
+  </div>
+</div>
+
+
 
 <% if current_user == @user %>
-  <% if policy(Organization).create? %>
-    <%= link_to "Create an organization", new_organization_path %>
-  <% end %>
-  <% if policy(@user).edit? %>
-    <%= link_to "Edit your profile", edit_user_registration_path %>
-  <% end %>
+<% if policy(Organization).create? %>
+<%= link_to "Create an organization", new_organization_path %>
+<% end %>
+<% if policy(@user).edit? %>
+<%= link_to "Edit your profile", edit_user_registration_path %>
+<% end %>
 <% end %>
