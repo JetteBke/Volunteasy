@@ -7,6 +7,7 @@ before_action
 
   def new
     @review = Review.new
+    authorize @review
   end
 
   def create
