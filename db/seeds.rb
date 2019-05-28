@@ -94,7 +94,7 @@ events = Event.create! (
       task: "Serve the population - clean the park.",
       title: "Lets save the Park!",
       spots: 10,
-      category: "Social",
+      category: "Environment",
       description: "The Park of the People is in danger. The powers that be are considering taking it away and replacing it with a shopping mall! Join us in a community effort to clean up the park, and make a petition to the government to make it a national monument.",
       photo: "https://www.mesaparks.com/Home/ShowPublishedImage/18322/636685559940300000",
       organization_id: "1"
