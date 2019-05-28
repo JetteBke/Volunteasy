@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 # check if current user is owner (before action)
+before_action :set_user, except: [:update]
+
   def show
-    @user = User.find(params[:id])
     authorize @user
   end
 
@@ -10,5 +11,12 @@ class UsersController < ApplicationController
   end
 
   def update
+
+  end
+
+  private
+
+  def set_user
+    @user = User.find(params[:id])
   end
 end
