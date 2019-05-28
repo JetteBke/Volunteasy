@@ -85,6 +85,8 @@ organizations = Organization.create! (
 
 puts "Creating Events"
 
+
+
 events = Event.create! (
   [
     {
@@ -96,7 +98,7 @@ events = Event.create! (
       spots: 10,
       category: "Social",
       description: "The Park of the People is in danger. The powers that be are considering taking it away and replacing it with a shopping mall! Join us in a community effort to clean up the park, and make a petition to the government to make it a national monument.",
-      photo: "https://www.mesaparks.com/Home/ShowPublishedImage/18322/636685559940300000",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
       organization_id: "1"
     },
     {
@@ -108,7 +110,7 @@ events = Event.create! (
       spots: 20,
       category: "Animal",
       description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
-      photo: "https://ep01.epimg.net/cultura/imagenes/2018/11/23/actualidad/1542959675_400948_1542960521_noticia_normal.jpg",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
       organization_id: "2"
     }
   ])
