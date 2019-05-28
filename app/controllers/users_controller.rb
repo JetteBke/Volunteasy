@@ -4,14 +4,15 @@ before_action :set_user, except: [:update]
 
   def show
     authorize @user
+    @bookings = Booking.where(user:current_user)
   end
 
+  # edit and update don't need more code because of devise
   def edit
     authorize @user
   end
 
   def update
-
   end
 
   private

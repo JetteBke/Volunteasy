@@ -2,21 +2,19 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :destroy, :edit]
 
   def index
-    @bookings = Booking.all
-  end
-
-  def show
+    @bookings = policy_scope(Booking).order(created_at: :desc)
   end
 
   def new
     @booking = Booking.new
+    authorize @booking
   end
 
   def create
     @booking = Booking.create(booking_params)
-    # booking should be nested into the events and then...
     @booking.event = Event.find(params[:id])
     @booking.user = current_user
+    authorize @booking
     if @booking.save
       redirect_to events_index_path
     else
