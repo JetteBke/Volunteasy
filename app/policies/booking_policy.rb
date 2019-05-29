@@ -4,4 +4,12 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def approve?
+    true
+  end
+
+  def reject?
+    true
+  end
 end
