@@ -1,3 +1,6 @@
+<div class="my-forms my-4">
+  <div class="container py-100 purple-gradient color-block">
+
 <h2>Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -15,6 +18,8 @@
   <div class="form-actions">
     <%= f.button :submit, "Log in" %>
   </div>
+</div>
+</div>
 <% end %>
 
 <%= render "devise/shared/links" %>
