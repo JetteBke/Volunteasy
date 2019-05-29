@@ -54,6 +54,46 @@ users = User.create! (
   bio: "Kingslayer. Lover of sister. Knight of the Realm.",
   dob: "1985-07-20 15:07:05 +0100",
   phone: "644 3543 234526"
+},
+{email: "Antoinette@gmail.com",
+  password: "123456",
+  first_name: "Antoinette",
+  last_name: "Monnier",
+  city: "Columbo",
+  interests: "Surfing and drinking wine with Jette and Izzy",
+  bio: "grew up in Sri Lanka, ate a lot of bananas and saved monkeys.",
+  dob: "1993-05- 11:07:05 +0100",
+  phone: "644 3543 234526"
+},
+{email: "Luis@yoga.com",
+  password: "123456",
+  first_name: "Luis",
+  last_name: "Lannister",
+  city: "Lisboa",
+  interests: "Yoga and Avocados with olive oil",
+  bio: "prepared vegan sandwiches for homeless people during the winter",
+  dob: "1983-08-22 15:07:05 +0100",
+  phone: "644 3543 234526"
+},
+{email: "Karine@bcg.com",
+  password: "123456",
+  first_name: "Karine",
+  last_name: "Gazarian",
+  city: "Paris",
+  interests: "Playing pingpong while smoking a cigarette",
+  bio: "works as an consultant at BCG and feed pigeons on the streets sometimes",
+  dob: "1995-07-20 15:07:05 +0100",
+  phone: "644 3543 234526"
+},
+{email: "Jackattack@lannister.com",
+  password: "123456",
+  first_name: "Jack",
+  last_name: "Erins",
+  city: "Stockholm",
+  interests: "Tattoos.",
+  bio: "Tattoo artist for life. Tattooed homeless people for free.",
+  dob: "1985-03-03 15:07:05 +0100",
+  phone: "644 3543 234526"
 }
 ])
 
@@ -79,6 +119,24 @@ organizations = Organization.create! (
       description: "Heavenly bodies coming together to save the world",
       photo_url: "",
       user_id: "2"
+    },
+    {
+      name: "Tattoos for all",
+      address: "Rua de Arroios 25, Lisbon",
+      category: "Community",
+      url: "tattooes-for-all.com",
+      description: "We are tattooing everybody for free as long as they are homeless and in Lisbon.",
+      photo_url: "",
+      user_id: "8"
+    },
+    {
+      name: "Save the Oceans",
+      address: "R Gomes Freire 91",
+      category: "Environment",
+      url: "save-the-oceans.com",
+      description: "SAVE THE OCEANS YOU MOTHERFUCKERS",
+      photo_url: "",
+      user_id: "5"
     }])
 
 #other categories are "Animals" and "Environment"
@@ -100,6 +158,42 @@ events = Event.create! (
       description: "The Park of the People is in danger. The powers that be are considering taking it away and replacing it with a shopping mall! Join us in a community effort to clean up the park, and make a petition to the government to make it a national monument.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
       organization_id: "1"
+    },
+    {
+      start_at: "2019-05-30 9:00:05 +0100",
+      ends_at: "2019-05-31 18:07:05 +0100",
+      address: "The Circus Zoo",
+      task: "Gather supplies and training to break into the Zoo",
+      title: "Operation Simba!",
+      spots: 20,
+      category: "Animal",
+      description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      organization_id: "2"
+    },
+    {
+      start_at: "2019-05-30 9:00:05 +0100",
+      ends_at: "2019-05-31 18:07:05 +0100",
+      address: "Somewhere in Lisbon",
+      task: "Prepare vegan sandwiches",
+      title: "Food for all",
+      spots: 6,
+      category: "Community",
+      description: "Bread - Tomato - lettuce - cucumber - avocado - hummus - bread. that's how you make a good vegan sandwich!",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      organization_id: "1"
+    },
+    {
+      start_at: "2019-05-30 9:00:05 +0100",
+      ends_at: "2019-05-31 18:07:05 +0100",
+      address: "The Circus Zoo",
+      task: "Gather supplies and training to break into the Zoo",
+      title: "Operation Simba!",
+      spots: 20,
+      category: "Animal",
+      description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      organization_id: "2"
     },
     {
       start_at: "2019-05-30 9:00:05 +0100",
