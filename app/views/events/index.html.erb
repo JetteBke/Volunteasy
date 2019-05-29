@@ -3,15 +3,27 @@
   <div class="flexbox-container">
     <h2 class="py-4">Events</h2>
   </div>
-  <div class="container m-16">
+  <div class="card-container">
     <div class="cards">
       <% @events.each do |event| %>
-      <div class="card">
+      <div class="card-product">
         <div class="card-image">
-          <%= cl_image_tag(event.photo, width: 300, height: 300, crop: :fill) %>
-          <div class="d-flex justify-content-center">
-          <button class="btn button_landingpage m-4"><%= link_to event.description, event %></button>
-          </div>
+          <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
+        </div>
+        <div class= "card-product-infos">
+          <p> <%= event.title %></p>
+          <p> <%= event.start_at %></p>
+          <% case event.category
+             when event.category = "Animal" %>
+            <p> 🦙</p>
+             <% when event.category = "Environment" %>
+            <p> 🌿</p>
+             <% when event.category = "Community" %>
+            <p> 👨‍❤️‍👨</p>
+             <% else %>
+             <p> " " </p>
+           <% end %>
+          <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
         </div>
       </div>
       <% end %>
