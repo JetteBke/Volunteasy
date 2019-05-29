@@ -24,15 +24,21 @@
 <div class="container">
 
 <ul class="list-group list-group-flush">
-  <% if @bookings.empty? %>
-  <p>No Bookings yet</p>
-  <% else %>
-  <% @bookings.each do |booking| %>
-  <li class="list-group-item">
-    Booking: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
-    Status: <%= booking.status %>
-  </li>
-  <% end %>
+  <% if @event.organization.user == current_user %>
+    <% if @bookings.empty? %>
+    <p>No Bookings yet</p>
+    <% else %>
+    <% @bookings.each do |booking| %>
+      <li class="list-group-item">
+        Booking: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
+        Status: <%= booking.status %>
+        <% if booking.status == "Pending" %>
+          <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post %>
+          <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post %>
+        <% end %>
+      </li>
+      <% end %>
+    <% end %>
   <% end %>
 </ul>
 </div>
@@ -43,6 +49,3 @@
 <%= link_to "Go back to see all events", events_path %>
 
 
-<%= simple_form_for([ event, booking ], remote: true) do |form| %>
-  <%= form.button :submit %>
-<% end %>

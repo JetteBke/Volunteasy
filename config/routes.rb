@@ -11,7 +11,12 @@ Rails.application.routes.draw do
   resources :events, only: [:index, :show] do
     resources :bookings, only: [:new, :create]
   end
-  resources :bookings, except: [:show, :new, :create]
+  resources :bookings, except: [:show, :new, :create] do
+    member do
+      post 'approve', to: 'bookings#approve'
+      post 'reject', to:'bookings#reject'
+    end
+  end
   resources :reviews, only: [:new, :create]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

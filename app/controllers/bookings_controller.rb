@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:show, :destroy, :edit]
+  before_action :set_booking, only: [:show, :approve, :reject, :destroy, :edit]
 
   def index
     @bookings = policy_scope(Booking).order(created_at: :desc)
@@ -7,6 +7,20 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    authorize @booking
+  end
+
+  def approve
+    @booking.update(status:"Confirmed")
+    @event = Event.find(params[:event_id])
+    redirect_to @event
+    authorize @booking
+  end
+
+  def reject
+    @booking.update(status:"Rejected")
+    @event = Event.find(params[:event_id])
+    redirect_to @event
     authorize @booking
   end
 
