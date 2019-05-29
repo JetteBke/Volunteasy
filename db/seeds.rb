@@ -150,7 +150,7 @@ events = Event.create! (
     {
       start_at: "2019-06-28 10:07:05 +0100",
       ends_at: "2019-06-29 18:07:05 +0100",
-      address: "Park of the People",
+      address: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
       task: "Serve the population - clean the park.",
       title: "Lets save the Park!",
       spots: 10,
@@ -162,7 +162,7 @@ events = Event.create! (
     {
       start_at: "2019-05-30 9:00:05 +0100",
       ends_at: "2019-05-31 18:07:05 +0100",
-      address: "The Circus Zoo",
+      address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
       task: "Gather supplies and training to break into the Zoo",
       title: "Operation Simba!",
       spots: 20,
@@ -172,39 +172,39 @@ events = Event.create! (
       organization_id: "2"
     },
     {
-      start_at: "2019-05-30 9:00:05 +0100",
-      ends_at: "2019-05-31 18:07:05 +0100",
-      address: "Somewhere in Lisbon",
+      start_at: "2019-07-03 9:00:05 +0100",
+      ends_at: "2019-07-06 18:07:05 +0100",
+      address: "Panteao Nacional Campo de Santa Clara, Lisbon 1100-471, Portugal",
       task: "Prepare vegan sandwiches",
       title: "Food for all",
       spots: 6,
       category: "Community",
       description: "Bread - Tomato - lettuce - cucumber - avocado - hummus - bread. that's how you make a good vegan sandwich!",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      photo: "https://cdn77-s3.lazycatkitchen.com/wp-content/uploads/2015/09/vegan-sandwich-lunch-800x693.jpg",
       organization_id: "1"
     },
     {
-      start_at: "2019-05-30 9:00:05 +0100",
-      ends_at: "2019-05-31 18:07:05 +0100",
-      address: "The Circus Zoo",
-      task: "Gather supplies and training to break into the Zoo",
-      title: "Operation Simba!",
+      start_at: "2019-06-28 9:00:05 +0100",
+      ends_at: "2019-06-30 18:07:05 +0100",
+      address: "Rua de Santa Cruz do Castelo, 1100-129 Lisboa, Portugal",
+      task: "Habitat for Humanity - for Castles",
+      title: "Rebuilding the Castle!",
       spots: 20,
-      category: "Animal",
-      description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      category: "Community",
+      description: "The Castle is in desperate need of rebuilding. No one has thought to put the roof back up in over a hundred years. Let's get this done, team.",
+      photo: "https://upload.wikimedia.org/wikipedia/commons/c/cf/LisbonCastle.jpg",
       organization_id: "2"
     },
     {
-      start_at: "2019-05-30 9:00:05 +0100",
-      ends_at: "2019-05-31 18:07:05 +0100",
-      address: "The Circus Zoo",
-      task: "Gather supplies and training to break into the Zoo",
-      title: "Operation Simba!",
-      spots: 20,
+      start_at: "2019-08-15 9:00:05 +0100",
+      ends_at: "2019-08-17 18:07:05 +0100",
+      address: "Rua do Ouro, 1150-060 Lisboa, Portugal",
+      task: "Discover new species in Portugal",
+      title: "EcoDiversity Run",
+      spots: 15,
       category: "Animal",
-      description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      description: "The biological diversity of species in Portugal has detiriorated significantly in recent years. Come together as a community to help us rediscover our lost friends.",
+      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
       organization_id: "2"
     }
   ])
@@ -223,6 +223,46 @@ bookings = Booking.create! (
       status: "Pending",
       event_id: "2",
       user_id: "4"
+    },
+    {
+      status: "Pending",
+      event_id: "2",
+      user_id: "6"
+    },
+    {
+      status: "Pending",
+      event_id: "2",
+      user_id: "8"
+    },
+    {
+      status: "Confirmed",
+      event_id: "3",
+      user_id: "6"
+    },
+    {
+      status: "Completed",
+      event_id: "4",
+      user_id: "5"
+    },
+    {
+      status: "Pending",
+      event_id: "3",
+      user_id: "6"
+    },
+    {
+      status: "Confirmed",
+      event_id: "4",
+      user_id: "4"
+    },
+    {
+      status: "Cancelled",
+      event_id: "2",
+      user_id: "4"
+    },
+    {
+      status: "Pending",
+      event_id: "5",
+      user_id: "6"
     }
   ])
 
