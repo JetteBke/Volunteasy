@@ -1,68 +1,88 @@
 
-<div class="container">
-  <h1 class="text-center">My Profile</h1>
+<div class="container mt-5">
+  <!-- <h1 class="text-center">My Profile</h1> -->
   <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12">
+    <div class="col-lg-4 col-md-12 col-sm-12 text-center">
       <%= image_tag "Jonsnow.jpg", :class => "avatar-extra-large"%>
     </div>
     <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="row">
-        <div class="col"><h3><%= current_user.first_name %> <%= current_user.last_name %></h3></div>
+        <div class="col text-center"><h2><%= @user.first_name %> <%= @user.last_name %></h2></div>
         <div class="w-100"></div>
         <div class="col-2">Age:</div>
-        <div class="col-10"><%= Time.zone.now.year - current_user.dob.year %></div>
+        <div class="col-10"><%= Time.zone.now.year - @user.dob.year %></div>
         <div class="w-100"></div>
         <div class="col-2">City:</div>
-        <div class="col-10"><%= current_user.city %></div>
+        <div class="col-10"><%= @user.city %></div>
         <div class="w-100"></div>
         <div class="col-2">Email:</div>
-        <div class="col-10"><%= current_user.email %></div>
+        <div class="col-10"><%= @user.email %></div>
         <div class="w-100"></div>
         <div class="col-2">Phone:</div>
-        <div class="col-10"><%= current_user.phone %></div>
+        <div class="col-10"><%= @user.phone %></div>
         <div class="w-100"></div>
         <div class="col-2">Interests:</div>
-        <div class="col-10"><%= current_user.interests %></div>
+        <div class="col-10"><%= @user.interests %></div>
         <div class="w-100"></div>
         <div class="col-2">Bio:</div>
-        <div class="col-10"><%= current_user.bio %></div>
+        <div class="col-10"><%= @user.bio %></div>
         <div class="w-100"></div>
       </div>
     </div>
     <div class="col-lg-2 col-md-12 col-sm-12">
-      <button type="button" class="btn btn-success">Do Good</button>
+      <% if current_user == @user %>
+      <p> <%= link_to "Do Good", events_path, class:"btn btn-success" %> </p>
+
+      <% if policy(Organization).create? %>
+      <p> <%= link_to "Create an organization", new_organization_path %></p>
+      <% end %>
+      <% if policy(@user).edit? %>
+      <p> <%= link_to "Edit your profile", edit_user_registration_path %> </p>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
 </div>
 
 
-<div class="container">
+<div class="container col-lg-8 col-md-8 col-sm-8">
+  <% if current_user == @user %>
   <h1 class="text-center">My Bookings</h1>
-  <div class="col-lg-6 col-md-12 col-sm-12">
-    <div class="row">
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= @bookings.first %></li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-      </ul>
-      <div class="alert alert-primary col" role="alert">
-        <h3><%= @booking %></h3>
-      </div>
-      <div class="w-100"></div>
-    </div>
-  </div>
+  <ul class="list-group list-group-flush">
+    <% if @bookings.empty? %>
+    <p>No Bookings yet</p>
+    <% else %>
+    <% @bookings.each do |booking| %>  %>
+    <li class="list-group-item">
+      Booking: <%= booking.event.title %>
+      <% if booking.status == "Pending"%>
+      <p class="btn"><%= booking.status %></p>
+      <%= link_to 'Cancel Booking', current_user_path,
+      data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <!-- add background colors to the booking status -->
+      <% elsif booking.status == "Confirmed" %>
+      <p class="btn"><%= booking.status %></p>
+      <% elsif booking.status == "Rejected" %>
+      <p class="btn"><%= booking.status %></p>
+      <%= link_to 'Delete Booking', current_user_path,
+      data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      <% elsif booking.status == "Completed" %>
+      <p class="btn"><%= booking.status %></p>
+      <%= link_to "Write Review", new_review_path %>
+      <% end %>
+    </li>
+    <% end %>
+    <% end %>
+  </ul>
+  <% end %>
 </div>
 
 
 
-<% if current_user == @user %>
-<% if policy(Organization).create? %>
-<%= link_to "Create an organization", new_organization_path %>
-<% end %>
-<% if policy(@user).edit? %>
-<%= link_to "Edit your profile", edit_user_registration_path %>
-<% end %>
-<% end %>
+
+
+
+
+
+
