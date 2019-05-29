@@ -1,3 +1,11 @@
 <h1><%= @event.title %></h1>
 <p>Find me in app/views/events/show.html.erb</p>
 
+<%= link_to "See organization", organization_path(@event.organization) %>
+
+<%= link_to "Go back to see all events", events_path %>
+
+
+<%= simple_form_for([ event, booking ], remote: true) do |form| %>
+  <%= form.button :submit %>
+<% end %>
