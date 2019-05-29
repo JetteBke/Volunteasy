@@ -25,10 +25,15 @@
 @import "components/_home";
 
 body {
-    background-image: linear-gradient(-45deg, #849fff, #294dc4);
+    background-image: linear-gradient(-45deg, #c5d0f7, #728adb);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow: scroll;
+}
+
+#index {
+  height: 100vh;
 }
 
