@@ -1,8 +1,10 @@
 source 'https://rubygems.org'
 ruby '2.5.3'
 
+gem 'pg_search'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
+gem 'semantic-ui-rails'
 
 gem 'bootsnap', require: false
 gem 'devise'
