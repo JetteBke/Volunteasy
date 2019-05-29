@@ -10,15 +10,15 @@
           <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
         </div>
         <div class= "card-product-infos">
-          <p> <%= event.title %></p>
-          <p> <%= event.start_at %></p>
+          <h2> <%= event.title %></h2>
+          <p> <%= event.start_at.strftime("Starts %B %d at %I:%M %p") %></p>
           <% case event.category
              when event.category = "Animal" %>
-            <p> 🦙</p>
+            <i class="fas fa-paw" style="color:brown"></i>
              <% when event.category = "Environment" %>
-            <p> 🌿</p>
+            <i class="fas fa-leaf" style="color:green"></i>
              <% when event.category = "Community" %>
-            <p> 👨‍❤️‍👨</p>
+            <i class="fas fa-hands-helping"></i>
              <% else %>
              <p> " " </p>
            <% end %>
