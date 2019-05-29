@@ -1,5 +1,42 @@
-<h1><%= @event.title %></h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div class="container mt-5">
+  <h1><%= @event.title %></h1>
+<h3><%= @event.organization.name  %></h3>
+<p><%= @event.address  %></p>
+<div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="row d-flex">
+
+        <div class="col-4">Starts at:</div>
+        <div class="col-8"><%= @event.start_at %></div>
+        <!-- <div class="w-100"></div> -->
+        <div class="col-4">Ends at:</div>
+        <div class="col-8"><%= @event.ends_at %></div>
+        <!-- <div class="w-100"></div> -->
+      <div class="col-4">Total Spots:</div>
+        <div class="col-8"><%= @event.spots %></div>
+        <!-- <div class="w-100"></div> -->
+      </div>
+      </div>
+      <div class="container mt-5">
+<p><%= @event.description  %></p>
+</div>
+</div>
+
+<div class="container">
+
+<ul class="list-group list-group-flush">
+  <% if @bookings.empty? %>
+  <p>No Bookings yet</p>
+  <% else %>
+  <% @bookings.each do |booking| %>
+  <li class="list-group-item">
+    Booking: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
+    Status: <%= booking.status %>
+  </li>
+  <% end %>
+  <% end %>
+</ul>
+</div>
+</div>
 
 <%= link_to "See organization", organization_path(@event.organization) %>
 
