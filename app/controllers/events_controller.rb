@@ -7,6 +7,7 @@ class EventsController < ApplicationController
 
   def show
     authorize @event
+    @bookings = Booking.where(event:@event)
   end
 
   def new
