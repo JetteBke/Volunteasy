@@ -21,8 +21,6 @@
 </div>
 </div>
 
-
-
 <div class="container">
 
 <ul class="list-group list-group-flush">
@@ -39,3 +37,12 @@
 </ul>
 </div>
 </div>
+
+<%= link_to "See organization", organization_path(@event.organization) %>
+
+<%= link_to "Go back to see all events", events_path %>
+
+
+<%= simple_form_for([ event, booking ], remote: true) do |form| %>
+  <%= form.button :submit %>
+<% end %>
