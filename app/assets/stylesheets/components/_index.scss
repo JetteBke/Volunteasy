@@ -3,10 +3,3 @@
 @import "avatar";
 @import "navbar";
 
-
-.events-index-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 16px;
-  grid-row-end: 16px;
-}

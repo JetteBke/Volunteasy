@@ -28,3 +28,10 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+
+.cards-events {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  grid-row-end: 16px;
+}
