@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: [:username, :city, :phone, :interests, :bio])
   end
 
+  #@navbar_organization = Organization.where(user_id: current_user)
   private
 
   def skip_pundit?
