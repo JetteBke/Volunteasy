@@ -22,6 +22,7 @@ class EventsController < ApplicationController
   end
 
   def new
+    #@organization = Organization.find(params[:id])
     @user = current_user
     @event = Event.new
     authorize @event
