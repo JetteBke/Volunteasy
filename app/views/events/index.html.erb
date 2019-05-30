@@ -1,3 +1,5 @@
+<div class="container" id="index">
+
 <% if policy(@events).index? %>
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag :query,
@@ -23,7 +25,7 @@
 
 <div class="container">
   <div class="flexbox-container">
-    <h2 class="py-4">Events</h2>
+    <h3 class="py-4" style="color:white">Events</h3>
   </div>
   <div class="card-container">
     <div class="cards">

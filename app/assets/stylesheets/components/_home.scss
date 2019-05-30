@@ -1,6 +1,37 @@
 .home-text {
 
   font-family: 'Open Sans', sans-serif;
-  color: white;
-  font-size: 22px;
+  color: #dee0e5;
+  font-size: 18px;
+  font-style: italic;
 }
+
+.transbox {
+  margin: 10px;
+  padding: 10px;
+  background-color:rgba(51,51,51,.6);
+  // opacity: 0.5;
+  // filter: alpha(opacity=60); /* For IE8 and earlier */
+  border-radius: 5px;
+}
+
+.team-member {
+  text-align: center;
+}
+
+.team-member img {
+  width: 225px;
+  height: 225px;
+  border: 7px solid #fff;
+}
+
+.section-heading {
+  color: white;
+}
+
+.container {
+  padding: 15px;
+}
+
+
+
