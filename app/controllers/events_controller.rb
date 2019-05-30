@@ -7,6 +7,13 @@ class EventsController < ApplicationController
     else
       @events = policy_scope(Event).order(created_at: :desc)
     end
+     @markers = @events.map do |event|
+      {
+        lat: event.latitude,
+        lng: event.longitude
+      }
+  end
+
   end
 
   def show
