@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
   devise_for :users
 
   resources :users, only: [:show, :edit, :update]
-
-  root to: 'pages#home'
   resources :organizations do
     resources :events, except: [ :index, :show]
     resources :reviews, only: [:index]
