@@ -157,7 +157,9 @@ events = Event.create! (
       category: "Environment",
       description: "The Park of the People is in danger. The powers that be are considering taking it away and replacing it with a shopping mall! Join us in a community effort to clean up the park, and make a petition to the government to make it a national monument.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
-      organization_id: "1"
+      organization_id: "1",
+      latitude: 38.726080,
+      longitude: -9.145480
     },
     {
       start_at: "2019-05-30 9:00:05 +0100",
@@ -169,7 +171,9 @@ events = Event.create! (
       category: "Animal",
       description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
-      organization_id: "2"
+      organization_id: "2",
+      latitude: 38.711960,
+      longitude: -9.140690
     },
     {
       start_at: "2019-07-03 9:00:05 +0100",
@@ -181,7 +185,9 @@ events = Event.create! (
       category: "Community",
       description: "Bread - Tomato - lettuce - cucumber - avocado - hummus - bread. that's how you make a good vegan sandwich!",
       photo: "https://cdn77-s3.lazycatkitchen.com/wp-content/uploads/2015/09/vegan-sandwich-lunch-800x693.jpg",
-      organization_id: "1"
+      organization_id: "1",
+      latitude: 38.715530,
+      longitude: -9.125190
     },
     {
       start_at: "2019-06-28 9:00:05 +0100",
@@ -193,7 +199,9 @@ events = Event.create! (
       category: "Community",
       description: "The Castle is in desperate need of rebuilding. No one has thought to put the roof back up in over a hundred years. Let's get this done, team.",
       photo: "https://upload.wikimedia.org/wikipedia/commons/c/cf/LisbonCastle.jpg",
-      organization_id: "2"
+      organization_id: "2",
+      latitude: 38.712830,
+      longitude: -9.132850
     },
     {
       start_at: "2019-08-15 9:00:05 +0100",
@@ -205,9 +213,26 @@ events = Event.create! (
       category: "Animal",
       description: "The biological diversity of species in Portugal has detiriorated significantly in recent years. Come together as a community to help us rediscover our lost friends.",
       photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
-      organization_id: "2"
-    }
-  ])
+      organization_id: "2",
+      latitude: 38.710781,
+      longitude: -9.138610
+    },
+    {
+      id: 6,
+      start_at: "2019-08-15 9:00:05 +0100",
+     ends_at: "2019-08-17 18:07:05 +0100",
+     address: "Rua Actor Taborda 55, Lisboa",
+     task: "Help izi stay high-key lit",
+     title: "izi’s event",
+     spots: 15,
+     category: "Animal",
+     description: "Peep this, fam, izi needs to stay lit.",
+     photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559210674/IZI_pic_wukkfe.jpg",
+     organization_id: 1,
+     latitude: 38.7316884,
+     longitude: -9.1440666}
+  ]
+  )
 
 
 puts "Creating Bookings"

@@ -5,6 +5,7 @@ gem 'pg_search'
 gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'semantic-ui-rails'
+gem 'geocoder'
 
 gem 'bootsnap', require: false
 gem 'devise'
