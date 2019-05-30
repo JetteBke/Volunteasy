@@ -1,0 +1,30 @@
+.events-index-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 16px;
+  grid-row-end: 16px;
+}
+
+@media (min-width: 10px) {
+  .events-index-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 576px) {
+  .events-index-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 768px) {
+  .events-index-grid  {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 992px) {
+  .events-index-grid  {
+    grid-template-columns: 1fr 1fr;
+  }
+}
