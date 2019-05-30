@@ -34,6 +34,13 @@ class OrganizationsController < ApplicationController
 
   def update
     @organization.update(organization_params)
+    authorize @organization
+    if @organization.update(organization_params)
+      redirect_to @organization
+    else
+      render :edit
+    end
+
   end
 
   def destroy
@@ -45,7 +52,7 @@ class OrganizationsController < ApplicationController
   private
 
   def organization_params
-    params.require(:booking).permit(:name, :address, :category, :url, :description, :photo_url)
+    params.require(:organization).permit(:name, :address, :category, :url, :description, :photo_url)
   end
 
   def set_organization

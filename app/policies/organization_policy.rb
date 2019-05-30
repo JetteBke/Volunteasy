@@ -13,11 +13,19 @@ class OrganizationPolicy < ApplicationPolicy
     true
   end
 
+  def new?
+    true
+  end
+
   def edit?
-    true if record == @organization.user_id
+    true
+  end
+
+  def update?
+    true
   end
 
   def destroy?
-    true if record == @organization.user
+    record == @organization.user
   end
 end

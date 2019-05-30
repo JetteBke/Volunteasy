@@ -14,6 +14,6 @@ class EventPolicy < ApplicationPolicy
   end
 
   def new?
-    record == @organization.current_user
+    true
   end
 end
