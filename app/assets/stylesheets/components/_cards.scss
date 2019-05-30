@@ -18,6 +18,20 @@
  border-radius: 2px;
 }
 
+.card-do-good {
+ display: flex;
+ background-color: white;
+ flex-direction: column;
+ margin: 20px;
+ padding: 20px;
+ height: auto;
+ width: 300px;
+ justify-content: left;
+ align-items: left;
+ box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .1);
+ border-radius: 2px;
+}
+
 .card-image {
   height: auto;
   width: auto;
@@ -85,3 +99,12 @@
 }
 
 
+.card-background {
+  position: relative;
+  // display: block;
+  padding: 0.75rem 1.25rem;
+  margin-bottom: -1px;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  width:100%;
+}
