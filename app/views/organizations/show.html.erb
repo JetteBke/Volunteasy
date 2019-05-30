@@ -1,7 +1,65 @@
-<h1><%= @organization.name %></h1>
-<p>Find me in app/views/organizations/show.html.erb</p>
 
+<div class="container">
+          <div class="col text-center"><h2><%= @organization.name %></h2></div>
+          <div class="col text-center pb-3">created by <% if policy(User).show? %>
+          <%= link_to @organization.user.first_name, user_path(@organization.user) %>
+          <% end %>
+          </div>
+          <div class="row d-flex">
+          <div class="w-40"></div>
+          <div class="w-100"></div>
+          <div class="col-3"><strong>Address:</strong></div>
+          <div class="col-8"><%= @organization.address %></div>
+          <div class="w-100"></div>
+          <div class="col-3"><strong>Website:</strong></div>
+          <div class="col-8"><%= @organization.url %></div>
+          <div class="w-40"></div>
+          <div class="col-3"><strong>Category:</strong></div>
+          <div class="col-8"><%= @organization.category %></div>
+          <div class="w-40"></div>
+          <div class="col-3"><strong>Phone:</strong></div>
+          <div class="col-8"><%= @organization.user.phone %></div>
+          <div class="w-40"></div>
+          <div class="col-3"><strong>Description:</strong></div>
+          <div class="col-8"><%= @organization.description %></div>
+          <div class="w-40"></div>
+          <div class="col-3"><strong>Email:</strong></div>
+          <div class="col-8"><%= @organization.user.email %></div>
+          <div class="w-40"></div>
 
-<% if policy(User).show? %>
-  <%= link_to "See owner of organization", user_path(@organization.user) %>
+      </div>
+</div>
+
+<% if @organization.user == current_user %>
+  <%= link_to "Edit organization", edit_organization_path(@organization) %>
+  <%= link_to "Create a new event", new_organization_event_path(@organization) %>
 <% end %>
+
+
+  <div class="card-container">
+    <div class="cards">
+      <% @events.each do |event| %>
+      <div class="card-product">
+        <div class="card-image">
+          <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
+        </div>
+        <div class= "card-product-infos">
+          <h2> <%= event.title %></h2>
+          <p> <%= event.start_at.strftime("Starts %B %d at %I:%M %p") %></p>
+          <% case event.category
+             when event.category = "Animal" %>
+            <i class="fas fa-paw" style="color:brown"></i>
+             <% when event.category = "Environment" %>
+            <i class="fas fa-leaf" style="color:green"></i>
+             <% when event.category = "Community" %>
+            <i class="fas fa-hands-helping"></i>
+             <% else %>
+             <p> " " </p>
+           <% end %>
+          <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+

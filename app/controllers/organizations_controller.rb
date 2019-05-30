@@ -9,6 +9,7 @@ class OrganizationsController < ApplicationController
     @user = @organization.user
     authorize @organization
     authorize @user
+    @events = Event.where(organization_id:@organization.id)
   end
 
   def new

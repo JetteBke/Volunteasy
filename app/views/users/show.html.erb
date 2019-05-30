@@ -1,82 +1,135 @@
 
-<div class="container mt-5">
-  <!-- <h1 class="text-center">My Profile</h1> -->
-  <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-      <%= image_tag "Jonsnow.jpg", :class => "avatar-extra-large"%>
-    </div>
-    <div class="col-lg-6 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col text-center"><h2><%= @user.first_name %> <%= @user.last_name %></h2></div>
-        <div class="w-100"></div>
-        <div class="col-2">Age:</div>
-        <div class="col-10"><%= Time.zone.now.year - @user.dob.year %></div>
-        <div class="w-100"></div>
-        <div class="col-2">City:</div>
-        <div class="col-10"><%= @user.city %></div>
-        <div class="w-100"></div>
-        <div class="col-2">Email:</div>
-        <div class="col-10"><%= @user.email %></div>
-        <div class="w-100"></div>
-        <div class="col-2">Phone:</div>
-        <div class="col-10"><%= @user.phone %></div>
-        <div class="w-100"></div>
-        <div class="col-2">Interests:</div>
-        <div class="col-10"><%= @user.interests %></div>
-        <div class="w-100"></div>
-        <div class="col-2">Bio:</div>
-        <div class="col-10"><%= @user.bio %></div>
-        <div class="w-100"></div>
+  <div class="container mt-5">
+    <!-- <h1 class="text-center">My Profile</h1> -->
+    <div class="row">
+      <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+        <%= image_tag "Jonsnow.jpg", :class => "avatar-extra-large"%>
+      </div>
+      <div class=" card col-lg-4 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col text-center"><h2><%= @user.first_name %> <%= @user.last_name %></h2></div>
+          <div class="w-100"></div>
+          <div class="col-4">Age:</div>
+          <div class="col-8"><%= Time.zone.now.year - @user.dob.year %></div>
+          <div class="w-100"></div>
+          <div class="col-4">City:</div>
+          <div class="col-8"><%= @user.city %></div>
+          <div class="w-100"></div>
+          <div class="col-4">Email:</div>
+          <div class="col-8"><%= @user.email %></div>
+          <div class="w-100"></div>
+          <div class="col-4">Phone:</div>
+          <div class="col-8"><%= @user.phone %></div>
+          <div class="w-100"></div>
+          <div class="col-4">Interests:</div>
+          <div class="col-8"><%= @user.interests %></div>
+          <div class="w-100"></div>
+          <div class="col-4">Bio:</div>
+          <div class="col-8"><%= @user.bio %></div>
+          <div class="w-100"></div>
+        </div>
+      </div>
+      <div class=" card-do-good col-lg-2 col-md-12 col-sm-12">
+        <% if current_user == @user %>
+        <p><%= link_to "Do Good", events_path, class:"btn btn-success" %></p>
+          <% if policy(Organization).create? %>
+            <p><%= link_to "Create an organization", new_organization_path %></p>
+          <% end %>
+          <%if Organization.where(user_id:current_user.id).present?  %>
+            <p><%= link_to "Go to My Organization", organization_path(@organization)%></p>
+          <% end %>
+          <% if policy(@user).edit? %>
+            <p><%= link_to "Edit your profile", edit_user_registration_path%></p>
+          <% end %>
+        <% end %>
       </div>
     </div>
-    <div class="col-lg-2 col-md-12 col-sm-12">
-      <% if current_user == @user %>
-      <p> <%= link_to "Do Good", events_path, class:"btn btn-success" %> </p>
+  </div>
 
-      <% if policy(Organization).create? %>
-      <p> <%= link_to "Create an organization", new_organization_path %></p>
+
+<div class="container mt-5 col-lg-8 col-md-8 col-sm-10">
+        <% if current_user == @user %>
+
+  <h1 class="text-center">My Bookings</h1>
+    <div class="row">
+      <% if @bookings.empty? %>
+        <p>No Bookings yet</p>
+        <% else %>
+          <% @bookings.each do |booking| %>
+     <div class="row card-background mt-4">
+       <div class="col col-lg-4   mt-3">
+           Booking: <%= booking.event.title %>
+        </div>
+
+        <div class="col-md-auto col-lg-4 col-md-8 col-sm-4 mt-3">
+          Variable width content
+        </div>
+        <div class="col col-lg-4 mt-2">
+          <% if booking.status == "Pending"%>
+          <div class="row">
+                  <p class="btn"><%= booking.status %></p>
+                  <%= link_to 'Cancel Booking', current_user,
+                data: {:confirm => 'Are you sure?'}, :method => :delete, class:" btn btn-alert btn-warning" %>
+                <!-- add background colors to the booking status -->
+              <% elsif booking.status == "Confirmed" %>
+                <p class="btn float-right"><%= booking.status %></p>
+              <% elsif booking.status == "Rejected" %>
+                <p class="btn"><%= booking.status %></p>
+                <%= link_to 'Delete Booking', current_user_path,
+               data: {:confirm => 'Are you sure?'}, :method => :delete %>
+              <% elsif booking.status == "Completed" %>
+                <p class="btn"><%= booking.status %></p>
+                <%= link_to "Write Review", new_review_path %>
+              <% end %>
+              </div>
+        </div>
+      </div>
       <% end %>
-      <% if policy(@user).edit? %>
-      <p> <%= link_to "Edit your profile", edit_user_registration_path %> </p>
       <% end %>
       <% end %>
     </div>
-  </div>
-</div>
 </div>
 
 
-<div class="container col-lg-8 col-md-8 col-sm-8">
-  <% if current_user == @user %>
-  <h1 class="text-center">My Bookings</h1>
-  <ul class="list-group list-group-flush">
-    <% if @bookings.empty? %>
-    <p>No Bookings yet</p>
-    <% else %>
-    <% @bookings.each do |booking| %>  %>
-    <li class="list-group-item">
-      Booking: <%= booking.event.title %>
-      <% if booking.status == "Pending"%>
-      <p class="btn"><%= booking.status %></p>
-      <%= link_to 'Cancel Booking', current_user_path,
-      data: {:confirm => 'Are you sure?'}, :method => :delete %>
-      <!-- add background colors to the booking status -->
-      <% elsif booking.status == "Confirmed" %>
-      <p class="btn"><%= booking.status %></p>
-      <% elsif booking.status == "Rejected" %>
-      <p class="btn"><%= booking.status %></p>
-      <%= link_to 'Delete Booking', current_user_path,
-      data: {:confirm => 'Are you sure?'}, :method => :delete %>
-      <% elsif booking.status == "Completed" %>
-      <p class="btn"><%= booking.status %></p>
-      <%= link_to "Write Review", new_review_path %>
+
+
+
+
+  <div class="container col-lg-8 col-md-8 col-sm-10">
+
+      <% if current_user == @user %>
+      <h1 class="text-center">My Bookings</h1>
+      <ul class="list-group list-group-flush">
+        <% if @bookings.empty? %>
+        <p>No Bookings yet</p>
+        <% else %>
+          <% @bookings.each do |booking| %>
+          <li class="list-group-item mt-4">
+            <div class="row">
+              Booking: <%= booking.event.title %>
+              <% if booking.status == "Pending"%>
+                <p class="btn"><%= booking.status %></p>
+                <%= link_to 'Cancel Booking', current_user,
+              data: {:confirm => 'Are you sure?'}, :method => :delete %>
+              <!-- add background colors to the booking status -->
+            </div>
+            <% elsif booking.status == "Confirmed" %>
+              <p class="btn"><%= booking.status %></p>
+            <% elsif booking.status == "Rejected" %>
+              <p class="btn"><%= booking.status %></p>
+              <%= link_to 'Delete Booking', current_user_path,
+             data: {:confirm => 'Are you sure?'}, :method => :delete %>
+            <% elsif booking.status == "Completed" %>
+              <p class="btn"><%= booking.status %></p>
+              <%= link_to "Write Review", new_review_path %>
+            <% end %>
+          </li>
+          <% end %>
+        <% end %>
+      </ul>
       <% end %>
-    </li>
-    <% end %>
-    <% end %>
-  </ul>
-  <% end %>
-</div>
+
+  </div>
 
 
 
