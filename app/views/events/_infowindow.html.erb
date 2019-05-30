@@ -1,0 +1,13 @@
+<h2> <%= event.title %></h2>
+        <p> <%= event.start_at.strftime("Starts %B %d at %I:%M %p") %></p>
+        <% case event.category
+           when event.category = "Animal" %>
+          <i class="fas fa-paw" style="color:brown"></i>
+           <% when event.category = "Environment" %>
+          <i class="fas fa-leaf" style="color:green"></i>
+           <% when event.category = "Community" %>
+          <i class="fas fa-hands-helping"></i>
+           <% else %>
+           <p> " " </p>
+         <% end %>
+        <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
