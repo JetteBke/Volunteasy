@@ -1,28 +1,21 @@
 <div class="my-forms my-4">
   <div class="container py-3 purple-gradient color-block">
-    <h5>Create Organization</h5>
-
+    <h5 class="text-center">Create Organization</h5>
     <%= simple_form_for [@organization] do |f| %>
       <%= f.input :name, label_html: {class:'pt-4'} %>
       <%= f.input :address, label_html: {class:'pt-1'} %>
-
-       <button class="btn1 btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
-  <span class="caret"></span></button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Animal</a></li>
-    <li><a href="#">Environment</a></li>
-    <li><a href="#">Community</a></li>
-  </ul>
-</div>
-
+      <%= f.input :description, label_html: {class:'pt-1'} %>
+      <%= f.input :url, label_html: {class:'pt-1'} %>
+      <%= f.input :category, collection: Organization::CATEGORIES, label_html: { class:'pt-1'} %>
+       <%= f.file_field :photo_url, label_html: {class:'pt-2'} %>
+      <%= f.input :photo_url_cache, as: :hidden %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Create Organization", class: "btn btn-primary mb-5" %>
+    <% end %>
+    </div>
   </div>
 </div>
-
-
-      <%= f.submit "BOOK NOW", class: "btn btn-primary mt-4 mb-2" %>
-    <% end %>
-
-
 
 
 

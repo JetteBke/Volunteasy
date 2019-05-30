@@ -2,6 +2,7 @@ class Event < ApplicationRecord
   belongs_to :organization
   has_many :bookings
   geocoded_by :address
+  validates :start_at, :ends_at, :address, :task, :title, :spots, :category, presence: true
   after_validation :geocode, if: :will_save_change_to_address?
 
   include PgSearch

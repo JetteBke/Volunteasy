@@ -26,16 +26,16 @@
           <div class="col-3"><strong>Email:</strong></div>
           <div class="col-8"><%= @organization.user.email %></div>
           <div class="w-40"></div>
-
-      </div>
-</div>
-
-<% if @organization.user == current_user %>
+          <% if @organization.user == current_user %>
+          <div class="w-40">
   <%= link_to "Edit organization", edit_organization_path(@organization) %>
+  </div>
+  <div class="w-40">
   <%= link_to "Create a new event", new_organization_event_path(@organization) %>
 <% end %>
-
-
+</div>
+      </div>
+</div>
 
   <div class="card-container w-60">
     <div class="cards">
