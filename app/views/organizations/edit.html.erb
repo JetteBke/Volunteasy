@@ -1,2 +1,18 @@
-<h1>Organizations#edit</h1>
-<p>Find me in app/views/organizations/edit.html.erb</p>
+<div class="my-forms my-4">
+  <div class="container py-3 purple-gradient color-block">
+    <h5 class="text-center">Edit Organization info</h5>
+    <%= simple_form_for [@organization] do |f| %>
+      <%= f.input :name, label_html: {class:'pt-4'} %>
+      <%= f.input :address, label_html: {class:'pt-1'} %>
+      <%= f.input :description, label_html: {class:'pt-1'} %>
+      <%= f.input :url, label_html: {class:'pt-1'} %>
+      <%= f.input :category, collection: Organization::CATEGORIES, label_html: { class:'pt-1'} %>
+       <%= f.file_field :photo_url, label_html: {class:'pt-2'} %>
+      <%= f.input :photo_url_cache, as: :hidden %>
+    </div>
+    <div class="text-center">
+      <%= f.submit "Update Organization", class: "btn btn-primary mb-5" %>
+    <% end %>
+    </div>
+  </div>
+</div>
