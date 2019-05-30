@@ -291,6 +291,38 @@ bookings = Booking.create! (
     }
   ])
 
+puts "Creating reviews"
+
+reviews = Review.create! ([
+    {
+      rating: 5,
+      content: "This trip was a lot of fun. I made some great new friends that I had some fun times with and went on adventures with. I met a lot of people that I enjoyed my time with everyone in the group. The support was nice and the rooms were nice. The home stay was an amazing experience for me because it taught me to be thankful for everything I have back at my home and to not take anything for granted.",
+      booking_id: "1"
+    },
+    {
+      rating: 4,
+      content: "Definitely a trip to remember. Going into this trip I didn’t really know wht to expect in terms of how much we were really able to do (in terms of hands-on in surgery) and homestays. All the vets were very helpful in explaining and being patient with us. It was an amazing experience as well as we got a chance to experience the culture first hand. ",
+      booking_id: "1"
+    },
+    {
+      rating: 4,
+      content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
+      booking_id: "1"
+    },
+    {
+      rating: 4,
+      content: "It’s amazing! Teaching English or medical in the morning then orphanages at night. The weekends you have free and the house managers great about helping you book trips. Amazing experience.",
+      booking_id: "1"
+    },
+    {
+     rating: 4,
+     content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
+     booking_id: "1"
+   }
+ ])
+
+
+
 #what are the other statuses?
 
 # Not including events yet, because there are dependencies there based on the "Status" of the booking. Need to think through those more first.

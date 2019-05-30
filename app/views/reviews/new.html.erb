@@ -1,22 +1,22 @@
 <div class="my-forms">
   <div class="container py-5">
 
-    <h4>How was the event? Add a review, <%= current_user.first_name %>!</h4>
+    <h5>How was the event? Add a review, <%= current_user.first_name %>!</h5>
 
     <%= simple_form_for(@review) do |f| %>
       <%#= f.input :rating, label_html: {class:'pt-4'}  %>
     <label for="">Rating</label>
     <div class="rate-container">
       <div class="rate">
-        <input type="radio" id="star5" name="rate" value="5" />
+        <input type="radio" name="rate" value="5" />
         <label for="star5" title="text">5 stars</label>
-        <input type="radio" id="star4" name="rate" value="4" />
+        <input type="radio" name="rate" value="4" />
         <label for="star4" title="text">4 stars</label>
-        <input type="radio" id="star3" name="rate" value="3" />
+        <input type="radio" name="rate" value="3" />
         <label for="star3" title="text">3 stars</label>
-        <input type="radio" id="star2" name="rate" value="2" />
+        <input type="radio" name="rate" value="2" />
         <label for="star2" title="text">2 stars</label>
-        <input type="radio" id="star1" name="rate" value="1" />
+        <input type="radio" name="rate" value="1" />
         <label for="star1" title="text">1 star</label>
       </div>
     </div>
