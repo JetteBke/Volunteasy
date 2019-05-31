@@ -1,6 +1,6 @@
-<div class="container mt-5">
+<div class="container mt-5" id="view_container">
   <h1><%= @event.title %></h1>
-<h3>hostet by <%= @event.organization.name  %></h3>
+<h3>hosted by <%= @event.organization.name  %></h3>
 <p><%= @event.address  %></p>
 <div class="col-lg-6 col-md-12 col-sm-12">
       <div class="row d-flex">
@@ -19,7 +19,7 @@
       <div class="container mt-5">
 <p><%= @event.description  %></p>
 </div>
-</div>
+
 
 <div class="container">
 
@@ -48,4 +48,4 @@
 
 <%= link_to "Go back to see all events", events_path %>
 
-
+</div>

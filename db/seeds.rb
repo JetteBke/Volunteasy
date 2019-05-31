@@ -23,7 +23,8 @@ users = User.create! (
   interests: "I love doing good!",
   bio: "Built a house in Tanzania last summer.",
   dob: "1991-09-18 10:07:05 +0100",
-  phone: "986 7654 34987"
+  phone: "986 7654 34987",
+  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg"
 },
 {email: "samuel@guardianangels.com",
   password: "123456",

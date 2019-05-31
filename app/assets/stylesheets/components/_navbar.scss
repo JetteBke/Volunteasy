@@ -1,5 +1,5 @@
 .navbar-lewagon {
-  justify-content: left;
+  justify-content: space-between;
   background: #2d4877;
   color: #00ffa1;
 }
@@ -33,6 +33,12 @@
   bottom: 5px;
 }
 
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+}
+
  .navbar-light .navbar-nav .nav-link {
   color: #00ffa1;
 }
@@ -43,12 +49,18 @@
 }
 
 .navbar-container {
-  position: absolute;
-  right: 30px;
+  justify-self: right;
 }
 
 .navbar body {
   background-color: #00ffa1
+}
+
+@media (min-width: 380px), (max-width: 576px) {
+.navbar-expand-sm {
+    justify-content: space-between;
+}
+
 }
 
 

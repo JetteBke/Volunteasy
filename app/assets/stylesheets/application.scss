@@ -29,7 +29,7 @@
 @import "components/_events";
 
 body {
-    background-image: linear-gradient(-45deg, #c5d0f7, #d5dbf2);
+    background-image: linear-gradient(-45deg, #ebedf4, #ebedf4);
     height: 100%;
     margin: 0;
     background-repeat: no-repeat;
@@ -48,7 +48,10 @@ body {
 }
 
 
-#index {
+// #index {
+//   height: 100vh;
+// }
+
+#view_container {
   height: 100vh;
 }
-
