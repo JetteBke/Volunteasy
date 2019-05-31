@@ -27,23 +27,23 @@
           <div class="col-3"><strong>Email:</strong></div>
           <div class="col-8"><%= @organization.user.email %></div>
           <div class="w-40"></div>
-
-
           <% if @organization.user == current_user %>
             <div class="col-12" style="margin: 5px 170px;">
               <%= link_to "Edit organization", edit_organization_path(@organization), class:'btn-organization-show mr-2' %>
               <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn-organization-show' %>
             </div>
           <% end %>
+          </div>
+  </div>
 
-
-      </div>
-    </div>
+  <h2 class="text-center mt-2">Upcoming events:</h2>
 </div>
 
+<div class="container">
   <div class="card-container w-60">
-    <div class="cards">
+    <div class="row">
       <% @events.each do |event| %>
+      <div class="cards col-6 mb-3">
       <div class="card-product">
         <div class="card-image">
           <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
@@ -64,7 +64,10 @@
           <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
         </div>
       </div>
-      <% end %>
     </div>
+      <% end %>
+
   </div>
+</div>
+</div>
 

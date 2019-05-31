@@ -1,89 +1,77 @@
 
 <div class="container mt-5">
   <h1><%= @event.title %></h1>
-<h3>hosted by <%= @event.organization.name  %></h3>
-<p><%= @event.address  %></p>
-<div class="col-lg-6 col-md-12 col-sm-12">
-      <div class="row d-flex">
-<div class="container mt-5">
-  <!-- <h1 class="text-center">My Profile</h1> -->
-  <div class="row">
-    <div class="col-lg-4 col-md-12 col-sm-12 text-center">
-      <%= image_tag @event.photo, :class => "avatar-extra-large"%>
-    </div>
-
-
-    <div class=" card col-lg-4 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col text-left"><h2><%= @event.title %></h2></div>
-        <div class="w-100"></div>
-        <div class="col-4">Hosted by: </div>
-        <div class="col-8"><%= @event.organization.name %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Address:</div>
-        <div class="col-8"><%= @event.address %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Starts at:</div>
-        <div class="col-8"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Ends at:</div>
-        <div class="col-8"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Spots:</div>
-        <div class="col-8"><%= @event.spots %></div>
-        <div class="w-100"></div>
-      </div>
-    </div>
-
-    <div class="col card ">
-      <p><%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %></p>
-      <%= link_to "See organization", organization_path(@event.organization) %>
-      <%= link_to "Go back to see all events", events_path %>
-    </div>
-    <div class="container  mt-5">
-  <h3>Event Description:</h3>
-  <p><%= @event.description  %></p>
-</div>
-
-
-  </div>
+  <h3>hosted by <%= link_to @event.organization.name, organization_path(@event.organization)  %></h3>
+  <p><%= @event.address  %></p>
+  <div class="col-lg-6 col-md-12 col-sm-12">
+      <div class="container mt-5">
+        <!-- <h1 class="text-center">My Profile</h1> -->
+        <div class="row">
+          <div class="col-lg-4 col-md-12 col-sm-12 text-center">
+            <%= image_tag @event.photo, :class => "avatar-extra-large"%>
+          </div>
+          <div class="card col-lg-4 col-md-12 col-sm-12">
+            <div class="row">
+              <div class="col text-left"><h2><%= @event.title %></h2></div>
+              <div class="w-100"></div>
+              <div class="col-4">Hosted by: </div>
+              <div class="col-8"><%= @event.organization.name %></div>
+              <div class="w-100"></div>
+              <div class="col-4">Address:</div>
+              <div class="col-8"><%= @event.address %></div>
+              <div class="w-100"></div>
+              <div class="col-4">Starts at:</div>
+              <div class="col-8"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
+              <div class="w-100"></div>
+              <div class="col-4">Ends at:</div>
+              <div class="col-8"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
+              <div class="w-100"></div>
+              <div class="col-4">Spots:</div>
+              <div class="col-8"><%= @event.spots %></div>
+              <div class="w-100"></div>
+            </div>
+          </div>
+          <div class="col card ">
+            <p><%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %></p>
+            <%= link_to "See organization", organization_path(@event.organization) %>
+            <%= link_to "Go back to see all events", events_path %>
+          </div>
+          <div class="container  mt-5">
+            <h3>Event Description:</h3>
+            <p><%= @event.description  %></p>
+          </div>
+        </div>
 
 </div>
-
-
-
 
 <div class="container card-background">
     <% if @event.organization.user == current_user %>
       <% if @bookings.empty? %>
-      <p>No Bookings yet</p>
-    <% else %>
-      <% @bookings.each do |booking| %>
-        <div class="row">
-          <div class="col">
-            <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
-          </div>
-          <div class="col">
-            Status: <%= booking.status %>
-          </div>
-          <div class="col">
-            <% if booking.status == "Pending" %>
-              <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
-              <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
-            <% end %>
-          </div>
-        </div>
+        <p>No Bookings yet</p>
+      <% else %>
+        <% @bookings.each do |booking| %>
+            <div class="row">
+              <div class="col">
+                <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
+              </div>
+              <div class="col">
+                Status: <%= booking.status %>
+              </div>
+              <div class="col">
+                <% if booking.status == "Pending" %>
+                  <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
+                  <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
+                <% end %>
+              </div>
+            </div>
+        <% end %>
+      <% end %>
     <% end %>
-    <% end %>
-    <% end %>
-
-</div>
 </div>
 
-<%= link_to "See organization", organization_path(@event.organization) %>
+
 
 <%= link_to "Go back to see all events", events_path %>
-
 
 
 
