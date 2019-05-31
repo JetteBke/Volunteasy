@@ -1,11 +1,13 @@
 .form body {
   font-weight: bold;
-
-
 }
 
 .form-control {
   border-radius: 5px;
   margin-top: 8px;
   margin-bottom: 8px;
+}
+
+#form-container {
+  justify-content: center;
 }

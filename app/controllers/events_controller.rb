@@ -19,6 +19,7 @@ class EventsController < ApplicationController
   def show
     authorize @event
     @bookings = Booking.where(event:@event)
+    @organization = @event.organization
   end
 
   def new
@@ -45,8 +46,9 @@ class EventsController < ApplicationController
   end
 
   def edit
-    @organization = Organization.find(params[:organization_id])
+    @organization = @event.organization
     @user = current_user
+    authorize @event
   end
 
   def update

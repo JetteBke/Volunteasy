@@ -1,7 +1,7 @@
 <div class="my-forms my-4">
-  <div class="container py-100 purple-gradient color-block">
+  <div class="container w-25 py-100 purple-gradient color-block" id="form-container">
 
-<h2>Log in</h2>
+<h2 class="text-center">Log in</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-inputs">
@@ -15,11 +15,15 @@
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
+  <div class="text-center form-actions">
     <%= f.button :submit, "Log in" %>
+    </div>
+
+    <div class="pt-3 text-center">
+    <%= render "devise/shared/links" %>
   </div>
 </div>
 </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+
