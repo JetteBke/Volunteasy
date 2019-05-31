@@ -3,7 +3,7 @@
   <div class="card" id="organization-show">
           <div class="col text-center"><h2><%= @organization.name %></h2></div>
           <div class="col text-center pb-3">created by <% if policy(User).show? %>
-          <%= link_to @organization.user.first_name, user_path(@organization.user) %>
+          <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
           <% end %>
           </div>
           <div class="row d-flex">
