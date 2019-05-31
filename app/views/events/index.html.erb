@@ -1,33 +1,35 @@
-<div class="container" id="index">
-
-<% if policy(@events).index? %>
-  <%= form_tag events_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an event"
-    %>
-  <% end %>
-  <div class="ui compact menu">
-   <div class="ui simple dropdown item">
-     Dropdown
-     <i class="dropdown icon"></i>
-     <div class="menu">
-       <div class="item"><%= link_to "Environment", query: "Environment" %></div>
-       <div class="item"><%= link_to "Animal", query: "Animal" %></div>
-       <div class="item"><%= link_to "Community", query: "Community" %></div>
-     </div>
-   </div>
-  </div>
-<% end %>
-
 
 
 <div class="container">
   <div class="flexbox-container">
-    <h3 class="py-4" style="color:white">Events</h3>
+    <h3 class="pt-4 pb-2 text-center" style="color:grey;">Upcoming Events</h3>
   </div>
+<% if policy(@events).index? %>
+  <div class="container pb-5">
+  <%= form_tag events_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control w-50 mb-5 m-auto",
+      placeholder: "Find the perfect event for you..."
+    %>
+  <% end %>
   </div>
+
+  <!-- Commented out the dropdown for friday demo -->
+  <!-- <div class="ui compact menu">
+   <div class="ui simple dropdown item">
+     Dropdown
+     <i class="dropdown icon"></i>
+     <div class="menu">
+       <div class="item"><%#= link_to "Environment", query: "Environment" %></div>
+       <div class="item"><%#= link_to "Animal", query: "Animal" %></div>
+       <div class="item"><%#= link_to "Community", query: "Community" %></div>
+     </div>
+   </div>
+  </div> -->
+<% end %>
+
+
   <div class="events-index-grid">
     <div class ="cards">
     <% @events.each do |event| %>
