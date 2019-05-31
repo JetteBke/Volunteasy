@@ -48,3 +48,6 @@
 
 <%= link_to "Go back to see all events", events_path %>
 
+<% if current_user == @event.organization.user %>
+  <%= link_to "Edit event", edit_organization_event_path(@organization, @event) %>
+<% end %>

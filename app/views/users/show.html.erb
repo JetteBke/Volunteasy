@@ -35,7 +35,7 @@
           <% if policy(Organization).create? %>
             <p><%= link_to "Create an organization", new_organization_path %></p>
           <% end %>
-          <%if Organization.where(user_id:current_user.id).present?  %>
+          <% if Organization.where(user_id:current_user.id).present?  %>
             <p><%= link_to "Go to My Organization", organization_path(@organization)%></p>
           <% end %>
           <% if policy(@user).edit? %>
