@@ -20,7 +20,7 @@ users = User.create! (
   first_name: "Heino",
   last_name: "Heinemann",
   city: "Koln",
-  interests: "I love doing good!"
+  interests: "I love doing good!",
   bio: "Built a house in Tanzania last summer.",
   dob: "1991-09-18 10:07:05 +0100",
   phone: "986 7654 34987",
