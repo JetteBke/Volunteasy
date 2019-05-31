@@ -25,12 +25,12 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.create(booking_params)
-    @booking.event = Event.find(params[:id])
+    @booking = Booking.create
+    @booking.event = Event.find(params[:event_id])
     @booking.user = current_user
     authorize @booking
     if @booking.save
-      redirect_to events_index_path
+      redirect_to current_user
     else
       render :new
     end
