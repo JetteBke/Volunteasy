@@ -20,4 +20,8 @@ class EventPolicy < ApplicationPolicy
   def new?
     true
   end
+
+  def edit?
+    true
+  end
 end
