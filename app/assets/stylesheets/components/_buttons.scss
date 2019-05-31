@@ -30,3 +30,45 @@
 .btn-completed {
   background: blue;
 }
+
+
+.btn-confirm {
+  background: blue;
+}
+
+.btn-reject {
+  background: red;
+}
+
+.btn-organization-show {
+  background: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  color: black;
+  padding: 8px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px auto;
+}
+
+.btn-organization-show:hover {
+  background: white;
+  border: 1px solid black;
+  border-radius: 25px;
+  color: grey;
+  padding: 8px 7px;
+  text-align: center;
+  display: inline-block;
+  margin: 5px auto;
+}
+
+
+#link-organization {
+  color: grey;
+}
+
+#link-organization:hover {
+  color:black;
+  text-decoration: underline;
+}

@@ -16,4 +16,8 @@ class BookingPolicy < ApplicationPolicy
   def reject?
     true
   end
+
+  def destroy?
+    true
+  end
 end

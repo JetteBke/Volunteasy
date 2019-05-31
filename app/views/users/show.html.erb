@@ -29,31 +29,30 @@
           <div class="w-100"></div>
         </div>
       </div>
-      <% if current_user == @user %>
-      <div class=" card-do-good col-lg-2 col-md-12 col-sm-12">
-        <p><%= link_to "Do Good", events_path, class:"btn btn-success" %></p>
-          <% if policy(Organization).create? %>
-            <p><%= link_to "Create an organization", new_organization_path %></p>
-          <% end %>
-          <%if Organization.where(user_id:current_user.id).present?  %>
-            <p><%= link_to "Go to My Organization", organization_path(@organization)%></p>
-          <% end %>
-          <% if policy(@user).edit? %>
-            <p><%= link_to "Edit your profile", edit_user_registration_path%></p>
-          <% end %>
-
-      </div>
-      <% end %>
     </div>
+    <% if current_user == @user %>
+      <div class=" card-do-good col-lg-2 col-md-12 col-sm-12">
+        <p><%= link_to "Do Good", events_path, class:"btn btn-success float-center" %></p>
+        <% if Organization.where(user:current_user).present? %>
+          <p><%= link_to "Go to My Organization", organization_path(@organization), id:"link-organization"%></p>
+        <% else %>
+          <p><%= link_to "Create an organization", new_organization_path, id:"link-organization" %></p>
+        <% end %>
+        <% if policy(@user).edit? %>
+          <p><%= link_to "Edit your profile", edit_user_registration_path, id:"link-organization"%></p>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-<!--  col-lg-8 col-md-8 col-sm-10 -->
 
 <div class="container mt-0">
   <% if current_user == @user %>
     <h1 class="text-center">My Bookings</h1>
     <div class="row">
       <% if @bookings.empty? %>
+      <div class="row card-background mt-4">
         <p>No Bookings yet</p>
+      </div>
       <% else %>
 
         <% @bookings.each do |booking| %>
@@ -117,7 +116,6 @@
                    <div class="row card-background ml-0 mr-0">
                       <%= booking.event.description %>
                       <p>Task: <%= booking.event.task %></p>
-                   </div>
                   </div>
                  </div>
 
@@ -132,7 +130,7 @@
                  <h2 class="text-left">Pending</h2>
                  </div>
                  <div class="col col-lg-4 mt-2 mb-2">
-                      <%= link_to 'Cancel Booking', current_user, data: {:confirm => 'Are you sure?'}, :method => :delete, class:" btn btn-cancelled btn-warning float-right" %>
+                      <%= link_to 'Cancel Booking', booking, data: {:confirm => 'Are you sure?'}, method: :delete, class:" btn btn-cancelled btn-warning float-right" %>
                    </div>
                 </div>
                 <div class="row card-background mt-4">
@@ -218,4 +216,5 @@
             <% end %>
              </div>
     </div>
+</div>
 </div>

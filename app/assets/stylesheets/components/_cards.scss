@@ -6,16 +6,29 @@
 }
 
 .card {
+display: flex;
+background-color: white;
+flex-direction: column;
+margin: 20px;
+height: auto;
+width: 300px;
+justify-content: space-around;
+align-items: center;
+box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .1);
+border-radius: 2px;
+}
+
+.card-event-show {
  display: flex;
  background-color: white;
  flex-direction: column;
- margin: 20px;
+ padding: 20px;
  height: auto;
- width: 300px;
+ width: auto;
  justify-content: space-around;
  align-items: center;
  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .1);
- border-radius: 2px;
+ border-radius: 5px;
 }
 
 .card-do-good {
@@ -107,4 +120,10 @@
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.125);
   width:100%;
+}
+
+#organization-show {
+  width: 700px;
+  padding: 20px 20px;
+  margin: 20px auto;
 }
