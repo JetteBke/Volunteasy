@@ -1,5 +1,5 @@
 
-<div class="container mt-5" id="view_container">
+<div class="container mt-5">
   <h1><%= @event.title %></h1>
 <h3>hosted by <%= @event.organization.name  %></h3>
 <p><%= @event.address  %></p>
@@ -91,4 +91,5 @@
   <%= link_to "Edit event", edit_organization_event_path(@organization, @event) %>
 <% end %>
 
-
+</div>
+</div>
