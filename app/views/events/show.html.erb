@@ -7,7 +7,7 @@
 
     <div class=" card col-lg-4 col-md-12 col-sm-12">
       <div class="row">
-        <div class="col text-center"><h2><%= @event.title %></h2></div>
+        <div class="col text-left"><h2><%= @event.title %></h2></div>
         <div class="w-100"></div>
         <div class="col-4">Hosted by: </div>
         <div class="col-8"><%= @event.organization.name %></div>
@@ -44,25 +44,31 @@
 
 
 
-<div class="container">
-  <ul class="list-group list-group-flush">
+<div class="container card-background">
+
     <% if @event.organization.user == current_user %>
-    <% if @bookings.empty? %>
-    <p>No Bookings yet</p>
+      <% if @bookings.empty? %>
+      <p>No Bookings yet</p>
     <% else %>
-    <% @bookings.each do |booking| %>
-    <li class="list-group-item">
-      Booking: <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
-      Status: <%= booking.status %>
-      <% if booking.status == "Pending" %>
-      <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post %>
-      <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post %>
-      <% end %>
-    </li>
+      <% @bookings.each do |booking| %>
+        <div class="row">
+          <div class="col">
+            <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
+          </div>
+          <div class="col">
+            Status: <%= booking.status %>
+          </div>
+          <div class="col">
+            <% if booking.status == "Pending" %>
+              <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
+              <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
+            <% end %>
+          </div>
+        </div>
     <% end %>
     <% end %>
     <% end %>
-  </ul>
+
 </div>
 </div>
 
