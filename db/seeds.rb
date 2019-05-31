@@ -20,11 +20,11 @@ users = User.create! (
   first_name: "Heino",
   last_name: "Heinemann",
   city: "Koln",
-  interests: "I love doing good!",
+  interests: "I love doing good!"
   bio: "Built a house in Tanzania last summer.",
   dob: "1991-09-18 10:07:05 +0100",
   phone: "986 7654 34987",
-  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg"
+  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559300042/IMG_9744_qelq9e.jpg"
 },
 {email: "samuel@guardianangels.com",
   password: "123456",
@@ -34,7 +34,8 @@ users = User.create! (
   interests: "I want to find new opportunities in my area!",
   bio: "Saved 85 turtles in Fiji over the Spring.",
   dob: "1998-08-10 15:07:05 +0100",
-  phone: "456 7345 343457"
+  phone: "456 7345 343457",
+  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559300047/IMG_9742_bgqzm3.jpg"
 },
 {email: "jon@snow.com",
   password: "123456",
