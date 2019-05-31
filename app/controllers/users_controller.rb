@@ -4,7 +4,7 @@ before_action :set_user, except: [:update]
 
   def show
     authorize @user
-    @bookings = Booking.where(user:current_user)
+    @bookings = Booking.where(user: @user)
     @organization = Organization.where(user_id:current_user.id).first
   end
 
