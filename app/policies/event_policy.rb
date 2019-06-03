@@ -24,4 +24,12 @@ class EventPolicy < ApplicationPolicy
   def edit?
     true
   end
+
+  def update?
+    true
+  end
+
+  def destroy?
+    record.organization.user == user
+  end
 end

@@ -1,8 +1,8 @@
 <div class="my-forms my-4">
   <div class="container w-50 py-3 purple-gradient color-block" id="form-container">
     <h5 class="text-center">Edit event</h5>
-    <%= link_to "Go back to the organization", @organization %>
-    <%= simple_form_for([@organization, @event], url: organization_events_path(@organization)) do |f| %>
+    <%= link_to "<< Go back to the organization", @organization, id:'link-organization' %>
+    <%= simple_form_for [@organization, @event] do |f| %>
       <%= f.input :title, label_html: {class:'pt-1'} %>
       <%#= f.input :start_at, label_html: {class:'pt-4'}, input_html: { value: localize(f.object.start_at) } %>
       <%= f.input :start_at, as: :datetime%>
