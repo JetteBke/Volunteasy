@@ -1,3 +1,6 @@
+<div class="mt-2 ml-5">
+  <%= link_to "<< All events", events_path, id:"link-organization" %>
+</div>
 
 <div class="container mt-5">
   <h5><%= @event.title %></h5>
@@ -54,12 +57,6 @@
       <% end %>
     <% end %>
 </div>
-
-
-
-<%= link_to "Go back to see all events", events_path %>
-
-
 
 <% if current_user == @event.organization.user %>
   <%= link_to "Edit event", edit_organization_event_path(@organization, @event) %>

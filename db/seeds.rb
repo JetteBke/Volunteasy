@@ -64,7 +64,7 @@ users = User.create! (
   city: "Columbo",
   interests: "Surfing and drinking wine with Jette and Izzy",
   bio: "grew up in Sri Lanka, ate a lot of bananas and saved monkeys.",
-  dob: "1993-05- 11:07:05 +0100",
+  dob: "1993-05-23 11:07:05 +0100",
   phone: "644 3543 234526"
 },
 {email: "Luis@yoga.com",
