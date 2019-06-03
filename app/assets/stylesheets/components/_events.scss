@@ -5,6 +5,25 @@
   grid-row-end: 16px;
 }
 
+#event-form {
+  display: flex;
+  direction: column;
+  padding: 10px;
+}
+
+.button_event {
+  background-color: #1FAB89; /* Green */
+  border: none;
+  color: white;
+  padding: 0px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  height: 68%;
+  align-self: center;
+}
+
 @media (min-width: 10px) {
   .events-index-grid {
     grid-template-columns: 1fr;
@@ -28,3 +47,4 @@
     grid-template-columns: 1fr 1fr;
   }
 }
+

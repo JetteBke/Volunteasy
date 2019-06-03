@@ -14,6 +14,10 @@ class EventsController < ApplicationController
       @events = @events.date_between(start_date, end_date)
     end
 
+    if params[:category].present?
+      @events = @events.search_by_title_and_task_and_description_and_category(params[:category])
+    end
+
     @markers = @events.map do |event|
       {
         lat: event.latitude,
