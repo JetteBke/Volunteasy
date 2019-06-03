@@ -1,29 +1,30 @@
-
-
 <div class="container">
   <div class="flexbox-container">
     <h3 class="pt-4 pb-2 text-center" style="color:grey;">Upcoming Events</h3>
   </div>
 <% if policy(@events).index? %>
-  <div class="container pb-5">
+  <div class="d-flex justify-content-start">
   <%= form_tag events_path, method: :get do %>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control w-50 mb-5 m-auto",
+      class: "form-control m-10",
       placeholder: "Find the perfect event for you..."
     %>
+    <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
+    <%= submit_tag :search, class: "btn button_landingpage" %>
   <% end %>
   </div>
 
+
   <!-- Commented out the dropdown for friday demo -->
-  <!-- <div class="ui compact menu">
+<div class="ui compact menu">
    <div class="ui simple dropdown item">
      Dropdown
      <i class="dropdown icon"></i>
      <div class="menu">
-       <div class="item"><%#= link_to "Environment", query: "Environment" %></div>
-       <div class="item"><%#= link_to "Animal", query: "Animal" %></div>
-       <div class="item"><%#= link_to "Community", query: "Community" %></div>
+       <div class="item"><%= link_to "Environment", query: "Environment" %></div>
+       <div class="item"><%= link_to "Animal", query: "Animal" %></div>
+       <div class="item"><%= link_to "Community", query: "Community" %></div>
      </div>
    </div>
   </div> -->

@@ -1,40 +1,13 @@
 <div class="my-forms">
   <div class="container py-5">
-
     <h5>How was the event? Add a review, <%= current_user.first_name %>!</h5>
-
-    <%= simple_form_for(@review) do |f| %>
-      <%#= f.input :rating, label_html: {class:'pt-4'}  %>
-    <label for="">Rating</label>
-    <div class="rate-container">
-      <div class="rate">
-        <input type="radio" name="rate" value="5" />
-        <label for="star5" title="text">5 stars</label>
-        <input type="radio" name="rate" value="4" />
-        <label for="star4" title="text">4 stars</label>
-        <input type="radio" name="rate" value="3" />
-        <label for="star3" title="text">3 stars</label>
-        <input type="radio" name="rate" value="2" />
-        <label for="star2" title="text">2 stars</label>
-        <input type="radio" name="rate" value="1" />
-        <label for="star1" title="text">1 star</label>
-      </div>
-    </div>
-
-
-
+    <%= simple_form_for [@booking, @review] do |f| %>
+        <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
       <%= f.input :content, label_html: {class:'pt-4'}  %>
       <%= f.submit "Submit a review", class: "btn btn-primary my-3" %>
-
-
-      <%= f.submit "Back to Profile", class: "btn btn-primary my-3" %>
-
     <% end %>
-
-
-
   </div>
-
+</div>
 
 
 
