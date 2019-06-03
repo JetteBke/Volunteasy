@@ -6,4 +6,8 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { initializePickers } from '../plugins/datepicker';
 
 initMapbox();
+
+import { initStarRating } from '../plugins/init_star_rating';
+
+initStarRating();
 initializePickers();

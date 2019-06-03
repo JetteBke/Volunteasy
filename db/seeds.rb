@@ -290,6 +290,11 @@ bookings = Booking.create! (
       status: "Pending",
       event_id: "5",
       user_id: "6"
+    },
+    {
+      status: "Completed",
+      event_id: "3",
+      user_id: "1"
     }
   ])
 

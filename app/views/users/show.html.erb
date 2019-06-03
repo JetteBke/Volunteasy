@@ -89,22 +89,35 @@
 
   <% elsif booking.status == "Completed" %>
 
-  <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-   <div class="row">
-    <div class="col">
-     <h2 class="text-left">Completed</h2>
-   </div>
-   <div class="col col-lg-4 mt-2 mb-0">
-    <%= link_to "Write Review", new_review_path, class:"btn btn-completed float-right" %>
-  </div>
-</div>
-<div class="row card-background mt-4">
- <div class="col col-lg-6   mt-3">
-   <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-   Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-   Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-   <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
- </div>
+                <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
+                 <div class="row">
+                  <div class="col">
+                 <h2 class="text-left">Completed</h2>
+                 </div>
+                  <div class="col col-lg-4 mt-2 mb-0">
+                    <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right" %>
+                   </div>
+                   </div>
+                  <div class="row card-background mt-4">
+                   <div class="col col-lg-6   mt-3">
+                       <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
+                       Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
+                       Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
+                       <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
+                   </div>
+
+                   <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
+
+                    Address: <%= booking.event.address %>
+
+                    <%= booking.event.spots %>
+                   </div>
+
+                   <div class="row card-background ml-0 mr-0">
+                      <%= booking.event.description %>
+                      <p>Task: <%= booking.event.task %></p>
+                  </div>
+                 </div>
 
  <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
 
