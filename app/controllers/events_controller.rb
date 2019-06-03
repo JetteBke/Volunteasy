@@ -2,12 +2,19 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @events = policy_scope(Event).order(created_at: :desc)
+
     if params[:query].present?
-      @events = policy_scope(Event).search_by_title_and_task_and_description_and_category(params[:query])
-    else
-      @events = policy_scope(Event).order(created_at: :desc)
+      @events = @events.search_by_title_and_task_and_description_and_category(params[:query])
     end
-     @markers = @events.map do |event|
+
+    if params[:date].present?
+      start_date, end_date = params[:date].split(' - ')
+
+      @events = @events.date_between(start_date, end_date)
+    end
+
+    @markers = @events.map do |event|
       {
         lat: event.latitude,
         lng: event.longitude,
