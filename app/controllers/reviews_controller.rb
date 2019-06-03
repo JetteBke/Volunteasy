@@ -9,8 +9,9 @@ before_action :find_booking
   def create
     @review = Review.create(review_params)
     authorize @review
+    @review.booking = @booking
     if @review.save
-      redirect_to organization_path(@organization)
+      redirect_to organization_path(@booking.event.organization)
     else
       render :new
     end
