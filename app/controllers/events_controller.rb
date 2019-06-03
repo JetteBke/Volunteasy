@@ -47,8 +47,6 @@ class EventsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @event.organization = @organization
     authorize @event
-
-
     if @event.save
       redirect_to @event
     else
@@ -63,13 +61,19 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
+    authorize @event
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      render :edit
+    end
   end
 
   def destroy
     @event.delete
     authorize @event
-    redirect_to organization_path(@event.organization)
+    @organization = Organization.find(params[:organization_id])
+    redirect_to @organization
   end
 
   private

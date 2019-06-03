@@ -1,49 +1,82 @@
-<div class="container mt-5">
-  <!-- <h1 class="text-center">My Profile</h1> -->
-  <div class="row">
-    <div class="col-lg-3 col-md-12 col-sm-12 text-center profile-image">
-      <%= cl_image_tag current_user.photo %>
+  <div class="container">
+    <div class="panel-heading">
+       <h1 class="text-center mt-0"><%= @user.first_name %> <%= @user.last_name %></h1>
     </div>
-    <div class=" card col-lg-4 col-md-12 col-sm-12">
-      <div class="row">
-        <div class="col text-center"><h2><%= @user.first_name %> <%= @user.last_name %></h2></div>
-        <div class="w-100"></div>
-        <div class="col-4">Age:</div>
-        <div class="col-8"><%= Time.zone.now.year - @user.dob.year %></div>
-        <div class="w-100"></div>
-        <div class="col-4">City:</div>
-        <div class="col-8"><%= @user.city %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Email:</div>
-        <div class="col-8"><%= @user.email %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Phone:</div>
-        <div class="col-8"><%= @user.phone %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Interests:</div>
-        <div class="col-8"><%= @user.interests %></div>
-        <div class="w-100"></div>
-        <div class="col-4">Bio:</div>
-        <div class="col-8"><%= @user.bio %></div>
-        <div class="w-100"></div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
+        <%= image_tag @user.photo, :class => "profile-image" %>
+      </div>
 
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
+
+
+        <div class="panel panel-info">
+
+          <div class="panel-body">
+            <div class="row">
+              <div class=" col-md-12 col-lg-12 ">
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td>Age:</td>
+                      <td><%= Time.zone.now.year - @user.dob.year %></td>
+                    </tr>
+                    <tr>
+                      <td>City:</td>
+                      <td><%= @user.city %></td>
+                    </tr>
+                    <tr>
+                      <td>Email:</td>
+                      <td><%= @user.email %></td>
+                    </tr>
+                    <tr>
+                     <tr>
+                      <td>Phone</td>
+                      <td><%= @user.phone %></td>
+                    </tr>
+                    <tr>
+                      <td>Interests:</td>
+                      <td><%= @user.interests %></td>
+                    </tr>
+                    <tr>
+                      <td>Bio:</td>
+                      <td><%= @user.bio %></td>
+                    </tr>
+                  </tr>
+
+                </tbody>
+              </table>
+              <% if current_user == @user %>
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="ml-2">
+                      <p><%= link_to "Do Good", events_path, class:"btn btn-success float-center" %></p>
+
+                    </td>
+                    <td>
+                      <% if Organization.where(user:current_user).present? %>
+                      <p><%= link_to "Go to Organization", organization_path(@organization), class:"btn-organization-show ml-2"%></p>
+                      <% else %>
+                      <p><%= link_to "Create organization", new_organization_path, class:"btn-organization-show ml-2" %></p>
+                      <% end %>
+                    </td>
+                    <td>
+                      <% if policy(@user).edit? %>
+                      <p><%= link_to "Edit profile", edit_user_registration_path, id:"link-organization", class:"ml-2"%></p>
+                      <% end %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <% if current_user == @user %>
-    <div class=" card-do-good col-lg-2 col-md-12 col-sm-12">
-      <p><%= link_to "Do Good", events_path, class:"btn btn-success float-center" %></p>
-      <% if Organization.where(user:current_user).present? %>
-      <p><%= link_to "Go to My Organization", organization_path(@organization), id:"link-organization"%></p>
-      <% else %>
-      <p><%= link_to "Create an organization", new_organization_path, id:"link-organization" %></p>
-      <% end %>
-      <% if policy(@user).edit? %>
-      <p><%= link_to "Edit your profile", edit_user_registration_path, id:"link-organization"%></p>
-      <% end %>
-    </div>
-    <% end %>
   </div>
-</div>
+
 
 <div class="container mt-0">
   <% if current_user == @user %>
@@ -89,37 +122,37 @@
 
   <% elsif booking.status == "Completed" %>
 
-                <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-                 <div class="row">
-                  <div class="col">
-                 <h2 class="text-left">Completed</h2>
-                 </div>
-                  <div class="col col-lg-4 mt-2 mb-0">
-                    <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right" %>
-                   </div>
-                   </div>
-                  <div class="row card-background mt-4">
-                   <div class="col col-lg-6   mt-3">
-                       <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-                       Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-                       Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-                       <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
-                   </div>
-
-                   <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
-
-                    Address: <%= booking.event.address %>
-
-                    <%= booking.event.spots %>
-                   </div>
-
-                   <div class="row card-background ml-0 mr-0">
-                      <%= booking.event.description %>
-                      <p>Task: <%= booking.event.task %></p>
-                  </div>
-                 </div>
+  <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
+   <div class="row">
+    <div class="col">
+     <h2 class="text-left">Completed</h2>
+   </div>
+   <div class="col col-lg-4 mt-2 mb-0">
+    <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right" %>
+  </div>
+</div>
+<div class="row card-background mt-4">
+ <div class="col col-lg-6   mt-3">
+   <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
+   Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
+   Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
+   <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
+ </div>
 
  <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
+
+  Address: <%= booking.event.address %>
+
+  <%= booking.event.spots %>
+</div>
+
+<div class="row card-background ml-0 mr-0">
+  <%= booking.event.description %>
+  <p>Task: <%= booking.event.task %></p>
+</div>
+</div>
+
+<div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
 
   Address: <%= booking.event.address %>
 
@@ -231,3 +264,4 @@
         </div>
       </div>
     </div>
+</div>
