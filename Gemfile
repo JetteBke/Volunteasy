@@ -35,3 +35,7 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem 'jquery-rails' # dependency of daterangepicker
+gem 'momentjs-rails' # dependency of daterangepicker
+gem 'bootstrap-daterangepicker-rails'
