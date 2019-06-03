@@ -1,5 +1,8 @@
-<div class="mt-2 ml-5">
+<div class="d-flex justify-content-between m-4">
   <%= link_to "<< All events", events_path, id:"link-organization" %>
+<% if current_user == @event.organization.user %>
+<%= link_to "Edit event", edit_organization_event_path(@organization, @event), id:"link-organization" %>
+<% end %>
 </div>
 
 <div class="container">
@@ -62,6 +65,4 @@
   <% end %>
   <% end %>
 </div>
-<% if current_user == @event.organization.user %>
-<%= link_to "Edit event", edit_organization_event_path(@organization, @event) %>
-<% end %>
+
