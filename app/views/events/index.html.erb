@@ -11,13 +11,13 @@
       placeholder: "Find the perfect event for you..."
     %>
   <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
-    <%= submit_tag :search, class: "btn button_event" %>
+    <%= submit_tag :search, class: "btn btn-event-index" %>
   <% end %>
     </div>
     </div>
     <div class= "d-flex justify-content-between border-bottom">
 
-  <div class="ui compact menu">
+  <div class="ui compact menu" style="margin-left:20px !important;">
    <div class="ui simple dropdown item">
     Category
      <i class="dropdown icon"></i>
