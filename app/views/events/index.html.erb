@@ -5,15 +5,18 @@
   <div class="d-flex justify-content-between  border-bottom">
 <% if policy(@events).index? %>
   <%= form_tag events_path, id: "event-form",method: :get do %>
+  <div class="index-search">
+   <span class="fas fa-search"></span>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control m-10",
+      class: "form-control",
+      style: "margin-right: 20px;",
       placeholder: "Find the perfect event for you..."
     %>
+    </div>
   <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
     <%= submit_tag :search, class: "btn btn-event-index" %>
   <% end %>
-    </div>
     </div>
     <div class= "d-flex justify-content-between border-bottom">
 
@@ -34,7 +37,7 @@
   <!-- Commented out the dropdown for friday demo -->
 <% end %>
 
-<div class="container">
+<div class="index-container">
   <div class="events-index-grid">
     <div class ="cards">
     <% @events.each do |event| %>

@@ -7,7 +7,6 @@
 
 <div class="container">
   <h5><%= @event.title %></h5>
-  Hosted by:<h3><%= link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></h3>
   <div class="events-index-grid">
     <!-- <h1 class="text-center">My Profile</h1> -->
     <div class="col-lg-12 col-md-12 col-sm-12 text-center px-0">
@@ -15,6 +14,8 @@
     </div>
     <div class="card-event-show col-lg-10 col-md-6 col-sm-12">
       <div class="row">
+        <div class="col-2"><p> Hosted by:</p></div>
+        <div class="col-10"><%=link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></div>
         <div class="col-2"><i class="fas fa-map-pin"></i></div>
         <div class="col-10"><%= @event.address %></div>
         <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"></div>
@@ -23,6 +24,10 @@
         <div class="col-10"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
         <div class="col-2"><i class="fas fa-users"></i></div>
         <div class="col-10"><%= @bookings.size %>/<%= @event.spots %> spots taken</div>
+        <div class="col-2"><p>Details</p></div>
+        <div class="col-10"><%= @event.description %></div>
+      <div class="col-2"><p>Task</p></div>
+        <div class="col-10"><%= @event.task %></div>
       </div>
       <% if @bookings.where(user:current_user).any? %>
       <button type="disabled">Applied</button>
@@ -32,16 +37,8 @@
     </div>
   </div>
 </div>
-<div class="container  mt-2">
-  <h3>Event Description:</h3>
-  <p><%= @event.description  %></p>
-  <h3>Task Description:</h3>
-  <p><%= @event.task  %></p>
-</div>
 
-<div class="container" id='link-organization'>
-  Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-</div>
+
 
 <!-- https://www.flaticon.com/packs/speedometer-and-time-1 -->
 
@@ -50,27 +47,33 @@
 <div class="container card-background">
   <p>No Bookings yet</p>
   <% else %>
+   <div class="container">
+    <h2>Bookings</h2>
   <% @bookings.each do |booking| %>
-  <div class="row">
-    <div class="col">
+    <div class="li list-group-item">
       <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
-    </div>
-    <div class="col">
+
+
       Status: <%= booking.status %>
-    </div>
-    <div class="col">
+
+
       <% if booking.status == "Pending" %>
       <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
       <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
       <% end %>
-    </div>
   </div>
   <% end %>
   <% end %>
   <% end %>
-</div>
-<% if current_user == @event.organization.user %>
-<%= link_to "Edit event", edit_organization_event_path(@organization, @event), id:'link-organization' %>
+
+  <% if current_user == @event.organization.user %>
 <%= link_to "Delete event", organization_event_path(@organization, @event), method: :delete, confirm: "Are you sure?", id:'link-organization' %>
 <% end %>
+</div>
+</div>
 
+
+
+<div style="margin-left:10px;"id='link-organization'>
+  Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
