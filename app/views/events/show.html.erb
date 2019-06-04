@@ -22,7 +22,7 @@
         <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"></div>
         <div class="col-10"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
         <div class="col-2"><i class="fas fa-users"></i></div>
-        <div class="col-10"><%= @event.spots %></div>
+        <div class="col-10"><%= @bookings.size %>/<%= @event.spots %> spots taken</div>
       </div>
       <% if @bookings.where(user:current_user).any? %>
       <button type="disabled">Applied</button>
