@@ -3,18 +3,21 @@
   <div class="card" id="organization-show">
           <div class="col text-center"><h2><%= @organization.name %></h2></div>
           <div class="col text-center pb-3">
-            <% sum = 0  %>
-            <% @reviews.each do |review| %>
+                      <% if !@reviews.empty? %>
 
+            <% sum = 0.0  %>
+            <% @reviews.each do |review| %>
             <% sum += review.rating %>
             <% end %>
             <% average = sum / @reviews.size %>
-            <% average.times do %>
+            <% stars = average.to_i %>
+            <% stars.times do %>
             <i class="fas fa-star"></i>
             <% end %>
-              (<a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
+            (<%= average.round(2) %>)
+              | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
             <%= @reviews.size %> reviews
-          </a>)
+          </a>
           </div>
 
           <!-- Modal -->
@@ -29,7 +32,6 @@
                 </div>
                 <div class="modal-body">
                   <% @reviews.each do |review| %>
-                  <% if review.booking.event.organization == @organization %>
   <p>
     <% review.rating.times do %>
       <i class="fas fa-star"></i>
@@ -40,13 +42,13 @@
     <% end %>
   </p>
   <%= review.content %>
-  <% end %>
 <% end %>
 
                 </div>
               </div>
             </div>
           </div>
+          <% end %>
 
 
 
