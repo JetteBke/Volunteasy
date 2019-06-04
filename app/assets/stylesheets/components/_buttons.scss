@@ -17,6 +17,7 @@
 
 .btn-confirmed {
   background: green;
+  height: auto;
 }
 
 .btn-rejected {
@@ -34,10 +35,20 @@
 
 .btn-confirm {
   background: blue;
+  height: auto;
+  border-radius: 8px;
+  font-size: 14px;
+  margin: 2px;
+  padding: 4px;
 }
 
 .btn-reject {
   background: red;
+  height: auto;
+  border-radius: 8px;
+  font-size: 14px;
+  margin: 2px;
+  padding: 4px;
 }
 
 .btn-organization-show {

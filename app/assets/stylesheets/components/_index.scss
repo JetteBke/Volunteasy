@@ -21,3 +21,25 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+.index-container {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.index-search {
+    position: relative;
+    width: 100%;
+    margin-right: 14px;
+}
+
+.index-search input { text-indent: 18px;}
+
+.index-search .fa-search {
+    position: absolute;
+    top: 20px;
+    left: 15px;
+    cursor: pointer;
+    color: grey;
+}
