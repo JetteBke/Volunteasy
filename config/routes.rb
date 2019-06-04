@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  devise_for :users
+  devise_for :users, controllers: { sessions: 'sessions' }
 
   resources :users, only: [:show, :edit, :update]
   resources :organizations do

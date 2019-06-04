@@ -50,6 +50,7 @@
 
 .navbar-container {
   justify-self: right;
+  width: max-content;
 }
 
 .navbar body {
@@ -59,10 +60,13 @@
 @media (min-width: 380px), (max-width: 576px) {
 .navbar-expand-sm {
     justify-content: space-between;
+  }
 }
 
+.login-input {
+  align-self: center;
+  margin-right: 10px;
+  padding: auto;
 }
-
-
 
 
