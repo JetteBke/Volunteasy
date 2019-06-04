@@ -116,7 +116,7 @@ organizations = Organization.create! (
       category: "Community",
       url: "www.heino-for-the-world.com",
       description: "Our small organization 'Heino for the World' tries to bring a better life to the homeless by organizing events where we give free haircuts, prepare food or collect clothing for the homeless people of Lisbon.",
-      photo_url: "",
+      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       user_id: "1"
     },
     {
@@ -125,7 +125,7 @@ organizations = Organization.create! (
       category: "Animals",
       url: "www.guardianangels.com",
       description: "At Guardian Angels we care about animals more than everything else. We support vegan food shops and restaurants and we try to help abandoned pets to find new homes.",
-      photo_url: "",
+      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       user_id: "2"
     },
     {
@@ -134,7 +134,7 @@ organizations = Organization.create! (
       category: "Environment",
       url: "www.plasticattack.com",
       description: "Our story is short but we have big plans: We want to free the world from one use plastics by spreading awareness! We organize clean ups and other events to help reducing waste.",
-      photo_url: "",
+      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       user_id: "3"
     },
     {
@@ -143,7 +143,7 @@ organizations = Organization.create! (
       category: "Environment",
       url: "save-the-oceans.com",
       description: "The beautiful beaches around Lisbon become more and more dirty. Our targets are too much plastic cups, careless visitors and the too few trash cans.",
-      photo_url: "",
+      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       user_id: "5"
     }])
 
