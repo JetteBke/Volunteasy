@@ -57,7 +57,7 @@
 
 
 
-          <div class="col text-center pb-3">created by <% if policy(User).show? %>
+          <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
           <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
           <% end %>
           </div>
