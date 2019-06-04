@@ -7,6 +7,7 @@ gem 'pundit'
 gem 'cloudinary', '~> 1.9.1'
 gem 'semantic-ui-rails'
 gem 'geocoder'
+gem 'letter_opener', group: :development
 
 gem 'bootsnap', require: false
 gem 'devise'

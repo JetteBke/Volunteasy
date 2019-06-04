@@ -106,37 +106,37 @@ organizations = Organization.create! (
   [
     {
       name: "Heino for the World",
-      address: "Everywhere people want to do good!",
+      address: "23 Praca do Principe Real, Lisbon",
       category: "Community",
-      url: "heino@heinemann.com",
-      description: "Founded by our fearless leader, Heino Heinemann - the brainchild of the revolutionary Team at Volunteasy.",
+      url: "www.heino-for-the-world.com",
+      description: "Our small organization 'Heino for the World' tries to bring a better life to the homeless by organizing events where we give free haircuts, prepare food or collect clothing for the homeless people of Lisbon.",
       photo_url: "",
       user_id: "1"
     },
     {
       name: "Guardian Angels",
-      address: "7th Level of Heaven",
+      address: "R. De Dona Estefânia 104, 1150-176 Lisboa",
       category: "Animals",
-      url: "google.com",
-      description: "Heavenly bodies coming together to save the world",
+      url: "www.guardianangels.com",
+      description: "At Guardian Angels we care about animals more than everything else. We support vegan food shops and restaurants and we try to help abandoned pets to find new homes.",
       photo_url: "",
       user_id: "2"
     },
     {
-      name: "Tattoos for all",
+      name: "Plastic Attack",
       address: "Rua de Arroios 25, Lisbon",
-      category: "Community",
-      url: "tattooes-for-all.com",
-      description: "We are tattooing everybody for free as long as they are homeless and in Lisbon.",
+      category: "Environment",
+      url: "www.plasticattack.com",
+      description: "Our story is short but we have big plans: We want to free the world from one use plastics by spreading awareness! We organize clean ups and other events to help reducing waste.",
       photo_url: "",
-      user_id: "8"
+      user_id: "3"
     },
     {
       name: "Save the Oceans",
       address: "R Gomes Freire 91",
       category: "Environment",
       url: "save-the-oceans.com",
-      description: "SAVE THE OCEANS YOU MOTHERFUCKERS",
+      description: "The beautiful beaches around Lisbon become more and more dirty. Our targets are too much plastic cups, careless visitors and the too few trash cans.",
       photo_url: "",
       user_id: "5"
     }])
@@ -144,8 +144,6 @@ organizations = Organization.create! (
 #other categories are "Animals" and "Environment"
 
 puts "Creating Events"
-
-
 
 events = Event.create! (
   [
@@ -245,10 +243,25 @@ puts "Creating Bookings"
 
 bookings = Booking.create! (
   [
+     {
+      status: "Completed",
+      event_id: "4",
+      user_id: "2"
+    },
+    {
+      status: "Completed",
+      event_id: "4",
+      user_id: "3"
+    },
+    {
+      status: "Completed",
+      event_id: "4",
+      user_id: "4"
+    },
     {
       status: "Confirmed",
       event_id: "1",
-      user_id: "3"
+      user_id: "5"
     },
     {
       status: "Pending",
@@ -299,6 +312,11 @@ bookings = Booking.create! (
       status: "Completed",
       event_id: "3",
       user_id: "1"
+    },
+    {
+    status: "Completed",
+    event_id: "1",
+    user_id: "2"
     }
   ])
 
@@ -313,22 +331,22 @@ reviews = Review.create! ([
     {
       rating: 4,
       content: "Definitely a trip to remember. Going into this trip I didn’t really know wht to expect in terms of how much we were really able to do (in terms of hands-on in surgery) and homestays. All the vets were very helpful in explaining and being patient with us. It was an amazing experience as well as we got a chance to experience the culture first hand. ",
-      booking_id: "1"
+      booking_id: "2"
     },
     {
       rating: 4,
       content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
-      booking_id: "1"
+      booking_id: "3"
     },
     {
       rating: 4,
       content: "It’s amazing! Teaching English or medical in the morning then orphanages at night. The weekends you have free and the house managers great about helping you book trips. Amazing experience.",
-      booking_id: "1"
+      booking_id: "4"
     },
     {
      rating: 4,
      content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
-     booking_id: "1"
+     booking_id: "5"
    }
  ])
 
