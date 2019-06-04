@@ -67,7 +67,7 @@ users = User.create! (
   interests: "Surfing and drinking wine with Jette and Izzy",
   bio: "grew up in Sri Lanka, ate a lot of bananas and saved monkeys.",
   dob: "1993-05-23 11:07:05 +0100",
-  phone: "644 3543 234526"
+  phone: "644 3543 234526",
   photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559648319/Screen_Shot_2019-06-04_at_12.36.56_PM_ie47uc.png"
 },
 {email: "shreedas@yoga.com",
@@ -89,7 +89,7 @@ users = User.create! (
   interests: "Playing pingpong while smoking a cigarette",
   bio: "works as an consultant at BCG and feed pigeons on the streets sometimes",
   dob: "1995-07-20 15:07:05 +0100",
-  phone: "644 3543 234526"
+  phone: "644 3543 234526",
   photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559648321/Screen_Shot_2019-06-04_at_12.36.10_PM_rndgey.png"
 },
 {email: "jamiebiondi@lannister.com",
@@ -100,7 +100,7 @@ users = User.create! (
   interests: "Tattoos.",
   bio: "Tattoo artist for life. Tattooed homeless people for free.",
   dob: "1985-03-03 15:07:05 +0100",
-  phone: "644 3543 234526"
+  phone: "644 3543 234526",
   photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559648315/Screen_Shot_2019-06-04_at_12.37.12_PM_eeiif1.png"
 }
 ])
@@ -250,17 +250,32 @@ puts "Creating Bookings"
 bookings = Booking.create! (
   [
      {
-      status: "Completed",
-      event_id: "4",
+      status: "Pending",
+      event_id: "2",
       user_id: "2"
+    },
+    {
+      status: "Pending",
+      event_id: "4",
+      user_id: "3"
     },
     {
       status: "Completed",
       event_id: "4",
       user_id: "3"
     },
-    {
+       {
       status: "Completed",
+      event_id: "4",
+      user_id: "3"
+    },
+    {
+      status: "Rejected",
+      event_id: "4",
+      user_id: "3"
+    },
+    {
+      status: "Rejected",
       event_id: "4",
       user_id: "4"
     },
