@@ -1,36 +1,43 @@
-<div class="container">
+
   <div class="flexbox-container">
     <h3 class="pt-4 pb-2 text-center" style="color:grey;">Upcoming Events</h3>
   </div>
+  <div class="d-flex justify-content-between  border-bottom">
 <% if policy(@events).index? %>
-  <div class="d-flex justify-content-start">
-  <%= form_tag events_path, method: :get do %>
+  <%= form_tag events_path, id: "event-form",method: :get do %>
+  <div class="index-search">
+   <span class="fas fa-search"></span>
     <%= text_field_tag :query,
       params[:query],
-      class: "form-control m-10",
+      class: "form-control",
+      style: "margin-right: 20px;",
       placeholder: "Find the perfect event for you..."
     %>
-    <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
-    <%= submit_tag :search, class: "btn button_landingpage" %>
+    </div>
+  <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
+    <%= submit_tag :search, class: "btn btn-event-index" %>
   <% end %>
+    </div>
+    <div class= "d-flex justify-content-between border-bottom">
+
+  <div class="ui compact menu" style="margin-left:20px !important;">
+   <div class="ui simple dropdown item">
+    Category
+     <i class="dropdown icon"></i>
+     <div class="menu">
+       <div class="item"><%= link_to "Environment", category: "Environment" %></div>
+       <div class="item"><%= link_to "Animal", category: "Animal" %></div>
+       <div class="item"><%= link_to "Community", category: "Community" %></div>
+     </div>
+   </div>
+  </div>
   </div>
 
 
   <!-- Commented out the dropdown for friday demo -->
-<div class="ui compact menu">
-   <div class="ui simple dropdown item">
-     Dropdown
-     <i class="dropdown icon"></i>
-     <div class="menu">
-       <div class="item"><%= link_to "Environment", query: "Environment" %></div>
-       <div class="item"><%= link_to "Animal", query: "Animal" %></div>
-       <div class="item"><%= link_to "Community", query: "Community" %></div>
-     </div>
-   </div>
-  </div> -->
 <% end %>
 
-
+<div class="index-container">
   <div class="events-index-grid">
     <div class ="cards">
     <% @events.each do |event| %>

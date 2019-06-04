@@ -17,6 +17,7 @@
 
 .btn-confirmed {
   background: green;
+  height: auto;
 }
 
 .btn-rejected {
@@ -34,10 +35,20 @@
 
 .btn-confirm {
   background: blue;
+  height: auto;
+  border-radius: 8px;
+  font-size: 14px;
+  margin: 2px;
+  padding: 4px;
 }
 
 .btn-reject {
   background: red;
+  height: auto;
+  border-radius: 8px;
+  font-size: 14px;
+  margin: 2px;
+  padding: 4px;
 }
 
 .btn-organization-show {
@@ -71,4 +82,15 @@
 #link-organization:hover {
   color:black;
   text-decoration: underline;
+}
+
+.btn-event-index   {
+  background: #76d3b1;
+  color: white;
+  border-radius: 20px;
+  padding: 8px 7px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 5px auto;
 }

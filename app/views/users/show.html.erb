@@ -43,7 +43,6 @@
                       <td><%= @user.bio %></td>
                     </tr>
                   </tr>
-
                 </tbody>
               </table>
               <% if current_user == @user %>
@@ -78,7 +77,9 @@
   </div>
 
 
- <% if @user == current_user %>
+
+  <% if @user == current_user %>
+
     <div class="container mt-0">
       <h1 class="text-center">My Bookings</h1>
 
@@ -88,6 +89,7 @@
           <p>No Bookings yet</p>
         </div>
       <% end %>
+
       <%= render 'users/booking', bookings: @completed_bookings %>
       <%= render 'users/booking', bookings: @confirmed_bookings %>
       <%= render 'users/booking', bookings: @pending_bookings %>
