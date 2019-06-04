@@ -154,12 +154,12 @@ events = Event.create! (
       start_at: "2019-06-28 10:07:05 +0100",
       ends_at: "2019-06-29 18:07:05 +0100",
       address: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
-      task: "Serve the population - clean the park.",
-      title: "Lets save the Park!",
+      task: "Tutor a child, one hour a week!",
+      title: "Tutor a Child in Reading at Bradford Elementary",
       spots: 10,
-      category: "Environment",
-      description: "The Park of the People is in danger. The powers that be are considering taking it away and replacing it with a shopping mall! Join us in a community effort to clean up the park, and make a petition to the government to make it a national monument.",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      category: "Community",
+      description: "Tutor one child, one hour a week and make a difference in their life! No prior teaching or tutoring experience is required. Training is provided online or in person in the highly effective Peak Reader curricula, and a trained site coordinator is always available during the tutoring sessions. Join Children's Literacy Center in the fight against illiteracy...One Child At a Time!",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       organization_id: "1",
       latitude: 38.726080,
       longitude: -9.145480
@@ -168,12 +168,15 @@ events = Event.create! (
       start_at: "2019-05-30 9:00:05 +0100",
       ends_at: "2019-05-31 18:07:05 +0100",
       address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
-      task: "Gather supplies and training to break into the Zoo",
-      title: "Operation Simba!",
+      task: "Become a member of our Community Educators team and teach community groups about Alzheimer's and dementia.",
+      title: "Be a Public Speaker for the Alzheimer's Association",
       spots: 20,
-      category: "Animal",
-      description: "Covert operation to break into the travelling circus and rescue all the circus animals. Top Secret.",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559050960/volunteers_er7ryk.jpg",
+      category: "Community",
+      description: "Interested in raising awareness? Know someone affected by the disease and want to make a difference in the future of those affected by the Alzheimer's Disease?
+
+Become a member of our Community Educators team and teach community groups about Alzheimer's and dementia. You will become familiar with several different educational programs related to Alzheimer's Disease and then be available to make presentations to a variety of groups in our community. Curriculum, power point slides, and handouts provided for all events.
+",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574650/u0HuMWcSEi_lzlwkk.webp",
       organization_id: "2",
       latitude: 38.711960,
       longitude: -9.140690
@@ -181,13 +184,14 @@ events = Event.create! (
     {
       start_at: "2019-07-03 9:00:05 +0100",
       ends_at: "2019-07-06 18:07:05 +0100",
-      address: "Panteao Nacional Campo de Santa Clara, Lisbon 1100-471, Portugal",
-      task: "Prepare vegan sandwiches",
-      title: "Food for all",
+      address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
+      task: "Volunteers will be run our annual Family Arts and Music Festival Event.",
+      title: "Volunteer Event Staff Needed for Family Arts and Music Festival",
       spots: 6,
       category: "Community",
-      description: "Bread - Tomato - lettuce - cucumber - avocado - hummus - bread. that's how you make a good vegan sandwich!",
-      photo: "https://cdn77-s3.lazycatkitchen.com/wp-content/uploads/2015/09/vegan-sandwich-lunch-800x693.jpg",
+      description: "This is our annual Family Arts and Music Festival Fundraiser for the Made for More Project!! This event will help us reach our program goals,  Bring your friends, family, groups, and coworkers to help in your community! Volunteers will be running information booths, craft stations and helping out on other interactive activities.
+",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574700/Screen_Shot_2019-06-03_at_4.11.32_PM_gezlnk.png",
       organization_id: "1",
       latitude: 38.715530,
       longitude: -9.125190

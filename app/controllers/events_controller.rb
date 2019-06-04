@@ -14,6 +14,10 @@ class EventsController < ApplicationController
       @events = @events.date_between(start_date, end_date)
     end
 
+    if params[:category].present?
+      @events = @events.search_by_title_and_task_and_description_and_category(params[:category])
+    end
+
     @markers = @events.map do |event|
       {
         lat: event.latitude,
@@ -43,8 +47,6 @@ class EventsController < ApplicationController
     @organization = Organization.find(params[:organization_id])
     @event.organization = @organization
     authorize @event
-
-
     if @event.save
       redirect_to @event
     else
@@ -59,13 +61,19 @@ class EventsController < ApplicationController
   end
 
   def update
-    @event.update(event_params)
+    authorize @event
+    if @event.update(event_params)
+      redirect_to @event
+    else
+      render :edit
+    end
   end
 
   def destroy
     @event.delete
     authorize @event
-    redirect_to organization_path(@event.organization)
+    @organization = Organization.find(params[:organization_id])
+    redirect_to @organization
   end
 
   private
