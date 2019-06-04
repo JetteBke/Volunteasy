@@ -1,24 +1,13 @@
 
 <div class="container">
   <div class="card" id="organization-show">
-          <div class="col text-center"><h2><%= @organization.name %></h2></div>
-          <div class="col text-center pb-3">
-                      <% if !@reviews.empty? %>
+    <div class="col text-center">
+      <h2><%= @organization.name %>
+        <%= @organization.category_icon(@organization.category).html_safe %> </h2>
 
-            <% sum = 0.0  %>
-            <% @reviews.each do |review| %>
-            <% sum += review.rating %>
-            <% end %>
-            <% average = sum / @reviews.size %>
-            <% stars = average.to_i %>
-            <% stars.times do %>
-            <i class="fas fa-star"></i>
-            <% end %>
-            (<%= average.round(2) %>)
-              | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
-            <%= @reviews.size %> reviews
-          </a>
-          </div>
+    </div>
+    <div class="col text-center pb-3">
+      <% if !@reviews.empty? %>
 
           <!-- Modal -->
           <div class="modal fade bd-example-modal-lg" id="reviews" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -34,96 +23,163 @@
                   <% @reviews.each do |review| %>
   <p>
     <% review.rating.times do %>
+      <% sum = 0.0  %>
+      <% @reviews.each do |review| %>
+      <% sum += review.rating %>
+      <% end %>
+      <% average = sum / @reviews.size %>
+      <% stars = average.to_i %>
+      <% stars.times do %>
       <i class="fas fa-star"></i>
-    <% end %>
+      <% end %>
+      (<%= average.round(2) %>)
+      | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
+        <%= @reviews.size %> reviews
+      </a>
+    </div>
 
-    <% (5 - review.rating).times do %>
-      <i class="far fa-star"></i>
-    <% end %>
-  </p>
-  <%= review.content %>
-<% end %>
-
-                </div>
-              </div>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="reviews" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Reviews of <%= @organization.name %></h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <% end %>
+          <div class="modal-body">
+            <% @reviews.each do |review| %>
+            <p>
+              <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+              <% end %>
 
+              <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+              <% end %>
+            </p>
+            <%= review.content %>
+            <% end %>
 
-
-
-
-
-
-
-          <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
-          <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
-          <% end %>
           </div>
-          <div class="row d-flex">
-          <div class="w-40"></div>
-          <div class="w-100"></div>
-          <div class="col-3"><strong>Address:</strong></div>
-          <div class="col-8"><%= @organization.address %></div>
-          <div class="w-100"></div>
-          <div class="col-3"><strong>Website:</strong></div>
-          <div class="col-8"><%= @organization.url %></div>
-          <div class="w-40"></div>
-          <div class="col-3"><strong>Category:</strong></div>
-          <div class="col-8"><%= @organization.category %></div>
-          <div class="w-40"></div>
-          <div class="col-3"><strong>Phone:</strong></div>
-          <div class="col-8"><%= @organization.user.phone %></div>
-          <div class="w-40"></div>
-          <div class="col-3"><strong>Description:</strong></div>
-          <div class="col-8"><%= @organization.description %></div>
-          <div class="w-40"></div>
-          <div class="col-3"><strong>Email:</strong></div>
-          <div class="col-8"><%= @organization.user.email %></div>
-          <div class="w-40"></div>
-          <% if @organization.user == current_user %>
-            <div class="col-12" style="margin: 5px 100px;">
-              <%= link_to "Edit organization", edit_organization_path(@organization), class:'btn-organization-show mr-2' %>
-              <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn-organization-show mr-2' %>
-              <%= link_to "Destroy organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %>
-            </div>
-          <% end %>
-          </div>
-  </div>
-
-  <h2 class="text-center mt-2">Upcoming events:</h2>
-</div>
-
-<div class="container">
-  <div class="card-container w-60">
-    <div class="row">
-      <% @events.each do |event| %>
-      <div class="cards col-6 mb-3">
-      <div class="card-product">
-        <div class="card-image">
-          <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
-        </div>
-        <div class= "card-product-infos">
-          <h2> <%= event.title %></h2>
-          <p> <%= event.start_at.strftime("Starts %B %d at %I:%M %p") %></p>
-          <% case event.category
-             when event.category = "Animal" %>
-            <i class="fas fa-paw" style="color:brown"></i>
-             <% when event.category = "Environment" %>
-            <i class="fas fa-leaf" style="color:green"></i>
-             <% when event.category = "Community" %>
-            <i class="fas fa-hands-helping"></i>
-             <% else %>
-             <p> " " </p>
-           <% end %>
-          <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
         </div>
       </div>
     </div>
+    <% end %>
+    <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
+      <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
       <% end %>
+    </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
+      <%= image_tag "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg", :class => "profile-image" %>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left toppad" >
+          <div class="panel panel-info">
+
+            <div class="panel-body">
+              <div class="row">
+                <div class=" col-md-12 col-lg-12 ">
+                  <table class="table table-user-information">
+                    <tbody>
+                      <tr>
+                        <td><i class="fas fa-map-pin"></i></td>
+                        <td><%= @organization.address %></td>
+                      </tr>
+                      <tr>
+                        <td><i class="fas fa-external-link-alt"></i></td>
+                        <td><%= @organization.url %></td>
+                      </tr>
+                      <tr>
+                        <td>Category:</td>
+                        <td><%= @organization.category %></td>
+                      </tr>
+                      <tr>
+                       <tr>
+                        <td>Phone</td>
+                        <td><%= @organization.user.phone %></td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-comment-alt"></i></td>
+                        <td><%= @organization.description %></td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-envelope"></i></td>
+                        <td><%= @organization.user.email %></td>
+                      </tr>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% if @organization.user == current_user %>
+      <div class="col-lg-12">
+        <%= link_to "Edit organization", edit_organization_path(@organization), class:'btn-organization-show mr-2' %>
+        <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn-organization-show mr-2' %>
+        <%= link_to "Destroy organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %>
+      </div>
+    <% end %>
+  </div>
   </div>
 </div>
-</div>
 
+<div class="card" id="organization-show">
+  <% if @organization.events.empty? %>
+    <h3 class="text-left mt-2">No Upcoming Events</h3>
+  <% else %>
+
+    <div>
+      <h2 class="text-center mt-2">Upcoming events:</h2>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+          <% @events.each do |event| %>
+            <div class="card" style="width: 18rem;">
+              <div class="overlay-image">
+                <img class="image" src=<%= event.photo %> alt="Event Photo" />
+                <div class="text">
+                  <%= @organization.category_icon(@organization.category).html_safe %>
+
+                </div>
+              </div>
+              <!-- <img class="card-img-top" src=<%= event.photo %> alt="Card image cap"> -->
+              <div class="card-body d-flex flex-column">
+                <h3 class="card-title">
+                  <%= event.title %>
+
+                </h3>
+
+                <span>
+                  <i class="fas fa-users"></i> <%= @bookings.size %>/<%= event.spots %>
+                </span>
+
+                <p class="card-text">
+                <img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size">
+                <%= event.start_at.to_formatted_s(:short) %>
+                 -
+                <%= event.ends_at.to_formatted_s(:short) %>
+                </p>
+
+
+                <p>
+                  <%=h truncate(event.description, :length => 80) %>
+                </p>
+                <div class="align-self-end mt-auto">
+                    <%= link_to "More Info", event, class:"btn-organization-show" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+         </div>
+
+     </div>
+  <% end %>
+  </div>

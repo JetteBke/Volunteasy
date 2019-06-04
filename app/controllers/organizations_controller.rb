@@ -11,6 +11,7 @@ class OrganizationsController < ApplicationController
     authorize @organization
     authorize @user
     @events = Event.where(organization_id:@organization.id)
+    @bookings = Booking.where(event:@event)
   end
 
   def new
