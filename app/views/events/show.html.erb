@@ -32,7 +32,9 @@
       <% if @bookings.where(user:current_user).any? %>
       <button type="disabled">Applied</button>
       <% else %>
-      <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
+        <%# if !@event.organization.user == current_user %>
+          <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
+        <%# end %>
       <% end %>
     </div>
   </div>
