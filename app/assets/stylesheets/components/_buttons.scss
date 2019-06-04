@@ -1,10 +1,11 @@
 .button_volunteasy {
 
-  border-radius: 5%;
+  border-radius: 20px;
 }
 
 .btn {
   background: #1FAB89;
+  border-radius: 20px;
 }
 
 .btn-alert {
@@ -36,7 +37,7 @@
 .btn-confirm {
   background: blue;
   height: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   font-size: 14px;
   margin: 2px;
   padding: 4px;
@@ -45,7 +46,7 @@
 .btn-reject {
   background: red;
   height: auto;
-  border-radius: 8px;
+  border-radius: 20px;
   font-size: 14px;
   margin: 2px;
   padding: 4px;
@@ -54,7 +55,7 @@
 .btn-organization-show {
   background: white;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 20px;
   color: black;
   padding: 8px 7px;
   text-align: center;
@@ -66,7 +67,7 @@
 .btn-organization-show:hover {
   background: white;
   border: 1px solid black;
-  border-radius: 25px;
+  border-radius: 20px;
   color: grey;
   padding: 8px 7px;
   text-align: center;
