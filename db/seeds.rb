@@ -45,7 +45,8 @@ users = User.create! (
   interests: "I know nothing",
   bio: "Saved the North, is the shield that guards the realms of men.",
   dob: "1995-03-16 15:07:05 +0100",
-  phone: "234 2567 456788"
+  phone: "234 2567 456788",
+  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559300047/IMG_9742_bgqzm3.jpg"
 },
 {email: "jamie@lannister.com",
   password: "123456",
@@ -253,37 +254,37 @@ bookings = Booking.create! (
     {
       status: "Pending",
       event_id: "2",
-      user_id: "4"
+      user_id: "3"
     },
     {
       status: "Pending",
       event_id: "2",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Pending",
+      status: "Confirmed",
       event_id: "2",
-      user_id: "8"
+      user_id: "3"
     },
     {
-      status: "Confirmed",
+      status: "Cancelled",
       event_id: "3",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Completed",
+      status: "Cancelled",
       event_id: "4",
-      user_id: "5"
+      user_id: "3"
     },
     {
-      status: "Pending",
+      status: "Rejected",
       event_id: "3",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Confirmed",
+      status: "Rejected",
       event_id: "4",
-      user_id: "4"
+      user_id: "3"
     },
     {
       status: "Cancelled",
