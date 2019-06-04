@@ -140,6 +140,9 @@ border-radius: 2px;
   margin-right: auto;
 }
 
+.product-title {
+  display:  flex
+
 .overlay-image {
  position: relative;
  width: 100%;
@@ -163,4 +166,5 @@ border-radius: 2px;
  left: 16px;
  // transform: translate(-50%, -50%);
  width: 100%;
+
 }
