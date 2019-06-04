@@ -143,4 +143,28 @@ border-radius: 2px;
 .product-title {
   display:  flex
 
+.overlay-image {
+ position: relative;
+ width: 100%;
+}
+
+.overlay-image .image {
+ display: block;
+ width: 100%;
+ object-fit: cover;
+ height: 200px;
+}
+
+.overlay-image .text {
+ color: #fff;
+ font-size: 20px;
+ line-height: 1.5em;
+ text-shadow: 2px 2px 2px #000;
+ // text-align: right;
+ position: absolute;
+ top: 8px;
+ left: 16px;
+ // transform: translate(-50%, -50%);
+ width: 100%;
+
 }

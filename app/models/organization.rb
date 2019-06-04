@@ -7,6 +7,16 @@ class Organization < ApplicationRecord
   mount_uploader :photo_url, PhotoUploader
 
   CATEGORIES = %w( Animal Environment Community)
+
+  def category_icon(category)
+    if category == "Animals"
+      "<i class='fas fa-paw' style='color:brown'></i>"
+    elsif category == "Environment"
+      "<i class='fas fa-leaf' style='color:green'></i>"
+    elsif category == "Community"
+      "<i class='fas fa-hands-helping'></i>"
+    end
+  end
 end
 
 # add validations for default value of :verified. Should it be boolean?
