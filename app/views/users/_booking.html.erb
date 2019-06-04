@@ -1,0 +1,36 @@
+<% if bookings.present? %>
+  <div class='card-do-good col-lg-12 col-md-12 col-sm-12'>
+    <h2 class="text-left"><%= bookings.first.status.capitalize  %></h2>
+
+    <% bookings.each do |booking| %>
+      <div class="row mt-4 <%= @card_color[bookings.first.status.capitalize] %>">
+        <div class="col col-lg-3   mt-3">
+          <h3 class="mb-0"><%= link_to booking.event.title, booking.event %></h3>
+        </div>
+        <div class="col col-lg-3   mt-3">
+          <p><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"> <%= booking.event.start_at.to_formatted_s(:long_ordinal) %></p>
+          <p><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"> <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %></p>
+          <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
+        </div>
+        <div class="col col-lg-3   mt-3">
+          <p><i class="fas fa-map-pin"></i> <%= booking.event.address %></p>
+        </div>
+        <div class="col col-lg-3   mt-3">
+          <p><i class="fas fa-users"></i> <%= booking.event.spots %> </p>
+        </div>
+        <div class="col col-lg-12   mt-3">
+          <%= booking.event.description %>
+        </div>
+        <div class="col col-lg-12   mt-3">
+          <p>Task: <%= booking.event.task %></p>
+        </div>
+        <% if booking.status == "Completed" %>
+          <div class="col col-lg-12   mt-3">
+          <p><%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right" %></p>
+          </div>
+        <% end %>
+
+      </div>
+    <% end %>
+  </div>
+<% end %>
