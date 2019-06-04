@@ -259,37 +259,37 @@ bookings = Booking.create! (
     {
       status: "Pending",
       event_id: "2",
-      user_id: "4"
+      user_id: "3"
     },
     {
       status: "Pending",
       event_id: "2",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Pending",
+      status: "Confirmed",
       event_id: "2",
-      user_id: "8"
+      user_id: "3"
     },
     {
-      status: "Confirmed",
+      status: "Cancelled",
       event_id: "3",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Completed",
+      status: "Cancelled",
       event_id: "4",
-      user_id: "5"
+      user_id: "3"
     },
     {
-      status: "Pending",
+      status: "Rejected",
       event_id: "3",
-      user_id: "6"
+      user_id: "3"
     },
     {
-      status: "Confirmed",
+      status: "Rejected",
       event_id: "4",
-      user_id: "4"
+      user_id: "3"
     },
     {
       status: "Cancelled",
