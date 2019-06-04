@@ -26,6 +26,6 @@ class OrganizationPolicy < ApplicationPolicy
   end
 
   def destroy?
-    record == @organization.user
+    record.user == user
   end
 end

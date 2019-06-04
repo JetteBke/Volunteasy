@@ -1,66 +1,76 @@
-<div class="mt-2 ml-5">
+<div class="d-flex justify-content-between m-4">
   <%= link_to "<< All events", events_path, id:"link-organization" %>
-</div>
-
-<div class="container mt-5">
-  <h5><%= @event.title %></h5>
-  <h3>Hosted by <%= link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></h3>
-  <div class="events-index-grid">
-        <!-- <h1 class="text-center">My Profile</h1> -->
-          <div class="col-lg-12 col-md-12 col-sm-12 text-center">
-            <%= image_tag @event.photo, :class => "card-img"%>
-          </div>
-          <div class="card-event-show col-lg-12 col-md-12 col-sm-12">
-            <div class="row">
-              <div class="col-4">Address:</div>
-              <div class="col-8"><%= @event.address %></div>
-              <div class="col-4">Starts at:</div>
-              <div class="col-8"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
-              <div class="col-4">Ends at:</div>
-              <div class="col-8"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
-              <div class="col-4">Spots:</div>
-              <div class="col-8"><%= @event.spots %></div>
-              </div>
-              <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
-            </div>
-          </div>
-
-          </div>
-          <div class="container  mt-5">
-            <h3>Event Description:</h3>
-            <p><%= @event.description  %></p>
-          </div>
-
-
-
-    <% if @event.organization.user == current_user %>
-      <% if @bookings.empty? %>
-      <div class="container card-background">
-        <p>No Bookings yet</p>
-      <% else %>
-        <% @bookings.each do |booking| %>
-            <div class="row">
-              <div class="col">
-                <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
-              </div>
-              <div class="col">
-                Status: <%= booking.status %>
-              </div>
-              <div class="col">
-                <% if booking.status == "Pending" %>
-                  <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
-                  <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
-                <% end %>
-              </div>
-            </div>
-        <% end %>
-      <% end %>
-    <% end %>
-</div>
-
 <% if current_user == @event.organization.user %>
-  <%= link_to "Edit event", edit_organization_event_path(@organization, @event) %>
+<%= link_to "Edit event", edit_organization_event_path(@organization, @event), id:"link-organization" %>
+<% end %>
+</div>
+
+<div class="container">
+  <h5><%= @event.title %></h5>
+  Hosted by:<h3><%= link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></h3>
+  <div class="events-index-grid">
+    <!-- <h1 class="text-center">My Profile</h1> -->
+    <div class="col-lg-12 col-md-12 col-sm-12 text-center px-0">
+      <%= cl_image_tag @event.photo, class:'card-img'%>
+    </div>
+    <div class="card-event-show col-lg-10 col-md-6 col-sm-12">
+      <div class="row">
+        <div class="col-2"><i class="fas fa-map-pin"></i></div>
+        <div class="col-10"><%= @event.address %></div>
+        <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"></div>
+        <div class="col-10"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
+        <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"></div>
+        <div class="col-10"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
+        <div class="col-2"><i class="fas fa-users"></i></div>
+        <div class="col-10"><%= @event.spots %></div>
+      </div>
+      <% if @bookings.where(user:current_user).any? %>
+      <button type="disabled">Applied</button>
+      <% else %>
+      <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="container  mt-2">
+  <h3>Event Description:</h3>
+  <p><%= @event.description  %></p>
+  <h3>Task Description:</h3>
+  <p><%= @event.task  %></p>
+</div>
+
+<div class="container" id='link-organization'>
+  Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+</div>
+
+<!-- https://www.flaticon.com/packs/speedometer-and-time-1 -->
+
+<% if @event.organization.user == current_user %>
+<% if @bookings.empty? %>
+<div class="container card-background">
+  <p>No Bookings yet</p>
+  <% else %>
+  <% @bookings.each do |booking| %>
+  <div class="row">
+    <div class="col">
+      <%= link_to "#{booking.user.first_name} #{booking.user.last_name}" , user_path(booking.user) %>
+    </div>
+    <div class="col">
+      Status: <%= booking.status %>
+    </div>
+    <div class="col">
+      <% if booking.status == "Pending" %>
+      <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
+      <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
+      <% end %>
+    </div>
+  </div>
+  <% end %>
+  <% end %>
+  <% end %>
+</div>
+<% if current_user == @event.organization.user %>
+<%= link_to "Edit event", edit_organization_event_path(@organization, @event), id:'link-organization' %>
+<%= link_to "Delete event", organization_event_path(@organization, @event), method: :delete, confirm: "Are you sure?", id:'link-organization' %>
 <% end %>
 
-</div>
-</div>

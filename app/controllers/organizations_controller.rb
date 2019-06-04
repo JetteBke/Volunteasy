@@ -7,6 +7,7 @@ class OrganizationsController < ApplicationController
 
   def show
     @user = @organization.user
+    @reviews = Review.all
     authorize @organization
     authorize @user
     @events = Event.where(organization_id:@organization.id)
