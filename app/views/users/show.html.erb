@@ -78,190 +78,21 @@
   </div>
 
 
-<div class="container mt-0">
-  <% if current_user == @user %>
-  <h1 class="text-center">My Bookings</h1>
-  <div class="row">
-    <% if @bookings.empty? %>
-    <div class="row card-background mt-4">
-      <p>No Bookings yet</p>
-    </div>
-    <% else %>
-
-    <% @bookings.each do |booking| %>
-
-    <% if booking.status == "Confirmed"%>
+ <% if @user == current_user %>
+    <div class="container mt-0">
+      <h1 class="text-center">My Bookings</h1>
 
 
-    <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-     <h2 class="text-left">Confirmed</h2>
-     <div class="row card-background mt-4">
-       <div class="col col-lg-6   mt-3">
-         <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-         Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-         Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-         <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
-       </div>
-
-       <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
-
-        Address: <%= booking.event.address %>
-
-        <p>Spots: <%= booking.event.spots %> </p>
-      </div>
-
-      <div class="row card-background ml-0 mr-0">
-        <%= booking.event.description %>
-        <p>Task: <%= booking.event.task %></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- add background colors to the booking status -->
-
-
-  <% elsif booking.status == "Completed" %>
-
-  <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-   <div class="row">
-    <div class="col">
-     <h2 class="text-left">Completed</h2>
-   </div>
-   <div class="col col-lg-4 mt-2 mb-0">
-    <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right" %>
-  </div>
-</div>
-<div class="row card-background mt-4">
- <div class="col col-lg-6   mt-3">
-   <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-   Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-   Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-   <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
- </div>
-
- <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
-
-  Address: <%= booking.event.address %>
-
-  <%= booking.event.spots %>
-</div>
-
-<div class="row card-background ml-0 mr-0">
-  <%= booking.event.description %>
-  <p>Task: <%= booking.event.task %></p>
-</div>
-</div>
-
-<div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
-
-  Address: <%= booking.event.address %>
-
-  <%= booking.event.spots %>
-</div>
-
-<div class="row card-background ml-0 mr-0">
-  <%= booking.event.description %>
-  <p>Task: <%= booking.event.task %></p>
-</div>
-</div>
-
-
-<% elsif booking.status == "Pending" %>
-
-
-<!-- HEEEEEEEEREEEEEEEEEE -->
-<div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-  <div class="row">
-   <div class="col">
-     <h2 class="text-left">Pending</h2>
-   </div>
-   <div class="col col-lg-4 mt-2 mb-2">
-    <%= link_to 'Cancel Booking', booking, data: {:confirm => 'Are you sure?'}, method: :delete, class:" btn btn-cancelled btn-warning float-right" %>
-  </div>
-</div>
-<div class="row card-background mt-4">
- <div class="col col-lg-4   mt-3">
-   <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-   Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-   Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-   <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
- </div>
-
- <div class="col-md-auto col-lg-4 col-md-8 col-sm-4 mt-3">
-
-  Address: <%= booking.event.address %>
-
-  <%= booking.event.spots %>
-</div>
-
-<div class="row card-background ml-0 mr-0">
-  <%= booking.event.description %>
-  <p>Task: <%= booking.event.task %></p>
-</div>
-</div>
-</div>
-
-
-
-<% elsif booking.status == "Rejected" %>
-
-<div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-  <h2 class="text-left">Rejected</h2>
-  <div class="row card-background mt-4">
-   <div class="col col-lg-4   mt-3">
-     <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-     Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-     Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-     <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
-   </div>
-
-   <div class="col-md-auto col-lg-4 col-md-8 col-sm-4 mt-3">
-
-    Address: <%= booking.event.address %>
-
-    <%= booking.event.spots %>
-  </div>
-  <div class="col col-lg-4 mt-2 mb-0">
-    <p class="btn float-right btn-rejected"><%= booking.status %></p>
-  </div>
-
-</div>
-</div>
-
-
-              <%#= link_to 'Delete Booking', current_user_path,
-              data: {:confirm => 'Are you sure?'}, :method => :delete %>
-
-              <% elsif booking.status == "Cancelled" %>
-
-
-              <div class="card-do-good col-lg-12 col-md-12 col-sm-12">
-                <h2 class="text-left">Cancelled</h2>
-                <div class="row card-background mt-4">
-                 <div class="col col-lg-6   mt-3">
-                   <p class="mb-0"><%= link_to booking.event.title, booking.event %></p>
-                   Starts at: <%= booking.event.start_at.to_formatted_s(:long_ordinal) %>
-                   Ends at: <%= booking.event.ends_at.to_formatted_s(:long_ordinal) %>
-                   <!-- other datetime formats here https://api.rubyonrails.org/classes/DateTime.html -->
-                 </div>
-
-                 <div class="col-md-auto col-lg-6 col-md-8 col-sm-4 mt-3">
-
-                  Address: <%= booking.event.address %>
-
-                  <%= booking.event.spots %>
-                </div>
-
-
-              </div>
-            </div>
-
-            <% end %>
-            <% end %>
-            <% end %>
-            <% end %>
-          </div>
+      <% if @bookings.empty? %>
+        <div class="row card-background mt-4">
+          <p>No Bookings yet</p>
         </div>
-      </div>
+      <% end %>
+      <%= render 'users/booking', bookings: @completed_bookings %>
+      <%= render 'users/booking', bookings: @confirmed_bookings %>
+      <%= render 'users/booking', bookings: @pending_bookings %>
+      <%= render 'users/booking', bookings: @cancelled_bookings %>
+      <%= render 'users/booking', bookings: @rejected_bookings %>
     </div>
+  <% end %>
 </div>
