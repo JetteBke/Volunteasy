@@ -5,6 +5,7 @@
           <div class="col text-center pb-3">
             <% sum = 0  %>
             <% @reviews.each do |review| %>
+
             <% sum += review.rating %>
             <% end %>
             <% average = sum / @reviews.size %>
@@ -28,7 +29,7 @@
                 </div>
                 <div class="modal-body">
                   <% @reviews.each do |review| %>
-<div class="container">
+                  <% if review.booking.event.organization == @organization %>
   <p>
     <% review.rating.times do %>
       <i class="fas fa-star"></i>
@@ -39,7 +40,7 @@
     <% end %>
   </p>
   <%= review.content %>
-</div>
+  <% end %>
 <% end %>
 
                 </div>
