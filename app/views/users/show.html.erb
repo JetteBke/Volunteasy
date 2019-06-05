@@ -74,20 +74,14 @@
     </div>
   </div>
 
-
-
   <% if @user == current_user %>
-
     <div class="container mt-0">
       <h3 class="py-2 text-center" style="color:grey;">My Bookings</h3>
-
-
       <% if @bookings.empty? %>
         <div class="row card-background mt-4">
           <p>No Bookings yet</p>
         </div>
       <% end %>
-
       <%= render 'users/booking', bookings: @completed_bookings %>
       <%= render 'users/booking', bookings: @confirmed_bookings %>
       <%= render 'users/booking', bookings: @pending_bookings %>

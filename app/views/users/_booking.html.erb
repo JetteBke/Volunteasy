@@ -25,7 +25,7 @@
                 <p style="color:grey;">You already submitted a review. Thank you!</p>
               <% end %>
               <% elsif booking.status == "Pending" %>
-              <%= link_to 'Cancel Booking', current_user, data: {:confirm => 'Are you sure?'}, :method => :delete, class:" btn bg-danger float-right text-white" %>
+              <%= link_to 'Cancel Booking', booking_path(booking), data: {:confirm => 'Are you sure?'}, method: :delete, class:'btn bg-danger float-right text-white' %>
             <% end %>
           </p>
         </div>
