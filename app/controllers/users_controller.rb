@@ -4,16 +4,9 @@ before_action :set_user, except: [:update]
 
   def show
     authorize @user
+    @booking =
+    @review = Review.new
     @bookings = Booking.where(user: @user)
-
-    # @confirmed_bookings = @bookings.select { |booking| booking.status == "Confirmed" }
-    # @rejected_bookings = @bookings.select { |booking| booking.status == "Rejected" }
-    # @pending_bookings = @bookings.select { |booking| booking.status == "Pending" }
-    # @cancelled_bookings = @bookings.select { |booking| booking.status == "Cancelled" }
-    # @completed_bookings = @bookings.select { |booking| booking.status == "Completed" }
-
-    # @card_color = {"Confirmed" => "bg-success", "Pending" => "bg-warning", "Rejected" => "bg-danger", "Completed" => "bg-info", "Cancelled" => "bg-light"}
-
     @organization = Organization.where(user_id:current_user.id).first
     @completed_bookings = @bookings.where(status:"Completed")
     @confirmed_bookings = @bookings.where(status:"Confirmed")

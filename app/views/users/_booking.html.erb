@@ -19,7 +19,11 @@
           <p>
             <i class="fas fa-users"></i> <%= booking.event.spots %>
             <% if booking.status == "Completed" %>
-              <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right text-white" %>
+              <% if !Review.where(booking_id:booking.id).any? %>
+              <a class="btn btn-completed float-right text-white" data-toggle="modal" data-target="#createreview">Write Review</a>
+              <% else %>
+                <p style="color:grey;">You already submitted a review. Thank you!</p>
+              <% end %>
               <% elsif booking.status == "Pending" %>
               <%= link_to 'Cancel Booking', current_user, data: {:confirm => 'Are you sure?'}, :method => :delete, class:" btn bg-danger float-right text-white" %>
             <% end %>
@@ -30,3 +34,20 @@
     <% end %>
   </div>
 <% end %>
+
+<div class="modal fade bd-example-modal-lg" id="createreview" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="my-forms">
+        <div class="container p-5">
+          <h5 class="pt-4 pb-2 text-center" style="color:grey;">How was the event? Add a review, <%= current_user.first_name %>!</h5>
+          <%= simple_form_for [@completed_bookings.first, @review], html: {class:'text-center'} do |f| %>
+              <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience", label_html: { class: "d-block" } %>
+            <%= f.input :content, label_html: {class:'pt-4'}  %>
+            <%= f.submit "Submit a review", class: "button_landingpage" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
