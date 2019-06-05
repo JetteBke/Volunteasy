@@ -158,7 +158,7 @@ events = Event.create! (
       ends_at: "2019-06-29 18:07:05 +0100",
       address: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
       task: "Tutor a child, one hour a week!",
-      title: "Tutor a Child in Reading at Bradford Elementary",
+      title: "Tutor a Child",
       spots: 10,
       category: "Community",
       description: "Tutor one child, one hour a week and make a difference in their life! No prior teaching or tutoring experience is required. Training is provided online or in person in the highly effective Peak Reader curricula, and a trained site coordinator is always available during the tutoring sessions. Join Children's Literacy Center in the fight against illiteracy...One Child At a Time!",
@@ -172,7 +172,7 @@ events = Event.create! (
       ends_at: "2019-05-31 18:07:05 +0100",
       address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
       task: "Become a member of our Community Educators team and teach community groups about Alzheimer's and dementia.",
-      title: "Be a Public Speaker for the Alzheimer's Association",
+      title: "Speaker for Alzheimer's Association",
       spots: 20,
       category: "Community",
       description: "Interested in raising awareness? Know someone affected by the disease and want to make a difference in the future of those affected by the Alzheimer's Disease?
@@ -189,7 +189,7 @@ Become a member of our Community Educators team and teach community groups about
       ends_at: "2019-07-06 18:07:05 +0100",
       address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
       task: "Volunteers will be run our annual Family Arts and Music Festival Event.",
-      title: "Volunteer Event Staff Needed for Family Arts and Music Festival",
+      title: "Family Arts and Music Festival",
       spots: 6,
       category: "Community",
       description: "This is our annual Family Arts and Music Festival Fundraiser for the Made for More Project!! This event will help us reach our program goals,  Bring your friends, family, groups, and coworkers to help in your community! Volunteers will be running information booths, craft stations and helping out on other interactive activities.
@@ -226,21 +226,7 @@ Become a member of our Community Educators team and teach community groups about
       organization_id: "2",
       latitude: 38.710781,
       longitude: -9.138610
-    },
-    {
-      id: 6,
-      start_at: "2019-08-15 9:00:05 +0100",
-     ends_at: "2019-08-17 18:07:05 +0100",
-     address: "Rua Actor Taborda 55, Lisboa",
-     task: "Help izi stay high-key lit",
-     title: "izi’s event",
-     spots: 15,
-     category: "Animal",
-     description: "Peep this, fam, izi needs to stay lit.",
-     photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559210674/IZI_pic_wukkfe.jpg",
-     organization_id: 1,
-     latitude: 38.7316884,
-     longitude: -9.1440666}
+    }
   ]
   )
 
