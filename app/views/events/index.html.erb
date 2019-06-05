@@ -5,30 +5,30 @@
 <div class="d-flex border-bottom justify-content-center">
   <% if policy(@events).index? %>
     <div class="ui compact menu my-auto">
-    <div class="ui simple dropdown item">
-      Category
-      <i class="dropdown icon"></i>
-      <div class="menu">
-        <div class="item"><%= link_to "Environment", category: "Environment" %></div>
-        <div class="item"><%= link_to "Animal", category: "Animal" %></div>
-        <div class="item"><%= link_to "Community", category: "Community" %></div>
+      <div class="ui simple dropdown item">
+        Category
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item"><%= link_to "Environment", category: "Environment" %></div>
+          <div class="item"><%= link_to "Animal", category: "Animal" %></div>
+          <div class="item"><%= link_to "Community", category: "Community" %></div>
+        </div>
       </div>
     </div>
+    <%= form_tag events_path, id: "event-form",method: :get do %>
+      <div class="index-search">
+        <span class="fas fa-search"></span>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          style: "margin-right: 20px;",
+          placeholder: "Find the perfect event"
+        %>
+      </div>
+      <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
+      <%= submit_tag :search, class: "btn btn-event-index" %>
+    <% end %>
   </div>
-  <%= form_tag events_path, id: "event-form",method: :get do %>
-    <div class="index-search">
-      <span class="fas fa-search"></span>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        style: "margin-right: 20px;",
-        placeholder: "Find the perfect event"
-      %>
-    </div>
-    <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
-    <%= submit_tag :search, class: "btn btn-event-index" %>
-  <% end %>
-</div>
 
 <% end %>
 
