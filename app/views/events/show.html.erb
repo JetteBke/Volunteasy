@@ -1,33 +1,34 @@
-<div class="d-flex justify-content-between m-4">
+<div class="float-left mt-4 ml-4">
   <%= link_to "<< All events", events_path, id:"link-organization" %>
+
 <% if current_user == @event.organization.user %>
 <%= link_to "Edit event", edit_organization_event_path(@organization, @event), id:"link-organization" %>
 <% end %>
 </div>
 
 <div class="container">
-  <h5><%= @event.title %></h5>
+  <h3 class=" text-center my-3" style="color:grey;"><%= @event.title %></h3>
   <div class="events-index-grid">
     <!-- <h1 class="text-center">My Profile</h1> -->
     <div class="col-lg-12 col-md-12 col-sm-12 text-center px-0">
-      <%= cl_image_tag @event.photo, class:'card-img'%>
+      <%= cl_image_tag @event.photo, class:'event-show-img'%>
     </div>
     <div class="card-event-show col-lg-10 col-md-6 col-sm-12">
       <div class="row">
-        <div class="col-2"><p> Hosted by:</p></div>
-        <div class="col-10"><%=link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></div>
-        <div class="col-2"><i class="fas fa-map-pin"></i></div>
-        <div class="col-10"><%= @event.address %></div>
-        <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"></div>
-        <div class="col-10"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
-        <div class="col-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"></div>
-        <div class="col-10"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
-        <div class="col-2"><i class="fas fa-users"></i></div>
-        <div class="col-10"><%= @bookings.size %>/<%= @event.spots %> spots taken</div>
-        <div class="col-2"><p>Details</p></div>
-        <div class="col-10"><%= @event.description %></div>
-      <div class="col-2"><p>Task</p></div>
-        <div class="col-10"><%= @event.task %></div>
+        <div class="col-1 mb-2"><p><i class="fas fa-home"></i></p></div>
+        <div class="col-11 mb-2"><%=link_to @event.organization.name, organization_path(@event.organization), id:"link-organization"  %></div>
+        <div class="col-1 mb-2"><i class="fas fa-map-pin"></i></div>
+        <div class="col-11 mb-2"><%= @event.address %></div>
+        <div class="col-1 mb-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"></div>
+        <div class="col-11 mb-2"><%= @event.start_at.to_formatted_s(:long_ordinal) %></div>
+        <div class="col-1 mb-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"></div>
+        <div class="col-11 mb-2"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
+        <div class="col-1 mb-2"><i class="fas fa-users"></i></div>
+        <div class="col-11 mb-2"><%= @bookings.size %>/<%= @event.spots %> spots taken</div>
+        <div class="col-1 mb-2"><i class="far fa-comment-alt"></i></div>
+        <div class="col-11 mb-2"><%=h truncate(@event.description, :length => 180) %></div>
+        <div class="col-1 mb-2"><p><i class="fas fa-tasks"></i></p></div>
+        <div class="col-11 mb-2"><%=h truncate(@event.task, :length => 80) %></div>
       </div>
       <% if @bookings.where(user:current_user).any? %>
       <button type="disabled">Applied</button>
@@ -37,6 +38,9 @@
         <%# end %>
       <% end %>
     </div>
+  </div>
+  <div class="mt-4" id='link-organization'>
+    <p class="small mb-0 ml-5">Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
   </div>
 </div>
 
@@ -76,6 +80,4 @@
 
 
 
-<div style="margin-left:10px;"id='link-organization'>
-  Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-</div>
+

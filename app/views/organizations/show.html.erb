@@ -53,7 +53,6 @@
     </div>
     <% end %>
 
-
     <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
       <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
       <% end %>
@@ -85,7 +84,7 @@
                       </tr>
                       <tr>
                        <tr>
-                        <td>Phone</td>
+                        <td><i class="fas fa-phone"></i></td>
                         <td><%= @organization.user.phone %></td>
                       </tr>
                       <tr>

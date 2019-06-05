@@ -23,8 +23,8 @@ border-radius: 2px;
  background-color: white;
  flex-direction: column;
  padding: 20px;
- height: auto;
- width: auto;
+ height: 400px;
+ width: 600px;
  justify-content: space-around;
  align-items: center;
  box-shadow: 6px 6px 2px 1px rgba(0, 0, 255, .1);
@@ -47,7 +47,7 @@ border-radius: 2px;
 
 .card-image {
   height: auto;
-  width: auto;
+  width: 300px;
   object-fit: crop;
 }
 
@@ -137,6 +137,7 @@ margin: 0px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  border-radius: 5px;
 }
 
 .product-title {
@@ -170,9 +171,14 @@ margin: 0px;
 
 }
 
-
 .category-position {
   position: relative;
   right: -78px;
   top: -6px;
+}
+
+.event-show-img {
+  width: 400px;
+  height: 400px;
+  object-fit: cover;
 }
