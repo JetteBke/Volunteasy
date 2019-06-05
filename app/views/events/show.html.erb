@@ -34,7 +34,7 @@
       <button type="disabled">Applied</button>
       <% else %>
         <%# if !@event.organization.user == current_user %>
-          <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
+          <%= link_to "Apply now", event_bookings_path(@event), method: :post, class: "btn btn-event-index" %>
         <%# end %>
       <% end %>
     </div>
