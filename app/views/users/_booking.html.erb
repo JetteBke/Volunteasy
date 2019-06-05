@@ -1,11 +1,11 @@
 <% if bookings.present? %>
   <div class='col-lg-12 col-md-12 col-sm-12'>
-    <h3 class="text-center mt-4 text-white shadow p-3 mb-5 rounded <%= @card_color[bookings.first.status.capitalize] %> "><%= bookings.first.status.capitalize  %></h3>
+    <h3 class="text-center mt-4 text-white shadow p-3 mb-5 rounded <%= @card_color[bookings.first.status.capitalize] %> " style="opacity: .5;""><%= bookings.first.status.capitalize  %></h3>
 
     <% bookings.each do |booking| %>
-      <div class="row mt-4 text-white shadow p-3 mb-5 rounded text-dark bg-light">
+      <div class="row mt-4 text-white shadow p-3 mb-5 rounded text-dark bg-light ">
         <div class="col col-lg-3   mt-3">
-          <h3 class="mb-0"><%= link_to booking.event.title, booking.event %></h3>
+          <h3 class="mb-0 "><%= link_to booking.event.title, booking.event %></h3>
         </div>
         <div class="col col-lg-3 mt-3">
           <p><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"> <%= booking.event.start_at.to_formatted_s(:long_ordinal) %></p>
@@ -20,15 +20,12 @@
             <i class="fas fa-users"></i> <%= booking.event.spots %>
             <% if booking.status == "Completed" %>
               <%= link_to "Write Review", new_booking_review_path(booking), class:"btn btn-completed float-right text-white" %>
+              <% elsif booking.status == "Pending" %>
+              <%= link_to 'Cancel Booking', current_user, data: {:confirm => 'Are you sure?'}, :method => :delete, class:" btn bg-danger float-right text-white" %>
             <% end %>
           </p>
         </div>
-        <div class="col col-lg-12   mt-3">
-          <%= booking.event.description %>
-        </div>
-        <div class="col col-lg-12   mt-3">
-          <p>Task: <%= booking.event.task %></p>
-        </div>
+
       </div>
     <% end %>
   </div>
