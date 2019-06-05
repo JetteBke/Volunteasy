@@ -113,14 +113,17 @@
 .timeline > li .timeline-image {
   position: absolute;
   z-index: 100;
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   margin-left: 0;
   text-align: center;
   color: white;
   border: 7px solid #e9ecef;
   border-radius: 100%;
-  background-color: #fed136;
+  background-color: #4BAC89;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .timeline > li .timeline-image h4 {
@@ -247,18 +250,21 @@
 
 @media (min-width: 992px) {
 .timeline>li .timeline-image {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     margin-left: -75px;
+    display: flex;
+    justify-content: center;
 }
 }
 
 @media (min-width: 768px) {
 .timeline>li .timeline-image {
     left: 50%;
-    width: 100px;
-    height: 100px;
-    margin-left: -50px;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
 }
 
 }
