@@ -28,44 +28,42 @@
       <%= text_field_tag :date, params[:date], class: "form-control", data: { behavior: 'daterangepicker' } %>
       <%= submit_tag :search, class: "btn btn-event-index" %>
     <% end %>
-  </div>
-
-<% end %>
+  <% end %>
+</div>
 
 <div class="index-container">
   <div class="events-index-grid">
-    <div class ="cards">
+    <div class ="cards mr-3">
     <% @events.each do |event| %>
-    <div class="card-product">
-      <div class="card-image">
-        <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
-      </div>
-      <div class= "card-product-infos">
-        <div class="product-title">
-          <h2 style="padding-top: 3px;"> <%= event.title %></h2>
-          <div style ="padding-left: 10px; padding-bottom: 10px;">
-           <% case event.category
-           when event.category = "Animal" %>
-          <i class="fas fa-paw" style="color:brown"  ></i>
-           <% when event.category = "Environment" %>
-          <i class="fas fa-leaf" style="color:green"  img align="right" ></i>
-           <% when event.category = "Community" %>
-          <i class="fas fa-hands-helping"  img align="right" ></i>
+      <div class="card-product">
 
-
-           <% else %>
-           <p> " " </p>
-         <% end %>
+        <div class="card-image">
+          <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
         </div>
-         </div>
+         <div class="icon-position">
+            <% case event.category %>
+            <% when event.category = "Animal" %>
+              <i class="fas fa-paw" style="color:brown"></i>
+            <% when event.category = "Environment" %>
+              <i class="fas fa-leaf" style="color:green"></i>
+            <% when event.category = "Community" %>
+              <i class="fas fa-hands-helping"></i>
+            <% else %>
+              <p> " " </p>
+            <% end %>
+          </div>
+        <div class="card-product-infos">
+          <div class="product-title">
+              <h2 class="py-1"> <%= event.title %></h2>
+              <p><i class="fas fa-user"></i> <%= event.spots %></p>
 
+              <p><i class="fas fa-clock"></i><%= event.start_at.strftime(" %B %d at %I:%M %p") %>-<%= event.ends_at.strftime(" %B %d at %I:%M %p") %></p>
+                      <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
 
+          </div>
+        </div>
 
-        <p> <%= event.start_at.strftime("Starts %B %d at %I:%M %p") %></p>
-
-        <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
       </div>
-    </div>
     <% end %>
     </div>
     <div
@@ -74,9 +72,9 @@
       height: 100vh;"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY']%>">
+    </div>
   </div>
-  </div>
-  </div>
+</div>
 
 
 
