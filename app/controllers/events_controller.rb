@@ -19,10 +19,18 @@ class EventsController < ApplicationController
     end
 
     @markers = @events.map do |event|
+      if event.category == "Animal"
+        category_image = helpers.asset_url('paw-solid.svg')
+      elsif event.category == "Environment"
+        category_image = helpers.asset_url('leaf-solid.svg')
+      elsif event.category == "Community"
+        category_image = helpers.asset_url('hands-helping-solid.svg')
+      end
       {
         lat: event.latitude,
         lng: event.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { event: event })
+        infoWindow: render_to_string(partial: "infowindow", locals: { event: event }),
+        image_url: category_image
       }
     end
   end

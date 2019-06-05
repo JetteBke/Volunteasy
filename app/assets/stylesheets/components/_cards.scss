@@ -55,14 +55,13 @@ border-radius: 2px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-
 }
 
 .card-product {
   overflow: hidden;
   height: 120px;
-  background: #E6E8ED;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: white;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
   border-radius: 5px;
@@ -76,22 +75,22 @@ border-radius: 2px;
 
 .card-product h2 {
   font-size: 16px;
-  font-weight: bold;
   margin: 0;
 }
 
 .card-product p {
-  font-size: 12px;
-  font-family: 'Open Sans', sans-serif;
-  font-weight: bold;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 8px;
+color: #333333;
+font-size: 13px;
+margin: 0px;
 }
 
-.card-product .card-product-infos {
-  padding: 16px;
+
+.card-product-infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+  top: -4px;
 }
 
 .card-product .btn {
@@ -141,7 +140,8 @@ border-radius: 2px;
 }
 
 .product-title {
-  display:  flex
+
+
 }
 
 .overlay-image {
@@ -168,4 +168,11 @@ border-radius: 2px;
  // transform: translate(-50%, -50%);
  width: 100%;
 
+}
+
+
+.category-position {
+  position: relative;
+  right: -78px;
+  top: -6px;
 }

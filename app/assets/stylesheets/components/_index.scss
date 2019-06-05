@@ -22,10 +22,8 @@
 }
 
 .index-container {
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  margin: auto;
+  width: 75%;
 }
 
 .index-search {
@@ -42,4 +40,10 @@
     left: 15px;
     cursor: pointer;
     color: grey;
+}
+
+.icon-position {
+  position: relative;
+    top: -39px;
+    left: 428px;
 }
