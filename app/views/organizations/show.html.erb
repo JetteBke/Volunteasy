@@ -4,38 +4,23 @@
     <div class="col text-center">
       <h2><%= @organization.name %>
         <%= @organization.category_icon(@organization.category).html_safe %> </h2>
-
     </div>
+
     <div class="col text-center pb-3">
       <% if !@reviews.empty? %>
-
-          <!-- Modal -->
-          <div class="modal fade bd-example-modal-lg" id="reviews" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Reviews of <%= @organization.name %></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <% @reviews.each do |review| %>
-  <p>
-    <% review.rating.times do %>
-      <% sum = 0.0  %>
-      <% @reviews.each do |review| %>
-      <% sum += review.rating %>
-      <% end %>
-      <% average = sum / @reviews.size %>
-      <% stars = average.to_i %>
-      <% stars.times do %>
-      <i class="fas fa-star"></i>
-      <% end %>
-      (<%= average.round(2) %>)
-      | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
-        <%= @reviews.size %> reviews
-      </a>
+          <% sum = 0.0  %>
+          <% @reviews.each do |review| %>
+          <% sum += review.rating %>
+          <% end %>
+          <% average = sum / @reviews.size %>
+          <% stars = average.to_i %>
+          <% stars.times do %>
+          <i class="fas fa-star"></i>
+          <% end %>
+          (<%= average.round(2) %>)
+          | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
+            <%= @reviews.size %> reviews
+          </a>
     </div>
 
     <!-- Modal -->
@@ -67,7 +52,7 @@
       </div>
     </div>
     <% end %>
-    <% end %>
+
     <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
       <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
       <% end %>
