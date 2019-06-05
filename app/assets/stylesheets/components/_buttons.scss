@@ -6,9 +6,15 @@
 .btn {
   background: #1FAB89;
   border-radius: 20px;
-  font-size: 12 px;
   font-weight: 200;
-  font-color: white;
+  color: white;
+  padding: 6px 12px !important;
+
+  &:hover {
+    color: white !important;
+    background: darken(#1FAB89, 10%);
+    //border-color: darken(#1FAB89, 10%);
+  }
 }
 
 .btn-alert {
@@ -67,16 +73,25 @@
   margin: 5px auto;
 }
 
-.btn-organization-show:hover {
-  background: white;
+.btn-organization-shows {
+  background: darken(white, 10%);
   border: 1px solid black;
   border-radius: 20px;
-  color: grey;
+  color: black;
   padding: 8px 7px;
   text-align: center;
+  text-decoration: none;
   display: inline-block;
   margin: 5px auto;
+
+  &:hover {
+    color: white !important;
+    background: darken(white, 30%);
+    text-decoration: none;
+    //border-color: darken(#1FAB89, 10%);
+  }
 }
+
 
 
 #link-organization {
@@ -92,7 +107,7 @@
   background: #1FAB89;
   color: white;
   border-radius: 20px;
-  padding: 8px 7px;
+  padding: 6px 12px !important;
   text-align: center;
   text-decoration: none;
   display: inline-block;

@@ -30,6 +30,7 @@
         <div class="col-1 mb-2"><p><i class="fas fa-tasks"></i></p></div>
         <div class="col-11 mb-2"><%=h truncate(@event.task, :length => 80) %></div>
       </div>
+
         <% if @event.organization.user != current_user %>
           <% if @bookings.where(user:current_user).any? %>
             <button type="disabled">Applied</button>

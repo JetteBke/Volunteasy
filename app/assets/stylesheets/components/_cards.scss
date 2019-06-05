@@ -46,9 +46,9 @@ border-radius: 2px;
 }
 
 .card-image {
-  height: auto;
-  width: 300px;
-  object-fit: crop;
+  height: 120px;
+  width: 200px;
+  object-fit: cover;
 }
 
 .card-info {
@@ -180,4 +180,19 @@ margin: 0px;
   width: 400px;
   height: 400px;
   object-fit: cover;
+}
+
+
+.event-index-card {
+position: relative;
+display: flex;
+-ms-flex-direction: column;
+flex-direction: column;
+min-width: 0;
+height: 150px;
+width: 500px;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0,0,0,.125);
+border-radius: .25rem;
 }

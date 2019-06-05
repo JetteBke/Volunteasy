@@ -58,7 +58,7 @@
                     </td>
                     <td>
                       <% if Organization.where(user:current_user).present? %>
-                      <p><%= link_to "Go to Organization", organization_path(@organization), class:"btn-organization-show ml-2"%></p>
+                      <p><%= link_to "Go to Organization", organization_path(@organization), class:"btn-organization-shows ml-2"%></p>
                       <% else %>
                       <p><%= link_to "Create organization", new_organization_path, class:"btn-organization-show ml-2" %></p>
                       <% end %>
