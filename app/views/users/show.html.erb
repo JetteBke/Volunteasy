@@ -1,6 +1,6 @@
   <div class="container">
     <div class="panel-heading">
-       <h1 class="text-center mt-0"><%= @user.first_name %> <%= @user.last_name %></h1>
+       <h3 class="py-2 text-center" style="color:grey;"><%= @user.first_name %> <%= @user.last_name %></h3>
     </div>
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
@@ -14,32 +14,32 @@
 
           <div class="panel-body">
             <div class="row">
-              <div class=" col-md-12 col-lg-12 ">
+              <div class="text-left card-event-show col-lg-10 col-md-6 col-sm-12">
                 <table class="table table-user-information">
                   <tbody>
                     <tr>
-                      <td>Age:</td>
+                      <td><i class="fas fa-calendar"></i></td>
                       <td><%= Time.zone.now.year - @user.dob.year %></td>
                     </tr>
                     <tr>
-                      <td>City:</td>
+                      <td><i class="fas fa-map-pin"></i></td>
                       <td><%= @user.city %></td>
                     </tr>
                     <tr>
-                      <td>Email:</td>
+                      <td><i class="far fa-envelope"></i></td>
                       <td><%= @user.email %></td>
                     </tr>
                     <tr>
                      <tr>
-                      <td>Phone</td>
+                      <td><i class="fas fa-phone"></i></td>
                       <td><%= @user.phone %></td>
                     </tr>
                     <tr>
-                      <td>Interests:</td>
+                      <td><i class="fas fa-heart"></i></td>
                       <td><%= @user.interests %></td>
                     </tr>
                     <tr>
-                      <td>Bio:</td>
+                      <td><i class="far fa-comment-alt"></i></td>
                       <td><%= @user.bio %></td>
                     </tr>
                   </tr>
@@ -81,7 +81,7 @@
   <% if @user == current_user %>
 
     <div class="container mt-0">
-      <h1 class="text-center">My Bookings</h1>
+      <h3 class="py-2 text-center" style="color:grey;">My Bookings</h3>
 
 
       <% if @bookings.empty? %>
