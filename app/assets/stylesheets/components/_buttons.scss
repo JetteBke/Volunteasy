@@ -39,7 +39,13 @@
 }
 
 .btn-completed {
-  background: blue;
+  background: #00B2EE ;
+
+  &:hover {
+    color: white !important;
+    background: darken(#00B2EE, 15%);
+  }
+
 }
 
 

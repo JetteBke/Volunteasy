@@ -35,34 +35,28 @@
   <div class="events-index-grid">
     <div class ="cards mr-3">
     <% @events.each do |event| %>
-      <div class="card-product">
-
-        <div class="card-image">
-          <%= cl_image_tag(event.photo, width: 120, height: 150, crop: :fill) %>
+    <div class="container event-index-card">
+      <div class="row">
+        <div class="col", style="flex-grow:0">
+          <%= cl_image_tag(event.photo, class:"card-image") %>
         </div>
-         <div class="icon-position">
-            <% case event.category %>
-            <% when event.category = "Animal" %>
-              <i class="fas fa-paw" style="color:brown"></i>
-            <% when event.category = "Environment" %>
-              <i class="fas fa-leaf" style="color:green"></i>
-            <% when event.category = "Community" %>
-              <i class="fas fa-hands-helping"></i>
-            <% else %>
-              <p> " " </p>
-            <% end %>
+        <div class="col">
+          <p class="small card-text mb-0">
+            <%= link_to event.title, event %> <span class="float-right mt-1"><i class="fas fa-user"></i> <%= event.spots %></span>
+          </p>
+            <div>
+              <p class="small card-text mb-0">
+                <%= link_to event.organization.name, event.organization %>
+              </p>
+              <p class="small card-text mb-0">
+                <img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"> <%= event.start_at.to_formatted_s(:short) %> - <%= event.ends_at.to_formatted_s(:short) %>
+              </p>
+              <%= link_to "More Information", event, class:"btn-sm btn-event-index" %>
+            </div>
           </div>
-        <div class="card-product-infos">
-          <div class="product-title">
-              <h2 class="py-1"> <%= event.title %></h2>
-              <p><i class="fas fa-user"></i> <%= event.spots %></p>
-
-              <p><i class="fas fa-clock"></i><%= event.start_at.strftime(" %B %d at %I:%M %p") %>-<%= event.ends_at.strftime(" %B %d at %I:%M %p") %></p>
-                      <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
-
-          </div>
+        <div class="col-lg-1">
+          <%= event.organization.category_icon(event.organization.category).html_safe %>
         </div>
-
       </div>
     <% end %>
     </div>
