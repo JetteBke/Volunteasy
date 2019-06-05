@@ -24,29 +24,33 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="reviews" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
+    <div class="modal fade bd-example-modal-lg" id="reviews" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Reviews of <%= @organization.name %></h5>
+            <h5 class="modal-title text-center" id="exampleModalLabel">Reviews of <%= @organization.name %></h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body list-group">
             <% @reviews.each do |review| %>
-            <p>
-              <% review.rating.times do %>
-              <i class="fas fa-star"></i>
-              <% end %>
+            <div class="list-group-item">
+              <div class="rating-review-flexbox">
+                <p>
+                <% review.rating.times do %>
+                <i class="fas fa-star"></i>
+                <% end %>
 
-              <% (5 - review.rating).times do %>
-              <i class="far fa-star"></i>
-              <% end %>
-            </p>
-            <%= review.content %>
+                <% (5 - review.rating).times do %>
+                <i class="far fa-star"></i>
+                <% end %>
+                </p>
+                <p style="color:grey; font-style:italic;">by <%= review.booking.user.fullname %></p>
+              </div>
+              <p><%= review.content %></p>
+            </div>
             <% end %>
-
           </div>
         </div>
       </div>
@@ -54,7 +58,7 @@
     <% end %>
 
     <div class="col text-center pb-3">Organized by <% if policy(User).show? %>
-      <%= link_to @organization.user.first_name, user_path(@organization.user), id:'link-organization' %>
+      <%= link_to @organization.user.fullname, user_path(@organization.user), id:'link-organization' %>
       <% end %>
     </div>
 
@@ -79,21 +83,17 @@
                         <td><%= @organization.url %></td>
                       </tr>
                       <tr>
-                        <td>Category:</td>
-                        <td><%= @organization.category %></td>
-                      </tr>
-                      <tr>
                        <tr>
                         <td><i class="fas fa-phone"></i></td>
                         <td><%= @organization.user.phone %></td>
                       </tr>
                       <tr>
-                        <td><i class="far fa-comment-alt"></i></td>
-                        <td><%= @organization.description %></td>
-                      </tr>
-                      <tr>
                         <td><i class="far fa-envelope"></i></td>
                         <td><%= @organization.user.email %></td>
+                      </tr>
+                      <tr>
+                        <td><i class="far fa-comment-alt"></i></td>
+                        <td><%= @organization.description %></td>
                       </tr>
                     </tr>
                   </tbody>
@@ -105,9 +105,13 @@
       </div>
     <% if @organization.user == current_user %>
       <div class="col-lg-12">
-        <%= link_to "Edit organization", edit_organization_path(@organization), class:'btn-organization-show mr-2' %>
-        <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn-organization-show mr-2' %>
-        <%= link_to "Destroy organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %>
+        <div class="organization-show-links">
+        <div>
+        <p><%= link_to "Edit organization", edit_organization_path(@organization), id:'link-organization' %> | <%= link_to "Delete organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %></p>
+        </div>
+        <%= link_to "Create a new event", new_organization_event_path(@organization), class:'button_landingpage' %>
+        </div>
+
       </div>
     <% end %>
   </div>

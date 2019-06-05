@@ -6,4 +6,7 @@ class User < ApplicationRecord
   has_many :organizations
   has_many :bookings
 
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end

@@ -30,21 +30,20 @@
         <div class="col-1 mb-2"><p><i class="fas fa-tasks"></i></p></div>
         <div class="col-11 mb-2"><%=h truncate(@event.task, :length => 80) %></div>
       </div>
-      <% if @bookings.where(user:current_user).any? %>
-      <button type="disabled">Applied</button>
-      <% else %>
-        <%# if !@event.organization.user == current_user %>
-          <%= link_to "Apply now", event_bookings_path(@event), method: :post, class: "btn btn-event-index" %>
-        <%# end %>
-      <% end %>
+
+        <% if @event.organization.user != current_user %>
+          <% if @bookings.where(user:current_user).any? %>
+            <button type="disabled">Applied</button>
+          <% else %>
+            <%= link_to "Apply now", event_bookings_path(@event), method: :post, class:"btn btn-success" %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
-  </div>
   <div class="mt-4" id='link-organization'>
     <p class="small mb-0 ml-5">Some icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/"        title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/"        title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></p>
   </div>
 </div>
-
-
 
 <!-- https://www.flaticon.com/packs/speedometer-and-time-1 -->
 
