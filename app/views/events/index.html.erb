@@ -58,7 +58,7 @@
               <p><i class="fas fa-user"></i> <%= event.spots %></p>
 
               <p><i class="fas fa-clock"></i><%= event.start_at.strftime(" %B %d at %I:%M %p") %>-<%= event.ends_at.strftime(" %B %d at %I:%M %p") %></p>
-                      <button class="btn button_landingpage"><%= link_to "More Information", event %></button>
+                <%= link_to "More Information", event, class: 'btn btn-event-index' %>
 
           </div>
         </div>
