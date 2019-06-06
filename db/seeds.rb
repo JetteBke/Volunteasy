@@ -176,7 +176,7 @@ events = Event.create! (
       spots: 10,
       category: "Community",
       description: "Since two of our members are sick we look for short-term replacement to help us preparing food and snacks for the homeless people.",
-      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824930/22083ac9525cea45ffb10b1bf9746587_spy3cx.jpg",
       organization_id: "1",
       latitude: 38.726080,
       longitude: -9.145480
@@ -250,7 +250,7 @@ Become a member of our Community Educators team and teach community groups about
       spots: 8,
       category: "Environment",
       description: "Bring your reusable water bottle to keep yourself hydrated. Gloves and hemp bags will be provided for everyone to use during the cleanup. Let's get rid of the trash and fight the pollution!",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824950/trashtag-clean-up-litter-1552318521531_gbxvpc.webp",
       organization_id: "2",
       latitude: 38.710781,
       longitude: -9.138610
@@ -264,7 +264,7 @@ Become a member of our Community Educators team and teach community groups about
       spots: 5,
       category: "Community",
       description: "We are looking for drivers who are available to pick up donated food and deliver it to the food banks.",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825026/download-1_exws5a.jpg",
       organization_id: "1",
       latitude: 38.710781,
       longitude: -9.138610
@@ -278,7 +278,7 @@ Become a member of our Community Educators team and teach community groups about
       spots: 7,
       category: "Environment",
       description: "The plants of Park da Bela Vista became less and less during the past years. Let's change it and give a nicer place for animals and humans to relax.",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825052/Tree-Planting-Cambodia-2014-Luc-Forsyth-50-1024x683-790x527_a0mdhz.jpg",
       organization_id: "3",
       latitude: 38.710781,
       longitude: -9.138610
@@ -292,7 +292,7 @@ Become a member of our Community Educators team and teach community groups about
       spots: 6,
       category: "Environment",
       description: "Removing trash from the oceans is challenging, so we are looking for passionate people who want to face this challenge.",
-      photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825089/ckxfg7g6mdqxqdvow2amwlo-hpz-karffnrjt7o-hms_osp5qx.jpg",
       organization_id: "4",
       latitude: 38.710781,
       longitude: -9.138610
