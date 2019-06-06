@@ -105,12 +105,14 @@
       </div>
     <% if @organization.user == current_user %>
       <div class="col-lg-12">
+
         <div class="row organization-show-links">
           <div class=" col text-center ml-5">
           <p><%= link_to "Edit organization", edit_organization_path(@organization), id:'link-organization' %> | <%= link_to "Delete organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %></p>
           </div>
           <div class="col"></div>
           <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn btn-lg btn-event-index' %>
+
         </div>
 
       </div>

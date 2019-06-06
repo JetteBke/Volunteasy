@@ -6,9 +6,9 @@
 .btn {
   background: #1FAB89;
   border-radius: 20px;
-  font-weight: 200;
+  font-weight: 500;
   color: white;
-  padding: 6px 12px !important;
+  padding: 6px 12px ;
 
   &:hover {
     color: white !important;
@@ -87,6 +87,12 @@
   text-decoration: none;
   display: inline-block;
   margin: 5px auto;
+
+   &:hover {
+    background: darken($white, 15%);
+    text-decoration:  none;
+    color: black;
+  }
 }
 
 .btn-organization-shows {
@@ -149,5 +155,10 @@
   margin: 5px auto;
   font-size: 1rem;
   background: white;
+}
+
+.button_bigger {
+
+
 }
 
