@@ -307,7 +307,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Environment",
       description: "Lisbon's famous orange trees have had a very bountiful harvest this year. We weren't able to pick all of them up, so now we need help collecting them!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559830931/dsc00454_zrkpju.jpg",
-      organization_id: "4",
+      organization_id: "1",
       latitude: 38.709840,
       longitude: -9.128620
     }]
