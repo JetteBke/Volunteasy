@@ -18,11 +18,13 @@
         <div class="col-lg-12 text-center">
           <h2 id="byline" style="color:white;">Apply for an event with a click of a button.</h2>
             <div class="d-flex justify-content-center">
+              <div class="wrapper-button">
       <% if user_signed_in? %>
-          <%= link_to "Do Good", events_path, class:'btn btn-flat button_landingpage'  %>
+          <%= link_to "Do Good", events_path, class:'btn btn-flat button_landingpage animation-button'  %>
             <% else %>
-             <%= link_to "Do Good", new_user_registration_path, class:'btn btn-flat button_landingpage' %>
+             <%= link_to "Do Good", new_user_registration_path, class:'btn btn-flat button_landingpage animation-button' %>
         <% end %>
+        </div>
         </div>
       </div>
 
