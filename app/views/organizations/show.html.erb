@@ -109,7 +109,7 @@
         <div>
         <p><%= link_to "Edit organization", edit_organization_path(@organization), id:'link-organization' %> | <%= link_to "Delete organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %></p>
         </div>
-        <%= link_to "Create a new event", new_organization_event_path(@organization), class:'button_landingpage' %>
+        <%= link_to "Create a new event", new_organization_event_path(@organization), class:"btn btn-sm btn-event-index"%>
         </div>
 
       </div>
