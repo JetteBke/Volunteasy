@@ -6,9 +6,9 @@
 .btn {
   background: #1FAB89;
   border-radius: 20px;
-  font-weight: 200;
+  font-weight: 500;
   color: white;
-  padding: 6px 12px !important;
+  padding: 6px 12px ;
 
   &:hover {
     color: white !important;
@@ -89,6 +89,12 @@
   text-decoration: none;
   display: inline-block;
   margin: 5px auto;
+
+   &:hover {
+    background: darken($white, 15%);
+    text-decoration:  none;
+    color: black;
+  }
 }
 
 .btn-organization-shows {
@@ -151,5 +157,15 @@
   margin: 5px auto;
   font-size: 1rem;
   background: white;
+}
+
+
+.btn-xlarge {
+    padding: 18px 28px;
+    font-size: 22px; //change this to your desired size
+    line-height: normal;
+    -webkit-border-radius: 8px;
+       -moz-border-radius: 8px;
+            border-radius: 8px;
 }
 
