@@ -296,7 +296,21 @@ Become a member of our Community Educators team and teach community groups about
       organization_id: "4",
       latitude: 38.709840,
       longitude: -9.128620
-    },]
+    },
+      {
+      start_at: "2019-09-18 9:00:00 +0100",
+      ends_at: "2019-09-19 18:00:00 +0100",
+      address: "1100-278 Lisboa",
+      task: "Gather the fallen oranges all over the city.",
+      title: "Picking up Oranges",
+      spots: 10,
+      category: "Environment",
+      description: "Lisbon's famous orange trees have had a very bountiful harvest this year. We weren't able to pick all of them up, so now we need help collecting them!",
+      photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559830931/dsc00454_zrkpju.jpg",
+      organization_id: "4",
+      latitude: 38.709840,
+      longitude: -9.128620
+    }]
   )
 
 
