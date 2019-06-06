@@ -14,8 +14,8 @@ class BookingsController < ApplicationController
     @booking.update(status:"Confirmed")
     @event = Event.find(params[:event_id])
     authorize @booking
-    mail = UserMailer.with(user: @booking.user).confirmation
-    mail.deliver_now
+    # mail = UserMailer.with(user: @booking.user).confirmation
+    # mail.deliver_now
     redirect_to @event
   end
 
