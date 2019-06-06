@@ -156,7 +156,7 @@ events = Event.create! (
     {
       start_at: "2019-06-28 10:00:00 +0100",
       ends_at: "2019-06-29 18:00:00 +0100",
-      address: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
+      address: "Av. Rovisco Pais 1, 1049-001 Lisboa",
       task: "Tutor a child, one hour a week!",
       title: "Tutor a Child",
       spots: 2,
@@ -164,13 +164,13 @@ events = Event.create! (
       description: "Tutor one child, one hour a week and make a difference in their life! No prior teaching or tutoring experience is required. Training is provided online or in person in the highly effective Peak Reader curricula, and a trained site coordinator is always available during the tutoring sessions. Join Children's Literacy Center in the fight against illiteracy...One Child At a Time!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
       organization_id: "1",
-      latitude: 38.726080,
-      longitude: -9.145480
+      latitude: 38.735310,
+      longitude: -9.138330
     },
     {
       start_at: "2019-06-20 8:00:00 +0100",
       ends_at: "2019-06-20 18:00:00 +0100",
-      address: "Rua do Conde de Redondo 91B, 1150-103 Lisboa",
+      address: "Rua da Graça 26, 1170-166 Lisboa",
       task: "Help to prepare sandwiches and soup for the food bank of Lisboa.",
       title: "Food for the homeless",
       spots: 10,
@@ -178,8 +178,8 @@ events = Event.create! (
       description: "Since two of our members are sick we look for short-term replacement to help us preparing food and snacks for the homeless people.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824930/22083ac9525cea45ffb10b1bf9746587_spy3cx.jpg",
       organization_id: "1",
-      latitude: 38.726080,
-      longitude: -9.145480
+      latitude: 38.720630,
+      longitude: -9.130200
     },
     {
       start_at: "2019-07-02 15:00:00 +0100",
@@ -201,7 +201,7 @@ Become a member of our Community Educators team and teach community groups about
     {
       start_at: "2019-07-03 9:00:05 +0100",
       ends_at: "2019-07-06 18:07:05 +0100",
-      address: "Largo do Carmo, 1200-092 Lisboa, Portugal",
+      address: "R. Júlio de Andrade, 1150-122 Lisboa",
       task: "Volunteers will be run our annual Family Arts and Music Festival Event.",
       title: "Family Arts and Music Festival",
       spots: 6,
@@ -210,8 +210,8 @@ Become a member of our Community Educators team and teach community groups about
 ",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574700/Screen_Shot_2019-06-03_at_4.11.32_PM_gezlnk.png",
       organization_id: "1",
-      latitude: 38.715530,
-      longitude: -9.125190
+      latitude: 38.720040,
+      longitude: -9.140530
     },
     {
       start_at: "2019-06-28 9:00:05 +0100",
@@ -252,8 +252,8 @@ Become a member of our Community Educators team and teach community groups about
       description: "Bring your reusable water bottle to keep yourself hydrated. Gloves and hemp bags will be provided for everyone to use during the cleanup. Let's get rid of the trash and fight the pollution!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824950/trashtag-clean-up-litter-1552318521531_gbxvpc.webp",
       organization_id: "2",
-      latitude: 38.710781,
-      longitude: -9.138610
+      latitude: 38.711820,
+      longitude: -9.128290
     },
     {
       start_at: "2019-06-15 6:00:00 +0100",
@@ -266,8 +266,8 @@ Become a member of our Community Educators team and teach community groups about
       description: "We are looking for drivers who are available to pick up donated food and deliver it to the food banks.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825026/download-1_exws5a.jpg",
       organization_id: "1",
-      latitude: 38.710781,
-      longitude: -9.138610
+      latitude: 38.751590,
+      longitude: -9.145030
     },
     {
       start_at: "2019-06-15 9:00:00 +0100",
@@ -280,8 +280,8 @@ Become a member of our Community Educators team and teach community groups about
       description: "The plants of Park da Bela Vista became less and less during the past years. Let's change it and give a nicer place for animals and humans to relax.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825052/Tree-Planting-Cambodia-2014-Luc-Forsyth-50-1024x683-790x527_a0mdhz.jpg",
       organization_id: "3",
-      latitude: 38.710781,
-      longitude: -9.138610
+      latitude: 38.748690,
+      longitude: -9.120940
     },
     {
       start_at: "2019-08-15 9:00:00 +0100",
@@ -294,8 +294,8 @@ Become a member of our Community Educators team and teach community groups about
       description: "Removing trash from the oceans is challenging, so we are looking for passionate people who want to face this challenge.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825089/ckxfg7g6mdqxqdvow2amwlo-hpz-karffnrjt7o-hms_osp5qx.jpg",
       organization_id: "4",
-      latitude: 38.710781,
-      longitude: -9.138610
+      latitude: 38.709840,
+      longitude: -9.128620
     },]
   )
 
