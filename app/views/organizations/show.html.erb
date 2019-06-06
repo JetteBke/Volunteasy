@@ -133,7 +133,8 @@
 
         <div class="row">
           <% @events.each do |event| %>
-            <div class="card" style="width: 18rem;">
+          <div class="col-4">
+            <div class="card">
               <div class="overlay-image">
                 <img class="image" src=<%= event.photo %> alt="Event Photo" />
                 <div class="text">
@@ -168,6 +169,7 @@
                 </div>
               </div>
             </div>
+          </div>
           <% end %>
 
          </div>
