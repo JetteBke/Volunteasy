@@ -1,5 +1,5 @@
 <div class="my-forms">
-  <div class="container py-5">
+  <div class="container py-5" style="height:100vh">
     <h5>How was the event? Add a review, <%= current_user.first_name %>!</h5>
     <%= simple_form_for [@booking, @review] do |f| %>
         <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
