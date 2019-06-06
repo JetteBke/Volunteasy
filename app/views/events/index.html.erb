@@ -42,7 +42,7 @@
         </div>
         <div class="col">
           <p class="small card-text mb-0">
-            <%= link_to event.title, event %> <span class="float-right mt-1"><i class="fas fa-user"></i> <%= event.spots %></span>
+            <%= link_to (h truncate(event.title, :length => 31)), event %> <span class="float-right mt-1"><i class="fas fa-user"></i> <%= event.spots %></span>
           </p>
             <div>
               <p class="small card-text mb-0">
@@ -51,7 +51,7 @@
               <p class="small card-text mb-0">
                 <img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562074/starttime_bgwtqv.png" class="icon-size"> <%= event.start_at.to_formatted_s(:short) %> - <%= event.ends_at.to_formatted_s(:short) %>
               </p>
-              <%= link_to "More Information", event, class:"btn btn-sm btn-event-index" %>
+              <%= link_to "More Information", event, class:"btn btn-sm btn-event-index mt-4" %>
             </div>
         </div>
         <div class="col-lg-1">

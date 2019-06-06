@@ -273,3 +273,11 @@
   color: #4BAC89;
 }
 
+.animation-button {
+   animation: heartbeat 1s linear infinite;
+}
+
+@keyframes heartbeat {
+  0%{transform: scale(1,1)}
+  50%{transform: scale(0.8,0.8)}
+}

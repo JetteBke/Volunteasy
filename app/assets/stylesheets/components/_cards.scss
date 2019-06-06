@@ -1,7 +1,7 @@
 .cards {
   display: grid;
   grid-template-columns: 1fr;
-  grid-gap: 16px;
+  grid-gap: 20px;
   grid-row-end: 16px;
 }
 
@@ -121,7 +121,7 @@ margin: 0px;
 }
 
 #organization-show {
-  width: 700px;
+  width: 1100px;
   padding: 20px 20px;
   margin: 20px auto;
 }
