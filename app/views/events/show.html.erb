@@ -53,21 +53,36 @@
   <% else %>
    <div class="container">
     <h2 class="text-center mb-5" style="color:grey;">Bookings</h2>
+    <div class="container">
+
+  <div class='list-group'>
   <% @bookings.each do |booking| %>
-    <div class="list-group-item d-flex" style="justify-content: space-between;">
-      <p> <%= link_to booking.user.fullname , user_path(booking.user) %> (<%= booking.user.email %>)</p>
-
-
-      <p>Status: <strong><%= booking.status %></strong></p>
-
+  <div class="list-group-item">
+    <div class="row">
+      <div class="col-3">
+        <p> <%= link_to booking.user.fullname , user_path(booking.user) %> (<%= booking.user.email %>)</p>
+      </div>
+      <div class="col-3">
+        <p>Status: <strong><%= booking.status %></strong></p>
+      </div>
 
       <% if booking.status == "Pending" %>
-      <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
-      <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
+      <div class="col-3">
+        <%= link_to 'Confirm', approve_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-confirm" %>
+      </div>
+
+      <div class="col-3">
+
+        <%= link_to 'Reject', reject_booking_path(booking, event_id:@event.id), method: :post, class:"btn btn-reject" %>
+      </div>
       <% end %>
-  </div>
+
+    </div>
+    </div>
   <% end %>
+    </div>
   <% end %>
+</div>
   <% end %>
 </div>
 </div>

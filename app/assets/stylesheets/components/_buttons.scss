@@ -50,21 +50,31 @@
 
 
 .btn-confirm {
-  background: blue;
+  background:$blue;
   height: auto;
   border-radius: 20px;
   font-size: 14px;
   margin: 2px;
   padding: 4px;
+
+  &:hover {
+    color: white !important;
+    background: darken($blue, 15%);
+  }
 }
 
 .btn-reject {
-  background: red;
+  background: $red;
   height: auto;
   border-radius: 20px;
   font-size: 14px;
   margin: 2px;
   padding: 4px;
+
+  &:hover {
+    color: white !important;
+    background: darken($red, 15%);
+  }
 }
 
 .btn-organization-show {

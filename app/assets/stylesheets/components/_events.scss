@@ -25,6 +25,10 @@
   align-self: center;
 }
 
+.event-item {
+  justify-content: space-between;
+}
+
 @media (min-width: 10px) {
   .events-index-grid {
     grid-template-columns: 1fr;
