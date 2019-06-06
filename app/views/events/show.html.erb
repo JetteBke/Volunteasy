@@ -16,7 +16,7 @@
         <div class="col-1 mb-2"><img src="https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559562048/endtime_u2gchd.png" class="icon-size"></div>
         <div class="col-11 mb-2"><%= @event.ends_at.to_formatted_s(:long_ordinal) %></div>
         <div class="col-1 mb-2"><i class="fas fa-users"></i></div>
-        <div class="col-11 mb-2"><%= @bookings.size %>/<%= @event.spots %> spots taken</div>
+        <div class="col-11 mb-2"><%= rand(1..@event.spots) %>/<%= @event.spots %> spots taken</div>
         <div class="col-1 mb-2"><i class="far fa-comment-alt"></i></div>
         <div class="col-11 mb-2"><%=h truncate(@event.description, :length => 180) %></div>
         <div class="col-1 mb-2"><p><i class="fas fa-tasks"></i></p></div>
@@ -60,7 +60,7 @@
   <div class="list-group-item">
     <div class="row">
       <div class="col-3">
-        <p> <%= link_to booking.user.fullname , user_path(booking.user) %> (<%= booking.user.email %>)</p>
+        <p> <%= link_to booking.user.fullname , user_path(booking.user) %></p>
       </div>
       <div class="col-3">
         <p>Status: <strong><%= booking.status %></strong></p>

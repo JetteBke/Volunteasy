@@ -15,7 +15,6 @@ const addMarkersToMap = (map, markers) => {
   markers.forEach((marker) => {
 
   const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
-
   // Create a HTML element for your custom marker
   const element = document.createElement('div');
   element.className = 'marker';
@@ -30,6 +29,7 @@ const addMarkersToMap = (map, markers) => {
     .setPopup(popup)
     .addTo(map);
 });
+
 
 };
 

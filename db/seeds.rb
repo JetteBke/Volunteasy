@@ -9,7 +9,12 @@
 
 
 puts "Cleaning the users table..."
+Review.destroy_all
+Booking.destroy_all
+Event.destroy_all
+Organization.destroy_all
 User.destroy_all
+
 
 puts "Generating New Users"
 
@@ -116,8 +121,8 @@ organizations = Organization.create! (
       category: "Community",
       url: "www.heino-for-the-world.com",
       description: "Our small organization 'Heino for the World' tries to bring a better life to people by organizing events where we give free haircuts, prepare food or collect clothing for the homeless people of Lisbon.",
-      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
-      user_id: "1"
+      remote_photo_url_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559836664/IMG_4955_e5pyq7.jpg",
+      user: User.first
     },
     {
       name: "Guardian Angels",
@@ -125,8 +130,8 @@ organizations = Organization.create! (
       category: "Animals",
       url: "www.guardianangels.com",
       description: "At Guardian Angels we care about animals more than everything else. We support vegan food shops and restaurants and we try to help abandoned pets to find new homes.",
-      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
-      user_id: "2"
+      remote_photo_url_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
+      user: User.find_by(email: "samuel@guardianangels.com")
     },
     {
       name: "Plastic Attack",
@@ -134,8 +139,8 @@ organizations = Organization.create! (
       category: "Environment",
       url: "www.plasticattack.com",
       description: "Our story is short but we have big plans: We want to free the world from one use plastics by spreading awareness! We organize clean ups and other events to help reducing waste.",
-      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
-      user_id: "3"
+      remote_photo_url_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
+      user: User.find_by(email: "alexkawer@snow.com")
     },
     {
       name: "Save the Oceans",
@@ -143,8 +148,8 @@ organizations = Organization.create! (
       category: "Environment",
       url: "save-the-oceans.com",
       description: "The beautiful beaches around Lisbon become more and more dirty. Our targets are too much plastic cups, careless visitors and the too few trash cans.",
-      photo_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
-      user_id: "7"
+      remote_photo_url_url: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
+      user: User.find_by(email: "karine.sanchez@bcg.com")
     }])
 
 #other categories are "Animals" and "Environment"
@@ -163,7 +168,7 @@ events = Event.create! (
       category: "Community",
       description: "Tutor one child, one hour a week and make a difference in their life! No prior teaching or tutoring experience is required. Training is provided online or in person in the highly effective Peak Reader curricula, and a trained site coordinator is always available during the tutoring sessions. Join Children's Literacy Center in the fight against illiteracy...One Child At a Time!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.735310,
       longitude: -9.138330
     },
@@ -177,7 +182,7 @@ events = Event.create! (
       category: "Community",
       description: "Since two of our members are sick we look for short-term replacement to help us preparing food and snacks for the homeless people.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824930/22083ac9525cea45ffb10b1bf9746587_spy3cx.jpg",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.720630,
       longitude: -9.130200
     },
@@ -194,7 +199,7 @@ events = Event.create! (
 Become a member of our Community Educators team and teach community groups about Alzheimer's and dementia. You will become familiar with several different educational programs related to Alzheimer's Disease and then be available to make presentations to a variety of groups in our community. Curriculum, power point slides, and handouts provided for all events.
 ",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574650/u0HuMWcSEi_lzlwkk.webp",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.711960,
       longitude: -9.140690
     },
@@ -209,7 +214,7 @@ Become a member of our Community Educators team and teach community groups about
       description: "This is our annual Family Arts and Music Festival Fundraiser for the Made for More Project!! This event will help us reach our program goals,  Bring your friends, family, groups, and coworkers to help in your community! Volunteers will be running information booths, craft stations and helping out on other interactive activities.
 ",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574700/Screen_Shot_2019-06-03_at_4.11.32_PM_gezlnk.png",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.720040,
       longitude: -9.140530
     },
@@ -223,7 +228,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Community",
       description: "The Castle is in desperate need of rebuilding. No one has thought to put the roof back up in over a hundred years. Let's get this done, team.",
       photo: "https://upload.wikimedia.org/wikipedia/commons/c/cf/LisbonCastle.jpg",
-      organization_id: "2",
+      organization: Organization.find_by(name: "Guardian Angels"),
       latitude: 38.712830,
       longitude: -9.132850
     },
@@ -237,7 +242,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Animal",
       description: "The biological diversity of species in Portugal has detiriorated significantly in recent years. Come together as a community to help us rediscover our lost friends.",
       photo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkpk5HWP2a7WlWZYf92BKCChVzlm8OMRplmUFH71oSShlU7tU1lw",
-      organization_id: "2",
+      organization: Organization.find_by(name: "Guardian Angels"),
       latitude: 38.710781,
       longitude: -9.138610
     },
@@ -251,7 +256,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Environment",
       description: "Bring your reusable water bottle to keep yourself hydrated. Gloves and hemp bags will be provided for everyone to use during the cleanup. Let's get rid of the trash and fight the pollution!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559824950/trashtag-clean-up-litter-1552318521531_gbxvpc.webp",
-      organization_id: "2",
+      organization: Organization.find_by(name: "Guardian Angels"),
       latitude: 38.711820,
       longitude: -9.128290
     },
@@ -265,7 +270,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Community",
       description: "We are looking for drivers who are available to pick up donated food and deliver it to the food banks.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825026/download-1_exws5a.jpg",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.751590,
       longitude: -9.145030
     },
@@ -279,7 +284,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Environment",
       description: "The plants of Park da Bela Vista became less and less during the past years. Let's change it and give a nicer place for animals and humans to relax.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825052/Tree-Planting-Cambodia-2014-Luc-Forsyth-50-1024x683-790x527_a0mdhz.jpg",
-      organization_id: "3",
+      organization: Organization.find_by(name: "Plastic Attack"),
       latitude: 38.748690,
       longitude: -9.120940
     },
@@ -293,7 +298,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Environment",
       description: "Removing trash from the oceans is challenging, so we are looking for passionate people who want to face this challenge.",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559825089/ckxfg7g6mdqxqdvow2amwlo-hpz-karffnrjt7o-hms_osp5qx.jpg",
-      organization_id: "4",
+      organization: Organization.find_by(name: "Save the Oceans"),
       latitude: 38.709840,
       longitude: -9.128620
     },
@@ -307,7 +312,7 @@ Become a member of our Community Educators team and teach community groups about
       category: "Environment",
       description: "Lisbon's famous orange trees have had a very bountiful harvest this year. We weren't able to pick all of them up, so now we need help collecting them!",
       photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559830931/dsc00454_zrkpju.jpg",
-      organization_id: "1",
+      organization: Organization.find_by(name: "Heino for the World"),
       latitude: 38.709840,
       longitude: -9.128620
     }]
@@ -320,93 +325,88 @@ bookings = Booking.create! (
   [
     {
       status: "Confirmed",
-      event_id: "6",
-      user_id: "1"
+      event: Event.find_by(title: "EcoDiversity Run"),
+      user: User.find_by(first_name: "Heino")
     },
     {
       status: "Rejected",
-      event_id: "7",
-      user_id: "1"
+      event: Event.find_by(title: "Supply the food banks"),
+      user: User.find_by(first_name: "Heino")
     },
     {
       status: "Completed",
-      event_id: "9",
-      user_id: "1"
+      event: Event.find_by(title: "Clean the Tejo"),
+      user: User.find_by(first_name: "Heino")
     },
     {
       status: "Completed",
-      event_id: "1",
-      user_id: "8"
+      event: Event.find_by(title: "Tutor a Child"),
+      user: User.find_by(first_name: "Pedro")
     },
     {
       status: "Completed",
-      event_id: "1",
-      user_id: "1"
+      event: Event.find_by(title: "Tutor a Child"),
+      user: User.find_by(first_name: "Heino")
     },
     {
       status: "Completed",
-      event_id: "1",
-      user_id: "7"
+      event: Event.find_by(title: "Tutor a Child"),
+      user: User.find_by(first_name: "Karine")
     },
     {
       status: "Completed",
-      event_id: "1",
-      user_id: "6"
+      event: Event.find_by(title: "Tutor a Child"),
+      user: User.find_by(first_name: "Shree")
     },
     {
       status: "Completed",
-      event_id: "1",
-      user_id: "5"
+      event: Event.find_by(title: "Tutor a Child"),
+      user: User.find_by(first_name: "Antoinette Clementine")
     },
     {
       status: "Pending",
-      event_id: "2",
-      user_id: "3"
-    },
-    {
-      status: "Confirmed",
-      event_id: "2",
-      user_id: "3"
+      event: Event.find_by(title: "Food for the homeless"),
+      user: User.find_by(first_name: "Alex")
     },
     {
       status: "Cancelled",
-      event_id: "3",
-      user_id: "3"
+      event: Event.find_by(title: "Speaker for Alzheimer's Association"),
+      user: User.find_by(first_name: "Alex")
     },
     {
       status: "Cancelled",
-      event_id: "4",
-      user_id: "3"
+      event: Event.find_by(title: "Family Arts and Music Festival"),
+      user: User.find_by(first_name: "Alex")
     },
     {
       status: "Rejected",
-      event_id: "3",
-      user_id: "3"
+      event: Event.find_by(title: "Speaker for Alzheimer's Association"),
+      user: User.find_by(first_name: "Alex")
     },
     {
       status: "Rejected",
-      event_id: "4",
-      user_id: "3"
+      event: Event.find_by(title: "Family Arts and Music Festival"),
+      user: User.find_by(first_name: "Alex")
     },
     {
       status: "Pending",
-      event_id: "2",
-      user_id: "8"
+      event: Event.find_by(title: "Food for the homeless"),
+      user: User.find_by(first_name: "Pedro")
     },
     {
       status: "Pending",
-      event_id: "2",
-      user_id: "6"
+      event: Event.find_by(title: "Food for the homeless"),
+      user: User.find_by(first_name: "Shree")
     },
     {
       status: "Confirmed",
-      event_id: "2",
-      user_id: "7"
+      event: Event.find_by(title: "Food for the homeless"),
+      user: User.find_by(first_name: "Karine")
     },
     {
-    status: "Confirmed",
-    event_id: "2",
-    user_id: "5"
+      status: "Confirmed",
+      event: Event.find_by(title: "Food for the homeless"),
+      user: User.find_by(first_name: "Antoinette Clementine")
     }
   ])
 
@@ -414,29 +414,24 @@ puts "Creating reviews"
 
 reviews = Review.create! ([
     {
-      rating: 5,
-      content: "This trip was a lot of fun. I made some great new friends that I had some fun times with and went on adventures with. I met a lot of people that I enjoyed my time with everyone in the group. The support was nice and the rooms were nice. The home stay was an amazing experience for me because it taught me to be thankful for everything I have back at my home and to not take anything for granted.",
-      booking_id: "5"
-    },
-    {
       rating: 4,
       content: "Definitely a trip to remember. Going into this trip I didn’t really know wht to expect in terms of how much we were really able to do (in terms of hands-on in surgery) and homestays. All the vets were very helpful in explaining and being patient with us. It was an amazing experience as well as we got a chance to experience the culture first hand. ",
-      booking_id: "6"
+      booking: Booking.find_by(user: User.find_by(first_name: "Karine"))
     },
     {
       rating: 5,
       content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
-      booking_id: "7"
+      booking: Booking.find_by(user: User.find_by(first_name: "Shree"))
     },
     {
       rating: 4,
       content: "It’s amazing! Teaching English or medical in the morning then orphanages at night. The weekends you have free and the house managers great about helping you book trips. Amazing experience.",
-      booking_id: "8"
+      booking: Booking.find_by(user: User.find_by(first_name: "Antoinette Clementine"))
     },
     {
      rating: 5,
      content: "Overall super amazing trip! If you’re social and like to make friends then this trip is good for you. It was very hands on and educational. Within the matter of 6 clinic days I learned more than I ever would in Canada.",
-     booking_id: "9"
+     booking: Booking.find_by(user: User.find_by(first_name: "Alex"))
    }
  ])
 

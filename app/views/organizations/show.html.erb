@@ -64,7 +64,7 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6  toppad" >
-      <%= image_tag "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559574602/tutor_gjfyrc.jpg", :class => "profile-image" %>
+      <%= cl_image_tag(@organization.photo_url, class:"profile-image") %>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left toppad" >
           <div class="panel panel-info">
@@ -110,7 +110,7 @@
           <p><%= link_to "Edit organization", edit_organization_path(@organization), id:'link-organization' %> | <%= link_to "Delete organization", organization_path(@organization), data: {:confirm => 'Are you sure?'}, method: :delete, id:'link-organization' %></p>
           </div>
           <div class="col"></div>
-          <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn btn-lg btn-event-index' %>
+          <%= link_to "Create a new event", new_organization_event_path(@organization), class:'btn btn-lg btn-event-index mr-4 mb-5' %>
         </div>
 
       </div>
@@ -148,7 +148,7 @@
                 </h3>
 
                 <span>
-                  <i class="fas fa-users"></i> <%= @bookings.size %>/<%= event.spots %>
+                  <i class="fas fa-users"></i> <%= rand(1..event.spots) %>/<%= event.spots %>
                 </span>
 
                 <p class="card-text">
