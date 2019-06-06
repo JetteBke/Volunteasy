@@ -26,7 +26,7 @@ include PgSearch
     elsif event.category == "Environment"
       "<i class='fas fa-leaf' style='color:green'></i>"
     elsif event.category == "Community"
-      "<i class='fas fa-hands-helping'></i>"
+      "<i class='fas fa-hands-helping' style='color:grey'></i>"
     end
   end
 end
