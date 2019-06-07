@@ -104,9 +104,9 @@ users = User.create! (
   city: "Lisboa",
   interests: "All things that are beautiful",
   bio: "Studied biological engineering and psychology and cut hair of homeless people sometimes.",
-  dob: "1985-03-03 15:07:05 +0100",
+  dob: "1993-03-03 15:07:05 +0100",
   phone: "132 3543 97688",
-  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559648315/Screen_Shot_2019-06-04_at_12.37.12_PM_eeiif1.png"
+  photo: "https://res.cloudinary.com/dj1bs7vyp/image/upload/v1559914782/IMG_20190607_130326_td612q.jpg"
 }
 ])
 

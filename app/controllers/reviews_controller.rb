@@ -10,10 +10,11 @@ before_action :find_booking
     @review = Review.create(review_params)
     authorize @review
     @review.booking = @booking
+
     if @review.save
       redirect_to organization_path(@booking.event.organization)
     else
-      render :new
+      redirect_to user_path(current_user)
     end
   end
 
