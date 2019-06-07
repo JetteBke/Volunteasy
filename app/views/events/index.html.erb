@@ -55,8 +55,10 @@
             </div>
         </div>
         <div class="col-lg-1">
-          <%= event.organization.category_icon(event.organization.category).html_safe %>
+          <%#= event.category_icon.html_safe %>
+          <%= event.category_icon(event.category).html_safe %>
         </div>
+
     </div>
       </div>
     <% end %>

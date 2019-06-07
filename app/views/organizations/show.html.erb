@@ -19,7 +19,11 @@
           <% end %>
           (<%= average.round(2) %>)
           | <a href='#' class="text-primary" data-toggle="modal" data-target="#reviews">
-            <%= @reviews.size %> reviews
+            <% if @reviews.size == 1 %>
+              <%= @reviews.size %> review
+            <% else %>
+              <%= @reviews.size %> reviews
+            <% end %>
           </a>
     </div>
 
