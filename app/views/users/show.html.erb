@@ -1,4 +1,4 @@
-  <div class="container">
+  <div class="container" style="<%= @bookings.empty? || @user != current_user ? 'min-height: 95vh' : '' %>">
     <div class="panel-heading">
        <h3 class="py-2 text-center" style="color:grey;"><%= @user.first_name %> <%= @user.last_name %></h3>
     </div>
