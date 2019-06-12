@@ -1,11 +1,10 @@
 <div class="my-forms my-4">
   <div class="container py-3 purple-gradient color-block">
     <h5 class="text-center">Create an event</h5>
-    <%= link_to "Go back to the organization", @organization, id:'link-organization' %>
-    <%= simple_form_for([@organization, Event.new], url: organization_events_path(@organization)) do |f| %>
+      <%= link_to "Go back to the organization", @organization, id:'link-organization' %>
+      <%= simple_form_for([@organization, Event.new], url: organization_events_path(@organization)) do |f| %>
       <%= f.input :title, label_html: {class:'pt-1'} %>
       <%= f.input :start_at, as: :datetime%>
-
       <%= f.input :ends_at, label_html: {class:'pt-1'} %>
       <%= f.input :address, label_html: {class:'pt-1'} %>
       <%= f.input :task, label_html: {class:'pt-1'} %>
@@ -14,10 +13,9 @@
       <%= f.input :category, collection: Organization::CATEGORIES, label_html: { class:'pt-1'} %>
        <%= f.file_field :photo, label_html: {class:'pt-2'} %>
       <%#= f.input :photo_cache, as: :hidden %>
-    </div>
     <div class="text-center">
       <%= f.submit "Create event", class: "btn btn-primary mb-5" %>
-    <% end %>
     </div>
+    <% end %>
   </div>
 </div>

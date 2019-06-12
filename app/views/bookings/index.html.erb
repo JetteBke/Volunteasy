@@ -4,7 +4,7 @@
       Booking status:
       <%= booking.status %>
       <% if booking.status == "Pending"%>
-      <input type="submit" method="POST" name="Change Booking status" label="change">
+        <input type="submit" method="POST" name="Change Booking status" label="change">
         <button class="btn btn-primary"><%= booking.status %></button>
       <% elsif booking.status == "Confirmed" %>
         <button class="btn btn-success"><%= booking.status %></button>

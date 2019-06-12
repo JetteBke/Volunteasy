@@ -4,9 +4,7 @@
     <%= link_to "<< Go back to the organization", @organization, id:'link-organization' %>
     <%= simple_form_for [@organization, @event] do |f| %>
       <%= f.input :title, label_html: {class:'pt-1'} %>
-      <%#= f.input :start_at, label_html: {class:'pt-4'}, input_html: { value: localize(f.object.start_at) } %>
-      <%= f.input :start_at, as: :datetime%>
-
+      <%= f.input :start_at, as: :datetime %>
       <%= f.input :ends_at, label_html: {class:'pt-1'} %>
       <%= f.input :address, label_html: {class:'pt-1'} %>
       <%= f.input :task, label_html: {class:'pt-1'} %>
@@ -15,10 +13,9 @@
       <%= f.input :category, collection: Organization::CATEGORIES, label_html: { class:'pt-1'} %>
        <%= f.file_field :photo, label_html: {class:'pt-2'} %>
       <%#= f.input :photo_cache, as: :hidden %>
-    </div>
-    <div class="text-center">
-      <%= f.submit "Update event", class: "btn btn-primary mb-5" %>
+      <div class="text-center">
+        <%= f.submit "Update event", class: "btn btn-primary mb-5" %>
+      </div>
     <% end %>
-    </div>
   </div>
 </div>

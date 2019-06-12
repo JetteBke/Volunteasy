@@ -38,13 +38,6 @@ class BookingsController < ApplicationController
     end
   end
 
-  # do we need update and edit here?
-  def update
-  end
-
-  def edit
-  end
-
   def destroy
     @booking.delete
     authorize @booking
