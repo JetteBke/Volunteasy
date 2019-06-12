@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-# check if current user is owner (before action)
 before_action :set_user, except: [:update]
 
   def show
@@ -16,12 +15,8 @@ before_action :set_user, except: [:update]
     @card_color = {"Confirmed" => "bg-success", "Pending" => "bg-warning", "Rejected" => "bg-danger", "Completed" => "bg-info", "Cancelled" => "text-dark bg-light"}
   end
 
-  # edit and update don't need more code because of devise
   def edit
     authorize @user
-  end
-
-  def update
   end
 
   private
