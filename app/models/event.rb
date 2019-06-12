@@ -20,12 +20,12 @@ include PgSearch
       tsearch: { prefix: true } # <-- now `superman batm` will return something!
     }
 
-  def category_icon
-    if event.category == "Animals"
+  def category_icon(category)
+    if category == "Animal"
       "<i class='fas fa-paw' style='color:brown'></i>"
-    elsif event.category == "Environment"
+    elsif category == "Environment"
       "<i class='fas fa-leaf' style='color:green'></i>"
-    elsif event.category == "Community"
+    elsif category == "Community"
       "<i class='fas fa-hands-helping' style='color:grey'></i>"
     end
   end

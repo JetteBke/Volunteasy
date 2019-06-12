@@ -34,7 +34,7 @@
   <div class="events-index-grid">
     <div class ="cards mr-3">
     <% @events.each do |event| %>
-    <div class="container event-index-card">
+    <div class="container event-index-card mb-3">
       <div class="row">
         <div class="col", style="flex-grow:0">
           <%= cl_image_tag(event.photo, class:"card-image") %>
@@ -54,8 +54,10 @@
             </div>
         </div>
         <div class="col-lg-1">
-          <%= event.organization.category_icon(event.organization.category).html_safe %>
+          <%#= event.category_icon.html_safe %>
+          <%= event.category_icon(event.category).html_safe %>
         </div>
+
     </div>
       </div>
     <% end %>
